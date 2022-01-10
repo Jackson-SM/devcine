@@ -1,0 +1,76 @@
+.main {
+  background: linear-gradient(120deg,rgba(0,0,0,0.9), rgba(0,0,0,0.5)), #323b80;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  flex-direction: column;
+  color: white;
+}
+
+.films {
+  padding: 20px;
+}
+
+.series {
+  height: 100%;
+  padding: 20px;
+}
+
+.series > h1 {
+  font-size: 30px;
+}
+
+.series > .division {
+  width: 100%;
+  height: 1px;
+  background-color: white;
+}
+
+.container {
+  height: 100%;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-link {
+  text-decoration: none;
+  color: white;
+  text-align: center;
+  border: 2px solid rgb(107, 107, 107);
+  padding: 10px;
+  border-radius: 5px;
+  position: relative;
+}
+
+.card-link::before {
+  content: 'Lançamento';
+
+  background-color: rgb(255, 123, 0);
+  color: white;
+
+  width: 120px;
+  height: 30px;
+  border-radius: 10px;
+
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  position: absolute;
+}
+
+.card > div {
+  width: 250px;
+  height: 300px;
+}
+
+.card > div img {
+  object-fit: cover;
+  max-width: 100%;
+  min-width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}

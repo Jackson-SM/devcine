@@ -1,0 +1,11 @@
+@font-face {
+  font-family: Muli;
+  src: url('../font/Muli.ttf');
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Muli', sans-serif;
+}

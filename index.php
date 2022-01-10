@@ -1,5 +1,12 @@
+<?php
+  session_start();
+  if(!$_SESSION['logged']){
+    header('location: pages/login.html');
+  }
+?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
   <meta charset="UTF-8">
@@ -17,7 +24,10 @@
 
 <body>
   <nav class="navbar">
-    <h1>Dev-Cine</h1>
+    <div>
+      <img src="public/img/navbar/logo.png" alt="">
+      <h1>Dev-Cine</h1>
+    </div>
     <ul class="category">
       <li><a href="">Filmes</a></li>
       <li><a href="">Séries</a></li>
@@ -55,6 +65,38 @@
       <div class="division"></div>
       <h1>Séries</h1>
       <div class="container">
+        <a href="" class="card-link">
+          <div class="card">
+            <div>
+              <img src="public/img/sections/main/films/loki.jpg">
+            </div>
+            <h1>Loki</h1>
+          </div>
+        </a>
+        <a href="" class="card-link">
+          <div class="card">
+            <div>
+              <img src="public/img/sections/main/films/loki.jpg">
+            </div>
+            <h1>Loki</h1>
+          </div>
+        </a>
+        <a href="" class="card-link">
+          <div class="card">
+            <div>
+              <img src="public/img/sections/main/films/loki.jpg">
+            </div>
+            <h1>Loki</h1>
+          </div>
+        </a>
+        <a href="" class="card-link">
+          <div class="card">
+            <div>
+              <img src="public/img/sections/main/films/loki.jpg">
+            </div>
+            <h1>Loki</h1>
+          </div>
+        </a>
         <a href="" class="card-link">
           <div class="card">
             <div>

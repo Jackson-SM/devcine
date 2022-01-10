@@ -1,7 +1,11 @@
 <?php
+  require_once 'database/db_connect.php';
+
   session_start();
-  if(!$_SESSION['logged']){
-    header('location: pages/login.html');
+  if(!isset($_SESSION['logged'])){
+    echo 'Não logado';
+  }else{
+    echo 'logado';
   }
 ?>
 
@@ -25,7 +29,6 @@
 <body>
   <nav class="navbar">
     <div>
-      <img src="public/img/navbar/logo.png" alt="">
       <h1>Dev-Cine</h1>
     </div>
     <ul class="category">
@@ -40,8 +43,8 @@
         <label for="show-search"><i class="fas fa-search"></i></label>
         <input type="search" placeholder="Pesquise aqui" name="search" id="search">
       </div>
-      <li><a href="pages/login.html">Entrar</a></li>
-      <li><a href="pages/register.html">Registrar</a></li>
+      <li><a href="pages/login.html" class="btn-login">Entrar</a></li>
+      <li><a href="pages/register.html" class="btn-register">Registrar</a></li>
     </ul>
   </nav>
   <section class="apresentation">

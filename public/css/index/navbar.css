@@ -21,12 +21,12 @@
   color: white;
 }
 
-.navbar .category a, .navbar .user li:nth-child(2) a{
+.navbar .category a, .btn-login{
   display: block;
   transition: all ease-in-out 200ms;
 }
 
-.navbar .category a:hover, .navbar .user li:nth-child(2):hover a{
+.navbar .category a:hover, .btn-login{
   color: rgb(187, 187, 187);
 }
 
@@ -36,14 +36,14 @@
   align-items: center;
 }
 
-.navbar .user li:nth-child(3) a{
+.navbar .user .btn-register{
   color: #006eff;
   border: 1px solid #006eff;
   padding: 10px 20px;
   border-radius: 5px;
 }
 
-.navbar .user li:nth-child(3) a:hover {
+.navbar .user .btn-register {
   background-color: #006eff;
   color: white;
 }

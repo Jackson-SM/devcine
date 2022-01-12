@@ -21,7 +21,6 @@
   gap: 3rem;
   justify-content: center;
   align-items: flex-start;
-  background-color: red;
 }
 
 .container {
@@ -40,11 +39,11 @@
 }
 
 .container .info p {
-  font-size: 12px;
+  font-size: 10px;
 }
 
 .container .info {
-  background: linear-gradient(rgba(34, 34, 34, 0.74),rgb(45, 45, 121));
+  background: linear-gradient(rgba(34, 34, 34, 0.74),rgb(68, 68, 165));
   opacity: 0;
   transition: all ease-in-out 300ms;
   text-align: center;
@@ -55,7 +54,7 @@
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
-  padding: 5px;
+  padding: 20px;
 }
 
 .container:hover .info {
@@ -74,18 +73,24 @@
 }
 
 .container:hover {
-  transform: scale(1.2);
+  transform: scale(1.1);
 }
 
 .watch {
   text-decoration: none;
   color: white;
   background-color: rgb(0, 119, 255);
-  padding: 10px 50px;
-  font-size: 12px;
-  display: block;
   border-radius: 5px;
-  transition: all ease-in-out 200ms;
+  transition: all ease 200ms;
+  display: flex;
+  align-items: flex-start;
+  text-align: center  ;
+  padding: 5px 20px;
+}
+
+.watch i {
+  font-size: 30px;
+  transform: translateX(-5px);
 }
 
 .watch:hover {
@@ -107,7 +112,7 @@ p > .gender {
   color: rgb(255, 255, 255);
   background-color: rgb(0, 132, 255);
   font-size: 9px;
-  border-radius: 5px;
+  border-radius: 50px;
   padding: 0px 2px;
   text-align: center;
 }

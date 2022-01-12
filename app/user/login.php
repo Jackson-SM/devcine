@@ -26,4 +26,6 @@ if(isset($_POST['btn-invite'])){
       echo 'Nenhum resultado encontrado';
     }
   }
+}else{
+  header('location: ../../pages/login.html');
 }

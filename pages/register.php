@@ -9,7 +9,7 @@
 </head>
 
 <body>
-  <form action="../app/user/login.php">
+  <form action="../app/user/register.php" method="POST">
     <label for="login">Login</label>
     <input type="text" name="login">
     <label for="password">Password</label>
@@ -18,6 +18,7 @@
     <input type="text" name="name">
     <label for="email">Email</label>
     <input type="email" name="email">
+    <button type="submit" name="btn-register">Enviar</button>
   </form>
 </body>
 

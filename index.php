@@ -6,9 +6,15 @@
     header('location: pages/login.html');
   }
 
-  $sql = "SELECT * FROM usuarios WHERE id = '$_SESSION[id_user]'";
-  $result = mysqli_query($connect, $sql);
+  $user = "SELECT * FROM usuarios WHERE id = '$_SESSION[id_user]'";
+  $result = mysqli_query($connect, $user);
   $data = mysqli_fetch_array($result);
+
+  $postQueryFilm = "SELECT * FROM posts WHERE type = 'film'";
+  $postQuerySerie = "SELECT * FROM posts WHERE type = 'serie'";
+
+  $resultfilm = mysqli_query($connect, $postQueryFilm);
+  $resultserie = mysqli_query($connect, $postQuerySerie)
 ?>
 
 <!DOCTYPE html>
@@ -25,6 +31,7 @@
   <link rel="stylesheet" href="public/css/index/apresentation.css">
   <!--Dependencies-->
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+  <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
   <title>DevCine</title>
 </head>
 
@@ -49,8 +56,14 @@
           </div>
         </div>
       </div>
-      <li><a href="pages/login.html" class="btn-login">Entrar</a></li>
-      <li><a href="pages/register.html" class="btn-register">Registrar</a></li>
+      <li class="menu">
+        <a href="" class="btn-menu"><?= $data['name']?><i class='bx bxs-chevron-up'></i></a>
+        <div class="submenu close">
+          <ul>
+            <li><a href="">Update Film</a></li>
+          </ul>
+        </div>
+    </li>
     </ul>
   </nav>
   <section class="apresentation">
@@ -60,80 +73,85 @@
     <section class="films">
       <h1>Filmes</h1>
       <div class="list-films-series">
+            <?php
+              while($posts = mysqli_fetch_assoc($resultfilm)){
+            ?>
         <div class="container">
           <div class="card">
             <a href="" class="img-link">
-              <img src="public/img/sections/main/films/mariaejoao.jpg">
+              <img src="public/img/sections/main/films/<?= $posts['img'] ?>">
             </a>
           </div>
           <div class="info">
-            <h1>Maria e João: O Conto de Bruxas.</h1>
-            <p><strong>Sinopse:</strong> Desta vez, as migalhas nos guiam por um caminho muito mais sombrio e
-              perturbador.
-              Durante um
-              período de
-              escassez, Maria e seu irmão mais novo, João, saem de casa e partem para a floresta em busca de comida e
-              sobrevivência.</p>
-            <p><strong>Gênero: </strong><span class="gender">Conto de Fadas</span>, <span class="gender">Literatura
-                infantil</span> e
-              <span class="gender">Ficção</span>
+            <h1><?= $posts['title']; ?></h1>
+            <p><strong>Sinopse:</strong> <?= (strlen($posts['sinopse']) > 100) ? substr($posts['sinopse'], 0, 255)."..." : $posts['sinopse']; ?></p>
+            <?php
+              $genders = explode(',',$posts['gender']);
+            ?>
+            <p><strong>Gênero: </strong>
+            <?php
+              foreach ($genders as $gender) {
+            ?>
+            <span class="gender"><?= $gender ?></span>
+            <!--html-->
+            <?php
+              }
+            ?>
             </p>
-            <a href="" class="watch">Assistir</a>
+            <a href="" class="watch">Reproduzir<i class='bx bx-play'></i></a>
             <div class="info-film">
-              <span><strong>Ano: </strong>2019</span>
-              <span><strong>Duração: </strong>1h 31min</span>
+              <span><strong>Ano: </strong> <?= $posts['year']; ?></span>
+              <span><strong>Duração: </strong> <?= $posts['duration']; ?></span>
             </div>
           </div>
         </div>
-        <div class="container">
-          <div class="card">
-            <a href="" class="img-link">
-              <img src="public/img/sections/main/films/thor.jpg">
-            </a>
-          </div>
-          <div class="info">
-            <h1>Thor</h1>
-            <p><strong>Sinopse:</strong>Como filho de Odin, rei dos deuses nórdicos, Thor logo herdará o trono de Asgard
-              de seu idoso pai. Porém, no dia de sua coroação, Thor reage com brutalidade quando os inimigos dos deuses
-              entram no palácio violando o tratado. Como punição, Odin manda Thor para a Terra. Enquanto seu irmão Loki
-              conspira em Asgard, Thor, agora sem seus poderes, enfrenta sua maior ameaça.</p>
-            <p><strong>Gênero: </strong><span class="gender">Ação</span> <span class="gender">Fantasia</span>
-              <span class="gender">Aventura</span> <span class="gender">Ficção-Cientifica</span> <span
-                class="gender">Super-Herói</span>
-            </p>
-            <a href="" class="watch">Assistir</a>
-            <div class="info-film">
-              <span><strong>Ano: </strong>2019</span>
-              <span><strong>Duração: </strong>1h 31min</span>
-            </div>
-          </div>
-        </div>
+        <?php
+          }
+        ?>
       </div>
     </section>
     <section class="series">
       <h1>Séries</h1>
       <div class="list-films-series">
+      <?php
+              while($series = mysqli_fetch_assoc($resultserie)){
+            ?>
         <div class="container">
           <div class="card">
             <a href="" class="img-link">
-              <img src="public/img/sections/main/films/loki.jpg">
+              <img src="public/img/sections/main/films/<?= $series['img'] ?>">
             </a>
           </div>
           <div class="info">
-            <h1>Loki</h1>
-            <p><strong>Sinopse:</strong> Loki, Deus da Trapaça, sai da sombra de seu irmão para embarcar em uma aventura
-              que ocorre após os eventos de "Vingadores: Ultimato".</p>
-            <p><strong>Gênero: </strong>Conto de Fadas, Literatura infantil e Ficção</p>
-            <a href="" class="watch">Assistir</a>
+            <h1><?= $series['title']; ?></h1>
+            <p><strong>Sinopse:</strong> <?= (strlen($series['sinopse']) > 100) ? substr($series['sinopse'], 0, 255)."..." : $series['sinopse']; ?></p>
+            <?php
+              $genders = explode(',',$series['gender']);
+            ?>
+            <p><strong>Gênero: </strong>
+            <?php
+              foreach ($genders as $gender) {
+            ?>
+            <span class="gender"><?= $gender ?></span>
+            <!--html-->
+            <?php
+              }
+            ?>
+            </p>
+            <a href="" class="watch">Reproduzir<i class='bx bx-play'></i></a>
             <div class="info-film">
-              <span><strong>Ano: </strong>2021</span>
-              <span><strong>Episodios: </strong>6</span>
+              <span><strong>Ano: </strong> <?= $series['year']; ?></span>
+              <span><strong>Temporadas: </strong> <?= $series['duration']; ?></span>
             </div>
           </div>
         </div>
+        <?php
+          }
+        ?>
       </div>
     </section>
   </section>
+  <script src="public/js/submenu.js"></script>
 </body>
 
 </html>

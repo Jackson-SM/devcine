@@ -26,7 +26,7 @@
   transition: all ease-in-out 200ms;
 }
 
-.navbar .category a:hover, .btn-login{
+.navbar .category a:hover, .btn-login:hover{
   color: rgb(187, 187, 187);
 }
 
@@ -41,9 +41,10 @@
   border: 1px solid #006eff;
   padding: 10px 20px;
   border-radius: 5px;
+  transition: all ease-in-out 100ms;
 }
 
-.navbar .user .btn-register {
+.navbar .user .btn-register:hover {
   background-color: #006eff;
   color: white;
 }
@@ -83,4 +84,19 @@ input[type="search"]{
 }
 #show-search:checked ~ input[type="search"]{
   display: inline;
+}
+
+.search-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-container div{
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateX(-50%);
 }

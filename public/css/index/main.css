@@ -3,76 +3,111 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+}
 
-  flex-direction: column;
+.films, .series {
   color: white;
+  padding: 50px;
 }
-
-.films {
+.films > h1, .series > h1 {
+  font-size: 22px;
   padding: 20px;
 }
 
-.series {
-  height: 100%;
+.list-films-series {
+  display: flex;
+  flex-wrap: wrap;
   padding: 20px;
-}
-
-.series > h1 {
-  font-size: 20px;
-}
-
-.series > .division {
-  width: 100%;
-  height: 1px;
-  background-color: white;
+  gap: 3rem;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: red;
 }
 
 .container {
-  color: white;
+  width: 250px;
+  height: 320px;
+  transition: all ease-in-out 300ms;
   display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  padding: 20px 0px;
-  align-items: center;
-  justify-content: center;
-}
-
-.card-link {
-  text-decoration: none;
-  color: white;
-  text-align: center;
-  border: 2px solid rgb(107, 107, 107);
-  padding: 10px;
-  border-radius: 5px;
+  border-radius: 10px;
+  overflow: hidden;
   position: relative;
 }
 
-.card-link::before {
-  content: 'Lançamento';
-
-  background-color: rgb(255, 123, 0);
-  color: white;
-
-  width: 120px;
-  height: 30px;
+.card {
+  overflow: hidden;
   border-radius: 10px;
+}
 
-  top: -15px;
-  left: 50%;
-  transform: translateX(-50%);
+.container .info p {
+  font-size: 12px;
+}
 
+.container .info {
+  background: linear-gradient(rgba(34, 34, 34, 0.74),rgb(45, 45, 121));
+  opacity: 0;
+  transition: all ease-in-out 300ms;
+  text-align: center;
+  border-radius: 10px;
   position: absolute;
-}
-
-.card > div {
-  width: 250px;
-  height: 300px;
-}
-
-.card > div img {
-  object-fit: cover;
-  max-width: 100%;
-  min-width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
   height: 100%;
-  border-radius: 10px;
+  padding: 5px;
+}
+
+.container:hover .info {
+  opacity: 1;
+  z-index: 5;
+}
+
+.container .card .img-link img{
+  object-fit: cover;
+  width: 100%;
+  transition: all ease-in-out 200ms;
+}
+
+.container:hover img {
+  transform: scale(1.1);
+}
+
+.container:hover {
+  transform: scale(1.2);
+}
+
+.watch {
+  text-decoration: none;
+  color: white;
+  background-color: rgb(0, 119, 255);
+  padding: 10px 50px;
+  font-size: 12px;
+  display: block;
+  border-radius: 5px;
+  transition: all ease-in-out 200ms;
+}
+
+.watch:hover {
+  color: rgb(0, 119, 255);
+  background-color: white;
+}
+
+.info-film {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-start;
+}
+
+.info-film span{
+  font-size: 11px;
+}
+
+p > .gender {
+  color: rgb(255, 255, 255);
+  background-color: rgb(0, 132, 255);
+  font-size: 9px;
+  border-radius: 5px;
+  padding: 0px 2px;
+  text-align: center;
 }

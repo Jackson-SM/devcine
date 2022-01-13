@@ -83,14 +83,14 @@
   border-radius: 5px;
   transition: all ease 200ms;
   display: flex;
-  align-items: flex-start;
-  text-align: center  ;
+  align-items: center;
+  text-align: center;
   padding: 5px 20px;
 }
 
 .watch i {
   font-size: 30px;
-  transform: translateX(-5px);
+  transform: translateY(2px);
 }
 
 .watch:hover {

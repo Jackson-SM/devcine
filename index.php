@@ -8,6 +8,10 @@
 
   $user = "SELECT * FROM usuarios WHERE id = '$_SESSION[id_user]'";
   $result = mysqli_query($connect, $user);
+  if(mysqli_num_rows($result) == 0){
+    $_SESSION['logged'] = false;
+    header('location: pages/login');
+  }
   $data = mysqli_fetch_array($result);
 
   $postQueryFilm = "SELECT * FROM posts WHERE type = 'film'";
@@ -38,11 +42,11 @@
 <body>
   <nav class="navbar">
     <div>
-      <h1>Dev-Cine</h1>
+      <h1>Mega-Cine</h1>
     </div>
     <ul class="category">
-      <li><a href="">Filmes</a></li>
-      <li><a href="">Séries</a></li>
+      <li><a href="#films">Filmes</a></li>
+      <li><a href="#series">Séries</a></li>
       <li><a href="">Categorias</a></li>
       <li><a href="">Loja</a></li>
     </ul>
@@ -57,10 +61,30 @@
         </div>
       </div>
       <li class="menu">
+        <div class="photo-user">
+          <?php
+            if($data['img_profile'] == 'unknown'){
+              ?>
+              <i class='bx bxs-user-circle'></i>
+              <?php
+            }else{
+              ?>
+              <img src="app/user/img/<?= $data['id'].'/'.$data['img_profile']?>" alt="">
+              <?php
+            }
+          ?>
+        </div>
         <a href="" class="btn-menu"><?= $data['name']?><i class='bx bxs-chevron-up'></i></a>
         <div class="submenu close">
           <ul>
-            <li><a href="">Update Film</a></li>
+            <li><a href="pages/upload"><i class='bx bxs-cloud-upload'></i>Upload</a></li>
+            <li><a href="pages/user/profile"><i class='bx bxs-customize'></i>Settings</a></li>
+            <li><a href="app/user/logout"><i class='bx bxs-exit'></i>Logout</a></li>
+          </ul>
+          <ul>
+            <li><a href=""><i class='bx bx-star'></i>Favorites</a></li>
+            <li><a href=""><i class='bx bxs-help-circle'></i>Help</a></li>
+            <li><a href=""><i class='bx bxs-user-detail'></i>Profile</a></li>
           </ul>
         </div>
     </li>
@@ -70,7 +94,7 @@
     <img src="public/img/sections/apresentation/films.jpg" alt="">
   </section>
   <section class="main">
-    <section class="films">
+    <section class="films" id="films">
       <h1>Filmes</h1>
       <div class="list-films-series">
             <?php
@@ -110,7 +134,7 @@
         ?>
       </div>
     </section>
-    <section class="series">
+    <section class="series" id="series">
       <h1>Séries</h1>
       <div class="list-films-series">
       <?php

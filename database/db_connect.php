@@ -1,6 +1,6 @@
 <?php
 
-$servername = 'localhost';
+$servername = 'localhost:3307';
 $user = 'root';
 $password = '';
 $db_name = 'devcine';

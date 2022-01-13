@@ -9,7 +9,7 @@
 </head>
 
 <body>
-  <form action="../app/user/register.php" method="POST">
+  <form action="../app/user/register.php" method="POST" enctype="multipart/form-data">
     <label for="login">Login</label>
     <input type="text" name="login">
     <label for="password">Password</label>
@@ -18,6 +18,7 @@
     <input type="text" name="name">
     <label for="email">Email</label>
     <input type="email" name="email">
+    <input type="file" name="file" accept="image/*">
     <button type="submit" name="btn-register">Enviar</button>
   </form>
 </body>

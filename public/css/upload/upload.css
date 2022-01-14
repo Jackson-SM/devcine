@@ -7,7 +7,8 @@
   background: linear-gradient(-45deg,rgb(16, 24, 87),rgb(0, 0, 17));
   display: flex;
   justify-content: center;
-  padding: 20px;
+  width: 100%;
+  align-items: center;
 }
   
 .center {
@@ -16,6 +17,7 @@
   flex-direction: column;
   gap: 4rem;
   color: white;
+  padding: 20px;
 }
 
 textarea {
@@ -29,7 +31,33 @@ textarea {
   background-color: transparent;
   color: white;
   font-family: 'Galano';
+  width: 100%;
 }
+textarea ~ label {
+  display: flex;
+  position: absolute;
+  align-items: center;
+  top: 12px;
+  left: 10px;
+  transition: all ease 200ms;
+  font-size: 14px;
+}
+
+textarea:focus ~ label,
+textarea:valid ~ label {
+  top: -25px;
+  color: rgb(90, 211, 161);
+  font-size: 11px;
+}
+textarea:valid {
+  border: 2px solid rgb(90, 211, 161);
+}
+@media (max-width: 700px) {
+  textarea{
+    width: 100%;
+  }
+}
+
 textarea::placeholder {
   color: white;
 }
@@ -40,16 +68,41 @@ input[type="file"]{
 form {
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
   gap: 2rem;
+  align-items: center;
 }
 
 form .input_content{
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+form .input_content input:focus ~ #label-effect,
+form .input_content input:valid ~ #label-effect{
+  font-size: 10px;
+  transform: translateY(-30px);
+  color: rgb(90, 211, 161);
+}
+
+form .input_content input:valid {
+  border: 1px solid rgb(90, 211, 161);
+}
+
+form .input_content #label-effect {
+  display: flex;
   align-items: center;
+  justify-content: center;
+  position: absolute;
+  font-size: 14px;
+  transform: translateY(-2px);
+  transition: all ease-in-out 200ms;
+  pointer-events: none;
+  color: rgb(170, 170, 170);
+}
+form .input_content input::placeholder {
+  color: white;
 }
 
 form .input_content #type {
@@ -74,19 +127,13 @@ form input[type="text"], form input[type="number"]{
   outline: none;
   border-radius: 3px;
   border: none;
-  font-size: 15px;
   font-family: 'Galano', sans-serif;
   background-color: transparent;
-  color: white;
   border: 1px solid rgb(2, 103, 255);
-}
-
-form input[type="text"]::placeholder, form input[type="number"]::placeholder {
-  color: rgb(255, 255, 255);
+  color: white;
 }
 
 .btn-upload {
-  padding: 15px 80px;
   outline: none;
   font-family: 'Galano';
   border-radius: 5px;
@@ -96,8 +143,41 @@ form input[type="text"]::placeholder, form input[type="number"]::placeholder {
   background-color: rgb(0, 81, 255);
   color: white;
   transition: all ease 200ms;
+  padding: 10px 70px;
+  display: flex;
+  align-items: center;
 }
 .btn-upload:hover {
   color: rgb(0, 81, 255);
   background-color: white;
+}
+.btn-upload i {
+  font-size: 30px;
+  display: block;
+}
+
+.cover {
+  padding: 7px 20px 9px 20px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.cover i {
+  font-size: 22px;
+  transform: translateY(1px);
+}
+.cover:hover {
+  background-color: rgba(61, 62, 135, 0.412);
+}
+.input_content.file {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.input_content.file span{
+  color: aquamarine;
 }

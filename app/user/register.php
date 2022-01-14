@@ -58,6 +58,7 @@
 
             $_SESSION['logged'] = true;
             $_SESSION['id_user'] = $data['id'];
+            $_SESSION['level'] = $data['level'];
             header('location: ../../');
           }else{
             echo 'Falha no registro';

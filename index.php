@@ -3,7 +3,7 @@
 
   session_start();
   if(!isset($_SESSION['logged'])){
-    header('location: pages/login.html');
+    header('location: pages/login');
   }
 
   $user = "SELECT * FROM usuarios WHERE id = '$_SESSION[id_user]'";
@@ -41,54 +41,62 @@
 
 <body>
   <nav class="navbar">
-    <div>
       <h1>Mega-Cine</h1>
     </div>
-    <ul class="category">
-      <li><a href="#films">Filmes</a></li>
-      <li><a href="#series">Séries</a></li>
-      <li><a href="">Categorias</a></li>
-      <li><a href="">Loja</a></li>
-    </ul>
-    <ul class="user">
-      <div>
-        <div class="search-container">
+    <div class="nav">
+    <input type="checkbox" name="checkbox" id="check">
+      <label for="check">
+        <i class='bx bx-menu-alt-right' id="btn"></i>
+        <i class='bx bx-x' id="close"></i>
+      </label>
+      <div class="navbar-responsive">
+        <ul class="category">
+          <li><a href="#films">Filmes</a></li>
+          <li><a href="#series">Séries</a></li>
+          <li><a href="">Categorias</a></li>
+          <li><a href="">Loja</a></li>
+        </ul>
+        <ul class="user">
           <div>
-            <input type="checkbox" name="show-search" id="show-search">
-            <label for="show-search"><i class="fas fa-search"></i></label>
-            <input type="search" placeholder="Pesquise aqui" name="search" id="search">
+            <div class="search-container">
+              <div>
+                <input type="checkbox" name="show-search" id="show-search">
+                <label for="show-search"><i class="fas fa-search"></i></label>
+                <input type="search" placeholder="Pesquise aqui" name="search" id="search">
+              </div>
+            </div>
           </div>
-        </div>
+          <li class="menu">
+            <div class="photo-user">
+              <?php
+                if($data['img_profile'] == 'unknown'){
+                  ?>
+                  <i class='bx bxs-user-circle'></i>
+                  <?php
+                }else{
+                  ?>
+                  <img src="app/user/img/<?= $data['id'].'/'.$data['img_profile']?>" alt="">
+                  <?php
+                }
+              ?>
+            </div>
+            <a href="" class="btn-menu"><?= $data['name']?><i class='bx bxs-chevron-up'></i></a>
+            <div class="submenu close">
+              <ul>
+                <li><a href="pages/upload"><i class='bx bxs-cloud-upload'></i>Upload</a></li>
+                <li><a href="pages/user/profile"><i class='bx bxs-customize'></i>Settings</a></li>
+                <li><a href="app/user/logout"><i class='bx bxs-exit'></i>Logout</a></li>
+              </ul>
+              <ul>
+                <li><a href=""><i class='bx bx-star'></i>Favorites</a></li>
+                <li><a href=""><i class='bx bxs-help-circle'></i>Help</a></li>
+                <li><a href=""><i class='bx bxs-user-detail'></i>Profile</a></li>
+              </ul>
+          </div>
+        </li>
+      </ul>
       </div>
-      <li class="menu">
-        <div class="photo-user">
-          <?php
-            if($data['img_profile'] == 'unknown'){
-              ?>
-              <i class='bx bxs-user-circle'></i>
-              <?php
-            }else{
-              ?>
-              <img src="app/user/img/<?= $data['id'].'/'.$data['img_profile']?>" alt="">
-              <?php
-            }
-          ?>
-        </div>
-        <a href="" class="btn-menu"><?= $data['name']?><i class='bx bxs-chevron-up'></i></a>
-        <div class="submenu close">
-          <ul>
-            <li><a href="pages/upload"><i class='bx bxs-cloud-upload'></i>Upload</a></li>
-            <li><a href="pages/user/profile"><i class='bx bxs-customize'></i>Settings</a></li>
-            <li><a href="app/user/logout"><i class='bx bxs-exit'></i>Logout</a></li>
-          </ul>
-          <ul>
-            <li><a href=""><i class='bx bx-star'></i>Favorites</a></li>
-            <li><a href=""><i class='bx bxs-help-circle'></i>Help</a></li>
-            <li><a href=""><i class='bx bxs-user-detail'></i>Profile</a></li>
-          </ul>
-        </div>
-    </li>
-    </ul>
+    </div>
   </nav>
   <section class="apresentation">
     <img src="public/img/sections/apresentation/films.jpg" alt="">

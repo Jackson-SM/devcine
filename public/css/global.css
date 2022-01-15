@@ -2,6 +2,10 @@
   font-family: Muli;
   src: url('../font/Muli.ttf');
 }
+@font-face {
+  font-family: Galano;
+  src: url('../font/Galano.otf');
+}
 
 * {
   margin: 0;

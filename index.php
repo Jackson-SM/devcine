@@ -63,6 +63,7 @@
                 <input type="checkbox" name="show-search" id="show-search">
                 <label for="show-search"><i class="fas fa-search"></i></label>
                 <input type="search" placeholder="Pesquise aqui" name="search" id="search">
+                <label for="search" id="label-search">Ex: Homem de Ferro</label>
               </div>
             </div>
           </div>
@@ -82,12 +83,16 @@
             </div>
             <a href="" class="btn-menu"><?= $data['name']?><i class='bx bxs-chevron-up'></i></a>
             <div class="submenu close">
-              <ul>
+              <ul class="menu-options-account">
+                <?php
+                if($_SESSION['level'] == 2){
+                ?>
                 <li><a href="pages/upload"><i class='bx bxs-cloud-upload'></i>Upload</a></li>
+                <?php
+                }
+                ?>
                 <li><a href="pages/user/profile"><i class='bx bxs-customize'></i>Settings</a></li>
                 <li><a href="app/user/logout"><i class='bx bxs-exit'></i>Logout</a></li>
-              </ul>
-              <ul>
                 <li><a href=""><i class='bx bx-star'></i>Favorites</a></li>
                 <li><a href=""><i class='bx bxs-help-circle'></i>Help</a></li>
                 <li><a href=""><i class='bx bxs-user-detail'></i>Profile</a></li>
@@ -110,9 +115,7 @@
             ?>
         <div class="container">
           <div class="card">
-            <a href="" class="img-link">
               <img src="public/img/sections/main/films/<?= $posts['img'] ?>">
-            </a>
           </div>
           <div class="info">
             <h1><?= $posts['title']; ?></h1>

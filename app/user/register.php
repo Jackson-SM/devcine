@@ -8,7 +8,7 @@
 
   if(isset($_POST['btn-register'])){
     $login = mysqli_escape_string($connect,$_POST['login']);
-    $password = mysqli_escape_string($connect,$_POST['password']);
+    $password = $_POST['password'];
     $name = mysqli_escape_string($connect,$_POST['name']);
     $email = mysqli_escape_string($connect,$_POST['email']);
     $loginExists = "SELECT login FROM usuarios WHERE login = '$login'";
@@ -25,34 +25,32 @@
         if(mysqli_num_rows($result)){
           echo 'Email já existente';
         }else {
-          $password = md5($password);
-          $extension = pathinfo($_FILES['file']['name']);
+          $extension = pathinfo($_FILES['file']['name'], PATHINFO_EXTENSION);
           $formats = ["png","jpeg","jpg"];
-          if(empty($_POST['file'])){
-            $sql = "INSERT INTO usuarios (login,password,name,email,img_profile,level) VALUES ('$login', '$password', '$name','$email','unknown', 1)";
-            $register = mysqli_query($connect, $sql);
+          $newName = null;
+          
+          if($_FILES['file']['name'] == ""){
+            $newName = 'unknown';
           }else{
             $newName = uniqid().".$extension";
-            $sql = "INSERT INTO usuarios (login,password,name,email,img_profile,level) VALUES ('$login', '$password', '$name','$email','$newName', 1)";
-            $register = mysqli_query($connect, $sql);
           }
-          if($GLOBALS['register']){
+
+          $password_hash = password_hash($password,PASSWORD_BCRYPT);
+          $sql = "INSERT INTO usuarios (login,password,name,email,img_profile,level) VALUES ('$login', '$password_hash', '$name','$email','$newName', 1)";
+          $register = mysqli_query($connect, $sql);
+          if($register){
             $sql = "SELECT * FROM usuarios WHERE login = '$login'";
             $result = mysqli_query($connect, $sql);
             $data = mysqli_fetch_array($result);
             
-            if(in_array($extension['extension'],$formats)){
+            if(in_array($extension,$formats)){
               $path = "img/$data[id]/";
-              $dir = is_dir($path);
-              if(!$dir){
+              if(!is_dir($path)){
                 mkdir($path);
               }
               $tmpName = $_FILES['file']['tmp_name'];
-              $newName = uniqid().".$extension[extension]";
               if(move_uploaded_file($tmpName, $path.$newName)){
-                echo 'Arquivo movido com sucesso';
-              }else{
-                echo 'A operação falhou';
+                
               }
             }
 
@@ -66,6 +64,8 @@
         }
       }
     }
+  }else{
+    header('location: ../../');
   }
 
   /*

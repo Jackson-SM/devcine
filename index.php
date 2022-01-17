@@ -1,24 +1,25 @@
 <?php
-  require_once 'database/db_connect.php';
-
+  include 'database/db_connect.php';
   session_start();
-  if(!isset($_SESSION['logged'])){
-    header('location: pages/login');
+  
+  if(!$_SESSION['logged']){
+      header('location: pages/login');
   }
-
+  
   $user = "SELECT * FROM usuarios WHERE id = '$_SESSION[id_user]'";
   $result = mysqli_query($connect, $user);
-  if(mysqli_num_rows($result) == 0){
+
+  $data = mysqli_fetch_array($result);
+  if($data == null){
     $_SESSION['logged'] = false;
     header('location: pages/login');
   }
-  $data = mysqli_fetch_array($result);
 
   $postQueryFilm = "SELECT * FROM posts WHERE type = 'film'";
   $postQuerySerie = "SELECT * FROM posts WHERE type = 'serie'";
 
   $resultfilm = mysqli_query($connect, $postQueryFilm);
-  $resultserie = mysqli_query($connect, $postQuerySerie)
+  $resultserie = mysqli_query($connect, $postQuerySerie);
 ?>
 
 <!DOCTYPE html>
@@ -41,7 +42,9 @@
 
 <body>
   <nav class="navbar">
-      <h1>Mega-Cine</h1>
+    <div>
+
+    <h1>Mega-Cine</h1>
     </div>
     <div class="nav">
     <input type="checkbox" name="checkbox" id="check">
@@ -72,17 +75,17 @@
               <?php
                 if($data['img_profile'] == 'unknown'){
                   ?>
-                  <i class='bx bxs-user-circle'></i>
+                    <i class='bx bxs-user'></i>
                   <?php
                 }else{
                   ?>
-                  <img src="app/user/img/<?= $data['id'].'/'.$data['img_profile']?>" alt="">
+                  <img src="app/user/img/<?= $data['id'] ?>/<?=$data['img_profile']?>" alt="">
                   <?php
                 }
               ?>
             </div>
             <a href="" class="btn-menu"><?= $data['name']?><i class='bx bxs-chevron-up'></i></a>
-            <div class="submenu close">
+            <div class="submenu">
               <ul class="menu-options-account">
                 <?php
                 if($_SESSION['level'] == 2){
@@ -91,7 +94,7 @@
                 <?php
                 }
                 ?>
-                <li><a href="pages/user/profile"><i class='bx bxs-customize'></i>Settings</a></li>
+                <li><a href=""><i class='bx bxs-customize'></i>Settings</a></li>
                 <li><a href="app/user/logout"><i class='bx bxs-exit'></i>Logout</a></li>
                 <li><a href=""><i class='bx bx-star'></i>Favorites</a></li>
                 <li><a href=""><i class='bx bxs-help-circle'></i>Help</a></li>
@@ -115,15 +118,15 @@
             ?>
         <div class="container">
           <div class="card">
-              <img src="public/img/sections/main/films/<?= $posts['img'] ?>">
+              <img src="app/post/img/<?= $posts['id'] ?>/<?=$posts['img']?>">
           </div>
           <div class="info">
             <h1><?= $posts['title']; ?></h1>
-            <p><strong>Sinopse:</strong> <?= (strlen($posts['sinopse']) > 100) ? substr($posts['sinopse'], 0, 255)."..." : $posts['sinopse']; ?></p>
+            <p><strong>Sinopse:</strong> <?= (strlen($posts['sinopse']) > 200) ? substr($posts['sinopse'], 0, 400)."..." : $posts['sinopse']; ?></p>
             <?php
               $genders = explode(',',$posts['gender']);
             ?>
-            <p><strong>Gênero: </strong>
+            <p class="genders"><strong>Gênero: </strong>
             <?php
               foreach ($genders as $gender) {
             ?>
@@ -154,7 +157,7 @@
         <div class="container">
           <div class="card">
             <a href="" class="img-link">
-              <img src="public/img/sections/main/films/<?= $series['img'] ?>">
+              <img src="app/post/img/<?= $series['id'];?>/<?=$series['img'];?>">
             </a>
           </div>
           <div class="info">
@@ -177,6 +180,15 @@
             <div class="info-film">
               <span><strong>Ano: </strong> <?= $series['year']; ?></span>
               <span><strong>Temporadas: </strong> <?= $series['duration']; ?></span>
+              <div class="options-films">
+                <a href="" class="btn-option"><i class='bx bx-dots-vertical'></i></a>
+                <div class="dropdown">
+                  <ul class="options">
+                    <li><a href="">Delete</a></li>
+                    <li><a href="">Update</a></li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -187,6 +199,7 @@
     </section>
   </section>
   <script src="public/js/submenu.js"></script>
+  <script src="public/js/menu-film.js"></script>
 </body>
 
 </html>

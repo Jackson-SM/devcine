@@ -6,18 +6,21 @@
 .container {
   background: linear-gradient(-45deg,rgb(16, 24, 87),rgb(0, 0, 17));
   display: flex;
-  justify-content: center;
   width: 100%;
-  align-items: center;
+  justify-content: center;
 }
   
 .center {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  gap: 4rem;
   color: white;
   padding: 20px;
+  text-align: center;
+}
+.center h1 {
+  padding: 20px;
+}
+
+form label i {
+  font-size: 22px;
 }
 
 textarea {
@@ -61,15 +64,43 @@ textarea:valid {
 textarea::placeholder {
   color: white;
 }
-input[type="file"]{
-  display: none;
+form {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(1fr));
+  grid-template-areas: 
+              "t g"
+              "y d"
+              "s s"
+              "ty e"
+              "u u"
 }
 
-form {
+form #title {
+  grid-area: t;
+}
+form #gender {
+  grid-area: g;
+}
+form #year {
+  grid-area: y;
+}
+form #duration {
+  grid-area: d;
+}
+form #sinopse-div {
+  grid-area: s;
+}
+form #type {
+  grid-area: ty;
+}
+form #file-div {
+  grid-area: e;
+}
+form button {
+  grid-area: u;
   display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  align-items: center;
+  justify-content: center;
 }
 
 form .input_content{

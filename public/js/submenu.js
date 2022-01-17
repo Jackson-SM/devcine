@@ -4,6 +4,6 @@ const iconRotate = document.querySelector('.menu .btn-menu i')
 
 btn_menu.addEventListener('click', function(event) {
   event.preventDefault();
-  submenu.classList.toggle('close');
+  submenu.classList.toggle('open');
   iconRotate.classList.toggle('rotate');
 })

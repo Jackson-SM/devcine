@@ -123,6 +123,7 @@ label #btn:hover {
       gap: 1rem;
       width: 100%;
       padding: 10px;
+      padding-bottom: 60px;
     }
     .navbar .category li {
       width: 100%;
@@ -151,6 +152,7 @@ label #btn:hover {
       left: 0;
       height: auto;
       transition: all ease 300ms;
+      animation: menu-init ease 200ms alternate forwards;
     }
     
     .navbar-responsive ul{
@@ -191,19 +193,25 @@ label #btn:hover {
       justify-content: center;
     }
     .navbar-responsive .user .menu .submenu {
-      position: relative;
       border-radius: 0;
-      animation: none;
       width: 100%;
-      animation: menu-init ease-in-out 900ms alternate forwards;
-      height: 100%;
-      overflow: hidden;
       background: #ffffffe7;
+      position: absolute;
+      transform: translateY(100%);
+      left: 0;
+    }
+    .submenu.open {
+      opacity: 1;
+      pointer-events: auto;
+      height: 100%;
     }
     .navbar-responsive .user .menu .submenu ul {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-auto-flow: row;
+      grid-template-columns: repeat(auto-fill,minmax(150px,1fr));
+      width: 100%;
+    }
+    .navbar-responsive .user .menu .submenu ul li {
+      margin: 0 auto;
     }
     .navbar .search-container div{
       display: block;
@@ -216,6 +224,14 @@ label #btn:hover {
       display: none;
     }
     @keyframes menu-init {
+      from {
+        opacity: 0;
+        left: 100%;
+      }to {
+        opacity: 1;
+      }
+    }
+    @keyframes submenu-init {
       from {
         opacity: 0;
         height: 0;
@@ -328,10 +344,17 @@ input[type="search"]::placeholder {
 .submenu {
   position: absolute;
   background: #ffffffe7;
-  opacity: 1;
-  transition: all ease-in-out 200ms;
-  animation: init ease 400ms alternate forwards;
   border-radius: 5px;
+  left: 50px;
+  pointer-events: none;
+  opacity: 0;
+  transition: all .3s ease;
+  transform: translate(-30%,30px);
+}
+.submenu.open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-30%,50px);
 }
 
 .submenu .menu-options-account {
@@ -364,19 +387,5 @@ input[type="search"]::placeholder {
 }
 .submenu .menu-options-account li a:hover {
   color: rgb(255, 255, 255);
-  background-color: #2a2741;
-}
-
-.submenu.close {
-  display: none;
-}
-
-@keyframes init {
-  from {
-    opacity: 0;
-    transform: translate(-30%,30px);
-  }to {
-    opacity: 1;
-    transform: translate(-30%,50px);
-  }
+  background-color: #006eff;
 }

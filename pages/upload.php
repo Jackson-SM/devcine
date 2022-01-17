@@ -28,34 +28,49 @@ if($_SESSION['logged']){
     <div class="center">
       <h1>Upload Mega-Cine</h1>
       <form action="../app/post/upload" method="POST" enctype="multipart/form-data">
-        <div class="input_content">
+        <div class="input_content" id="title">
           <input type="text" name="title" required>
-          <label for="title" id="label-effect"><i class="material-icons">create</i>Título</label>
+          <label for="title" id="label-effect"><i class='bx bxs-comment-edit'></i>Título</label>
+          <?php
+          if(isset($_COOKIE['error'])){
+          ?>
+          <span>
+            <?= $_COOKIE['error'] ?>
+          </span>
+          <?php
+            }else if(isset($_COOKIE['sucess'])){
+              ?>
+              <span>
+                <?= $_COOKIE['sucess'] ?>
+              </span>
+              <?php
+            }
+          ?>
         </div>
-        <div class=" input_content">
-          <input type="text" name="title" required>
-          <label for="gender" id="label-effect"><i class="material-icons">info</i>Gênero</label>
+        <div class=" input_content" id="gender">
+          <input type="text" name="gender" required>
+          <label for="gender" id="label-effect"><i class='bx bxs-info-circle'></i>Gênero</label>
         </div>
-        <div class="input_content">
-          <input type="number" name="title" required>
-          <label for="year" id="label-effect"><i class="material-icons">event</i>Ano</label>
+        <div class="input_content" id="year">
+          <input type="number" name="year" required>
+          <label for="year" id="label-effect"><i class='bx bxs-calendar'></i>Ano</label>
         </div>
-        <div class="input_content">
+        <div class="input_content" id="duration">
           <input type="text" name="duration" required>
-          <label for="duration" id="label-effect"><i class="material-icons">alarm</i>Duração / Temporadas</label>
+          <label for="duration" id="label-effect"><i class='bx bxs-alarm'></i>Duração / Temporadas</label>
         </div>
-        <div class="input_content">
+        <div class="input_content" id="type">
           <select name="type" id="type">
             <option value="film" name="film">Filme</option>
             <option value="serie" name="serie">Série</option>
           </select>
         </div>
-        <div class="input_content">
+        <div class="input_content" id="sinopse-div">
           <textarea name="sinopse" id="sinopse" cols="40" rows="15" required></textarea>
-          <label for="sinopse"><i class="material-icons">message</i>Sinopse</label>
+          <label for="sinopse"><i class='bx bxs-message-detail'></i>Sinopse</label>
         </div>
-        <div class="input_content file">
-          <label for="file" class="cover"><i class='bx bxs-save'></i>Enviar arquivo</label>
+        <div class="input_content file" id="file-div">
+          <label for="file" class="cover"><i class='bx bxs-file-archive'></i>Enviar arquivo</label>
           <span class="archive-name" id="archiveName"></span>
           <input type="file" name="file" id="file">
         </div>

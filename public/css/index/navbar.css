@@ -10,8 +10,15 @@
   justify-content: center;
 }
 
-.navbar > h1 {
+.navbar > .logo {
   width: calc(100% / 3);
+  display: flex;
+  align-items: center;
+  padding-left: 40px;
+}
+
+.navbar > .logo i {
+  font-size: 40px;
 }
 
 .nav {
@@ -109,7 +116,7 @@ label #btn:hover {
       justify-content: space-around;
       position: relative;
     }
-    .navbar > h1 {
+    .navbar > .logo {
       width: 100%;
     }
     .navbar-responsive {

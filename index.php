@@ -42,8 +42,8 @@
 
 <body>
   <nav class="navbar">
-    <div>
-
+    <div class="logo">
+    <i class='bx bx-cube'></i>
     <h1>Mega-Cine</h1>
     </div>
     <div class="nav">
@@ -95,7 +95,7 @@
                 }
                 ?>
                 <li><a href=""><i class='bx bxs-customize'></i>Settings</a></li>
-                <li><a href="app/user/logout"><i class='bx bxs-exit'></i>Logout</a></li>
+                <li><a href="app/user/logout.php"><i class='bx bxs-exit'></i>Logout</a></li>
                 <li><a href=""><i class='bx bx-star'></i>Favorites</a></li>
                 <li><a href=""><i class='bx bxs-help-circle'></i>Help</a></li>
                 <li><a href=""><i class='bx bxs-user-detail'></i>Profile</a></li>
@@ -166,7 +166,7 @@
             <?php
               $genders = explode(',',$series['gender']);
             ?>
-            <p><strong>Gênero: </strong>
+            <p class="genders"><strong>Gênero: </strong>
             <?php
               foreach ($genders as $gender) {
             ?>
@@ -184,8 +184,8 @@
                 <a href="" class="btn-option"><i class='bx bx-dots-vertical'></i></a>
                 <div class="dropdown">
                   <ul class="options">
-                    <li><a href="">Delete</a></li>
-                    <li><a href="">Update</a></li>
+                    <li><a href="" class="delete"><i class='bx bxs-trash-alt' ></i></a></li>
+                    <li><a href="" class="edit"><i class='bx bxs-cog' ></i></a></li>
                   </ul>
                 </div>
               </div>

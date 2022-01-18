@@ -1,11 +1,9 @@
 const btn_option = document.querySelectorAll('.btn-option');
-const dropdown = document.querySelectorAll('.options');
 
-btn_option.forEach(element => {
+btn_option.forEach((element,indice) => {
   element.addEventListener('click', function(event) {
     event.preventDefault();
-    dropdown.forEach(dropdowns => {
-      dropdowns.classList.toggle('open');
-    })
+    const dropdown = document.querySelectorAll('.options');
+    dropdown[indice].classList.toggle('open');
   })
 });

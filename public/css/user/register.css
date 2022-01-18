@@ -1,15 +1,48 @@
-form .input_content input {
-  border-bottom: 2px solid rgb(56, 56, 56);
+.title {
+  color: rgba(255, 255, 255, 0.72);
 }
 
-form .input_content input:focus,
-form .input_content input:valid {
-  border-bottom: solid 2px rgb(47, 154, 255); 
+.title i {
+  border-bottom: 2px solid rgba(255, 255, 255, 0.734);
+  color: rgb(0, 145, 255);
 }
 
-form .input_content input:focus ~ label,
-form .input_content input:valid ~ label{
-  color: rgb(47, 154, 255);
-  top: -12px;
-  font-size: 13px;
+form input {
+  color: white;
+}
+
+form .input_file {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+form .input_file label{
+  color: rgb(0, 123, 255);
+  background-color: white;
+  display: flex;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all ease-in-out 200ms;
+}
+
+form .input_file label:hover {
+  color: white;
+  background-color: rgb(0, 145, 255);
+}
+
+form .input_file label > span {
+  width: 100%;
+  pointer-events: none;
+}
+
+form .input_file label:hover > span{
+  position: relative;
+  left: 0;
+}
+
+form .input_file i{
+  font-size: 30px;
 }

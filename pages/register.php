@@ -24,28 +24,33 @@
     <div class="center">
       <div class="title">
         <h1>Register</h1>
-        <i class='bx bx-user-plus'></i>
+        <i class='bx bx-cube'></i>
       </div>
       <form action="../app/user/register.php" method="POST" enctype="multipart/form-data" autocomplete="off">
         <div class="input_content">
           <input type="text" name="login" required>
-          <label for="login">Login</label>
+          <span></span>
+          <label for="login">Username</label>
         </div>
         <div class="input_content">
           <input type="password" name="password" required>
+          <span></span>
           <label for="password">Password</label>
         </div>
         <div class="input_content">
           <input type="text" name="name" required>
+          <span></span>
           <label for="name">Name</label>
         </div>
         <div class="input_content">
           <input type="email" name="email" required>
+          <span></span>
           <label for="email">Email</label>
         </div>
         <div class="input_file">
           <input type="file" name="file" id="file" accept="image/*">
-          <label for="file">Arquivo</label>
+          <label for="file"><i class='bx bxs-image-add'></i><span>Foto de perfil</span></label>
+          <span class="archiveName" id="archiveName"></span>
         </div>
         <button type="submit" name="btn-register">Enviar</button>
         <div class="links">
@@ -54,6 +59,7 @@
       </form>
     </div>
   </div>
+  <script src="../public/js/archiveName.js"></script>
 </body>
 
 </html>

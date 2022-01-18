@@ -1,5 +1,9 @@
 body {
   font-family: 'Muli', sans-serif;
+  background-image: url('../../img/background/login-register.svg  ');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .container {
@@ -7,11 +11,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(45deg,rgb(2, 2, 2),rgb(34, 34, 114));
-}
-
-.center h1,h2{
-  color: rgba(0, 0, 0, 0.707);
 }
 
 .center {
@@ -20,10 +19,10 @@ body {
   justify-content: space-around;
   flex-direction: column;
   color: rgb(0, 0, 0);
-  background-color: rgba(255, 255, 255, 0.919);
   gap: 4rem;
   border-radius: 10px;
-  box-shadow: 0 0 50px 20px rgba(0, 0, 0, 0.398);
+  box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.124);
+  background-color: rgba(255, 255, 255, 0.309);
 }
 
 form {
@@ -62,6 +61,37 @@ form .input_content label {
   left: 10px;
   transition: all ease 200ms;
   top: 0;
+  color: rgba(255, 255, 255, 0.631);
+}
+
+.input_content {
+  border-bottom: 2px solid rgba(255, 255, 255, 0.207);
+}
+.input_content input {
+  border: none;
+  color: white;
+}
+
+.input_content input:focus ~ label,
+.input_content input:valid ~ label {
+  font-size: 10px;
+  transform: translateY(-10px);
+  color: rgb(0, 145, 255);
+}
+
+.input_content input ~ span {
+  width: 0;
+  background-color: rgb(0, 153, 255);
+  height:2px;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  transition: all ease 300ms;
+}
+
+.input_content input:focus ~ span,
+.input_content input:valid ~ span {
+  width:100%;
 }
 
 form button {
@@ -93,7 +123,15 @@ form button:hover {
 }
 
 .links span {
-  color: rgba(65, 65, 65, 0.563);
+  color: rgba(255, 255, 255, 0.693);
+}
+
+.links {
+  padding-top: 50px;
+}
+
+.links a:visited {
+  color: rgb(237, 230, 46);
 }
 
 .center .title {

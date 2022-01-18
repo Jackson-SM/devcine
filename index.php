@@ -140,6 +140,15 @@
             <div class="info-film">
               <span><strong>Ano: </strong> <?= $posts['year']; ?></span>
               <span><strong>Duração: </strong> <?= $posts['duration']; ?></span>
+              <div class="options-films">
+                <a href="" class="btn-option"><i class='bx bx-dots-vertical'></i></a>
+                <div class="dropdown">
+                  <ul class="options">
+                    <li><a href="" class="delete"><i class='bx bxs-trash-alt' ></i></a></li>
+                    <li><a href="" class="edit"><i class='bx bxs-cog' ></i></a></li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -180,6 +189,9 @@
             <div class="info-film">
               <span><strong>Ano: </strong> <?= $series['year']; ?></span>
               <span><strong>Temporadas: </strong> <?= $series['duration']; ?></span>
+              <?php
+              if($_SESSION['level'] == 2){
+              ?>
               <div class="options-films">
                 <a href="" class="btn-option"><i class='bx bx-dots-vertical'></i></a>
                 <div class="dropdown">
@@ -189,6 +201,9 @@
                   </ul>
                 </div>
               </div>
+              <?php
+              }
+              ?>
             </div>
           </div>
         </div>

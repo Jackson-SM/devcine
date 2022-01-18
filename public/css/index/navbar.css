@@ -204,13 +204,13 @@ label #btn:hover {
       width: 100%;
       background: #ffffffe7;
       position: absolute;
-      transform: translateY(100%);
+      transform: translateY(0);
+      top: 100%;
       left: 0;
     }
     .submenu.open {
       opacity: 1;
       pointer-events: auto;
-      height: 100%;
     }
     .navbar-responsive .user .menu .submenu ul {
       display: grid;

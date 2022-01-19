@@ -1,6 +1,6 @@
 <?php
   session_start();
-  if(!empty($_SESSION['logged'])){
+  if($_SESSION['logged']){
     header('location: ../../');
   }
 ?>
@@ -20,6 +20,20 @@
 </head>
 
 <body>
+<?php
+    if(!empty($_COOKIE['error'])){
+  ?>
+  <div class="notification">
+    <div class="title-notific">
+      <i class='bx bxs-bell-ring'></i>
+      <span>Notification</span>
+      <a href="" class="exit-notific"><i class='bx bx-x'></i></a>
+    </div>
+    <p><?= $_COOKIE['error']; ?></p>
+  </div>
+  <?php
+  }
+  ?>
   <div class="container">
     <div class="center">
       <div class="title">
@@ -52,7 +66,7 @@
           <label for="file"><i class='bx bxs-image-add'></i><span>Foto de perfil</span></label>
           <span class="archiveName" id="archiveName"></span>
         </div>
-        <button type="submit" name="btn-register">Enviar</button>
+        <button type="submit" name="btn-register">Create Account</button>
         <div class="links">
           <span>Don't have an account? <a href="login">Sign-up</a></span>
         </div>
@@ -60,6 +74,7 @@
     </div>
   </div>
   <script src="../public/js/archiveName.js"></script>
+  <script src="../public/js/notification.js"></script>
 </body>
 
 </html>

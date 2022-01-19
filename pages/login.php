@@ -19,9 +19,20 @@ session_start();
   <title>Login</title>
 </head>
 <body>
-  <div>
-    
+  <?php
+    if(!empty($_COOKIE['error'])){
+  ?>
+  <div class="notification">
+    <div class="title-notific">
+      <i class='bx bxs-bell-ring'></i>
+      <span>Notification</span>
+      <a href="" class="exit-notific"><i class='bx bx-x'></i></a>
+    </div>
+    <p><?= $_COOKIE['error']; ?></p>
   </div>
+  <?php
+  }
+  ?>
   <div class="container">
     <div class="center">
       <div>
@@ -42,7 +53,7 @@ session_start();
           <span></span>
           <label for="password">Password</label>
         </div>
-        <button type="submit" name="btn-invite">Enviar</button>
+        <button type="submit" name="btn-invite">Login</button>
         <div class="links">
           <span>Forgot your <a href="">Password</a></span>
           <span>Don't have an account? <a href="register">Sign-In</a></span>
@@ -50,6 +61,7 @@ session_start();
       </form>
     </div>
   </div>
+  <script src="../public/js/notification.js"></script>
 </body>
 
 </html>

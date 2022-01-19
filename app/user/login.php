@@ -20,10 +20,12 @@ if(isset($_POST['btn-invite'])){
       $_SESSION['id_user'] = $data['id'];
       $_SESSION['level'] = $data['level'];
     }else{
-      echo 'senha incorreta';
+      $error = 'Senha incorreta.';
+      setcookie("error", $error, time() + 2, '/', 'megacine.com',false);
+      echo $_COOKIE['error'];
     }
     header('location: ../../');
   }
 }else{
-  header('location: ../../pages/login.html');
+  header('location: ../../pages/login');
 }

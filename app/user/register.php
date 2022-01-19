@@ -14,16 +14,20 @@
     $loginExists = "SELECT login FROM usuarios WHERE login = '$login'";
     $erros = [];
   if(empty($_POST['login']) or empty($_POST['password']) or empty($_POST['name']) or empty($_POST['email'])){
-      echo 'Preencha todos os campos';
+      
     }else {
       $result = mysqli_query($connect, $loginExists);
       if(mysqli_num_rows($result) > 0) {
-        echo 'Conta já existente';
+        $error = 'Usuário já existente';
+        setcookie("error", $error, time() + 2, '/', 'megacine.com',false);
+        header('location: ../../pages/register');
       }else {
         $emailExistis = "SELECT email FROM usuarios WHERE email = '$email'";
         $result = mysqli_query($connect, $emailExistis);
         if(mysqli_num_rows($result)){
-          echo 'Email já existente';
+          $error = 'Email já está registrado no site.';
+          setcookie("error", $error, time() + 2, '/', 'megacine.com',false);
+          header('location: ../../pages/register');
         }else {
           $extension = pathinfo($_FILES['file']['name'], PATHINFO_EXTENSION);
           $formats = ["png","jpeg","jpg"];
@@ -52,6 +56,10 @@
               if(move_uploaded_file($tmpName, $path.$newName)){
                 
               }
+            }else{
+              $error = 'Não foi possível carregar a imagem.';
+              setcookie("error", $error, time() + 2, '/', 'megacine.com',false);
+              header('location: ../../pages/register');
             }
 
             $_SESSION['logged'] = true;
@@ -59,7 +67,9 @@
             $_SESSION['level'] = $data['level'];
             header('location: ../../');
           }else{
-            echo 'Falha no registro';
+            $error = 'Ocorreu um erro inesperado no registro.';
+            setcookie("error", $error, time() + 2, '/', 'megacine.com',false);
+            header('location: ../../pages/register');
           }
         }
       }

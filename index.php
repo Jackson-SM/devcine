@@ -3,7 +3,7 @@
   session_start();
   
   if(!$_SESSION['logged']){
-      header('location: pages/login');
+      header('location: pages/home');
   }
   
   $user = "SELECT * FROM usuarios WHERE id = '$_SESSION[id_user]'";
@@ -11,8 +11,7 @@
 
   $data = mysqli_fetch_array($result);
   if($data == null){
-    $_SESSION['logged'] = false;
-    header('location: pages/login');
+    header('app/user/logout');
   }
 
   $postQueryFilm = "SELECT * FROM posts WHERE type = 'film'";

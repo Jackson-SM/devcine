@@ -22,7 +22,9 @@
   grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
   gap: 2rem;
   max-width: 1366px;
+  margin: 0 auto;
   overflow: hidden;
+  padding: 20px;
 }
 
 .container {
@@ -31,7 +33,6 @@
   display: flex;
   border-radius: 10px;
   position: relative;
-  margin: 0 auto;
   z-index: 1;
   overflow: hidden;
 }
@@ -86,7 +87,6 @@
 
 .container:hover {
   transform: scale(1.07);
-  box-shadow: 0 0 2em rgba(255, 255, 255, 0.479);
 }
 
 .watch {

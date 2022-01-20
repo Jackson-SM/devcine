@@ -3,12 +3,14 @@ body {
 }
 
 .navbar {
-  background-color: rgb(27, 25, 44);
+  background-color: transparent;
   color: white;
   display: flex;
   justify-content: space-between;
   height:10vh;
   align-items: center;
+  position: fixed;
+  width: 100%;
 }
 
 
@@ -104,6 +106,7 @@ body {
     transform: translateX(100%);
     transition: all ease 300ms;
     gap: 3rem;
+    top: 0;
   }
   #open:checked ~ .submenu {
     transform: translateX(0);

@@ -42,24 +42,83 @@
         <section>
           <h2>Assista sem limites quando quiser.</h2>
           <h3>Assine por 29,99 por mês apenas. Com possibilidade de cancelamento.</h3>
-          <a href="register">Criar Conta<i class='bx bx-send'></i></a>
+          <a href="register">Criar Conta<i class='bx bxs-chevrons-right'></i></a>
         </section>
       </article>
       <article>
-        <section>
-          <h2>Title</h2>
-          <div>
-            
+        <section class="apresentation">
+          <div class="content-apresentation">
+            <div class="title-apresentation">
+              <h1>Lorem ipsum dolor sit amet, consectet</h1>
+              <h2> lorem ipsum dolor sit am ea commodo content consectet dolor more</h2>
+            </div>
+            <div class="img-apresentation">
+              <img src="../public/img/home/illustration1.svg" alt="">
+            </div>
           </div>
         </section>
-        <section>
-          <h2>Title</h2>
+        <section class="apresentation">
+          <div class="content-apresentation">
+            <div class="title-apresentation">
+              <h1>Lorem ipsum dolor sit amet, consectet</h1>
+              <h2> lorem ipsum dolor sit am ea commodo content consectet dolor more</h2>
+            </div>
+            <div class="img-apresentation">
+              <img src="../public/img/home/illustration2.svg" alt="">
+            </div>
+          </div>
         </section>
-        <section>
-          <h2>Title</h2>
+        <section class="apresentation">
+          <div class="content-apresentation">
+            <div class="title-apresentation">
+              <h1>Lorem ipsum dolor sit amet, consectet</h1>
+              <h2> lorem ipsum dolor sit am ea commodo content consectet dolor more</h2>
+            </div>
+            <div class="img-apresentation">
+              <img src="../public/img/home/illustration1.svg" alt="">
+            </div>
+          </div>
         </section>
       </article>
       <footer>
+        <div class="links">
+          <ul>
+            <li><a href="">Aleatorioeee</a></li>
+            <li><a href="">Aleatorio</a></li>
+          </ul>
+          <ul>
+            <li><a href="">Aleatorio</a></li>
+            <li><a href="">Aleatorio</a></li>
+            <li><a href="">Aleatorio</a></li>
+            <li><a href="">Aleatorio</a></li>
+          </ul>
+          <ul>
+            <li><a href="">Aleatorio</a></li>
+            <li><a href="">Aleatorio</a></li>
+            <li><a href="">Aleatorio</a></li>
+          </ul>
+          <ul>
+            <li><a href="">Aleatorio</a></li>
+            <li><a href="">Aleatorio</a></li>
+          </ul>
+          <ul>
+            <li><a href="">Aleatorio</a></li>
+            <li><a href="">Aleatorio</a></li>
+          </ul>
+        </div>
+        <div class="infos">
+          <div class="plataforms">
+            <span><i class='bx bxl-instagram-alt' ></i></span>
+            <span><i class='bx bxl-twitter'></i></span>
+            <span><i class='bx bxl-discord-alt' ></i></span>
+          </div>
+          <div class="contact">
+            <span>Fale conosco: 0800-000-0000</span>
+          </div>
+          <div>
+            <span>Copi</span>
+          </div>
+        </div>
       </footer>
     </main>
 </body>

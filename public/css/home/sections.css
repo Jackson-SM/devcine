@@ -1,5 +1,5 @@
 .starter {
-  height: calc(100vh - 10vh);
+  height: 100vh;
   background: linear-gradient(45deg,black,rgba(0, 0, 0, 0.871),rgba(56, 8, 123, 0.405)),url('../../img/sections/apresentation/films.jpg');
   background-size: cover;
   background-repeat: no-repeat;
@@ -33,7 +33,6 @@
   text-decoration: none;
   color: white;
   padding: 15px 50px;
-  text-align: center;
   font-family: 'Galano', sans-serif;
   display: flex;
   align-items: center;
@@ -46,7 +45,7 @@
   color: black;
 }
 .starter section a i {
-  font-size: 25px;
+  font-size: 20px;
 }
 
 @media (max-width: 800px) {
@@ -66,4 +65,98 @@
   .starter section h2, .starter section h3 {
     color: rgba(255, 255, 255, 0.693);
   }
+}
+
+.apresentation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(25, 0, 49);
+  color: white;
+}
+
+article .apresentation:nth-child(even) .content-apresentation:nth-child(odd){
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.apresentation .content-apresentation {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-top: 4px solid rgba(53, 0, 106, 0.755);
+  border-bottom: 4px solid rgba(53, 0, 106, 0.755);
+  text-align: center;
+  width: 100%;
+}
+
+.title-apresentation {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 20px;
+  width: 50%;
+}
+
+.title-apresentation h1{
+  font-size: 40px;
+}
+.title-apresentation h2{
+  font-size: 20px;
+}
+
+.img-apresentation {
+  width: calc(100% / 2);
+}
+
+.img-apresentation img {
+  object-fit: cover;
+}
+
+@media (max-width: 800px) {
+  .title-apresentation h1{
+    font-size: 20px;
+  }
+  .title-apresentation h2 {
+    font-size: 15px;
+  }
+  .content-apresentation {
+    flex-direction: column;
+    width: 100%;
+  }
+  .title-apresentation {
+    width: 100%;
+  }
+  article .apresentation:nth-child(even) .content-apresentation:nth-child(odd){
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+footer{
+  color: white;
+  border-top: 4px solid rgba(53, 0, 106, 0.755);
+  background-color: rgb(56, 56, 56);
+}
+
+footer .links {
+  display:flex;
+  gap: 4rem;
+  justify-content:center;
+}
+
+footer ul {
+  list-style: none;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+footer li a {
+  text-decoration: none;
+  color: white;
+}
+.plataforms i {
+  font-size: 30px;
 }

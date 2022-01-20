@@ -1,6 +1,6 @@
 <?php
   session_start();
-  if($_SESSION['logged']){
+  if(!empty($_SESSION['logged'])){
     header('location: ../../');
   }
 ?>

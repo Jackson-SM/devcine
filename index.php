@@ -32,6 +32,7 @@
   <link rel="stylesheet" href="public/css/index/navbar.css">
   <link rel="stylesheet" href="public/css/global.css">
   <link rel="stylesheet" href="public/css/index/main.css">
+  <link rel="stylesheet" href="public/css/onload.css">
   <link rel="stylesheet" href="public/css/index/apresentation.css">
   <!--Dependencies-->
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
@@ -39,7 +40,14 @@
   <title>DevCine</title>
 </head>
 
-<body>
+<body onLoad="loading()">
+  <div class="load">
+    <div class="pre">
+    <i class='bx bx-cube-alt'></i>
+    <h1>Carregando...</h1>
+    </div>
+  </div>
+  <div class="content">
   <nav class="navbar">
     <div class="logo">
     <i class='bx bx-cube'></i>
@@ -212,8 +220,10 @@
       </div>
     </section>
   </section>
+  </div>
   <script src="public/js/submenu.js"></script>
   <script src="public/js/menu-film.js"></script>
+  <script src="../public/js/loading.js"></script>
 </body>
 
 </html>

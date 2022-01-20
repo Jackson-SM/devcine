@@ -1,0 +1,69 @@
+.starter {
+  height: calc(100vh - 10vh);
+  background: linear-gradient(45deg,black,rgba(0, 0, 0, 0.871),rgba(56, 8, 123, 0.405)),url('../../img/sections/apresentation/films.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  color: white;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+.starter section {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.starter h1 {
+  font-size: 35px;
+}
+.starter section h2 {
+  font-size: 25px;
+}
+.starter section h2, .starter section h3 {
+  color: rgba(255, 255, 255, 0.693);
+}
+.starter section a {
+  text-decoration: none;
+  color: white;
+  padding: 15px 50px;
+  text-align: center;
+  font-family: 'Galano', sans-serif;
+  display: flex;
+  align-items: center;
+  background-color: rgb(0, 110, 255);
+  transition: all ease 400ms;
+  border-radius: 5px;
+}
+.starter section a:hover {
+  background-color: rgb(255, 255, 255);
+  color: black;
+}
+.starter section a i {
+  font-size: 25px;
+}
+
+@media (max-width: 800px) {
+  .starter section {
+   white-space: wrap;
+  }
+  .starter h1 {
+    font-size: 25px;
+    text-align: center;
+  }
+  .starter section h2 {
+    font-size: 20px;
+  }
+  .starter section h3 {
+    
+  }
+  .starter section h2, .starter section h3 {
+    color: rgba(255, 255, 255, 0.693);
+  }
+}

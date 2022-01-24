@@ -24,6 +24,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/public/css/series-films/serie.css">
+  <link rel="stylesheet" href="/public/css/global.css">
   <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
   <title><?= $serie['title']; ?></title>
 </head>

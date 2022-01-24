@@ -10,7 +10,7 @@ body,html {
 .load {
   width: 100%;
   height: 100%;
-  background: linear-gradient(45deg,rgba(119, 0, 255, 0.823),black,rgba(115, 0, 255, 0.823));
+  background: rgb(33, 33, 60);
 
   display: flex;
   align-items: center;

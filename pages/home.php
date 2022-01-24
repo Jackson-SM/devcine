@@ -81,6 +81,10 @@
         </section>
       </article>
       <footer>
+        <div class="logo-footer">
+        <i class='bx bx-cube-alt' ></i>
+        <h2>Mega-Cine</h2>
+        </div>
         <div class="links">
           <ul>
             <li><a href="">Perguntas</a></li>

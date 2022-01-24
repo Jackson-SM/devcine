@@ -169,6 +169,18 @@ footer li a {
 footer li a:hover {
   color: rgba(255, 255, 255, 0.7);
 }
+
+.logo-footer {
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  flex-direction: column;
+}
+
+.logo-footer i {
+  font-size: 40px;
+}
+
 .plataforms i {
   font-size: 25px;
   transition: all ease 200ms;

@@ -5,6 +5,12 @@ body,html {
 #items-wrapper {
   width: 100vw;
   position: relative;
+
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #items {
@@ -36,6 +42,15 @@ body,html {
 }
 #items-wrapper:hover img {
   filter: brightness(0.8);
+}
+#items-wrapper .menu-wrapper {
+  top: 90%;
+  transition: all ease 400ms;
+  opacity: 0;
+}
+#items-wrapper:hover .menu-wrapper {
+  top: 50%;
+  opacity: 1;
 }
 
 .btn-wrapper {
@@ -79,9 +94,6 @@ body,html {
   align-items:center;
   justify-content:center;
   flex-direction: column;
-
-  left: calc(45% - 30px);
-
 }
 .menu-wrapper li {
   position: absolute;

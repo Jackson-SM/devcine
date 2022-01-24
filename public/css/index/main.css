@@ -14,7 +14,6 @@
   font-size: 22px;
   padding: 20px;
   margin: 0 auto;
-  max-width: 100%;
 }
 
 .list-films-series {
@@ -22,7 +21,6 @@
   grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
   gap: 2rem;
   max-width: 1366px;
-  margin: 0 auto;
   overflow: hidden;
   padding: 20px;
 }
@@ -35,6 +33,7 @@
   position: relative;
   z-index: 1;
   overflow: hidden;
+  margin: 0 auto;
 }
 
 .container .info p {
@@ -97,9 +96,11 @@
   transition: all ease 200ms;
   display: flex;
   align-items: center;
-  justify-content:center;
   padding: 10px 30px;
   font-family: 'Galano', sans-serif;
+  outline: none;
+  border: none;
+  cursor: pointer;
 }
 
 .watch i {

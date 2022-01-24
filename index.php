@@ -166,7 +166,10 @@
               }
             ?>
             </p>
-            <a href="" class="watch">Reproduzir<i class='bx bx-play'></i></a>
+            <form action="pages/film/" method="POST">
+              <button type="submit" class="watch">Reproduzir<i class='bx bx-play'></i></button>
+              <input type="hidden" name="id" value="<?= $posts['id'] ?>">
+            </form>
             <div class="info-film">
               <span><strong>Ano: </strong> <?= $posts['year']; ?></span>
               <span><strong>Duração: </strong> <?= $posts['duration']; ?></span>
@@ -215,7 +218,10 @@
               }
             ?>
             </p>
-            <a href="" class="watch">Reproduzir<i class='bx bx-play'></i></a>
+            <form action="pages/serie/" method="POST">
+              <button type="submit" class="watch">Reproduzir<i class='bx bx-play'></i></button>
+              <input type="hidden" name="id" value="<?= $series['id'] ?>">
+            </form>
             <div class="info-film">
               <span><strong>Ano: </strong> <?= $series['year']; ?></span>
               <span><strong>Temporadas: </strong> <?= $series['duration']; ?></span>

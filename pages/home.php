@@ -83,40 +83,31 @@
       <footer>
         <div class="links">
           <ul>
-            <li><a href="">Aleatorioeee</a></li>
+            <li><a href="">Perguntas</a></li>
+            <li><a href="">Séries Originais</a></li>
+            <li><a href="">Informações</a></li>
+          </ul>
+          <ul>
+            <li><a href="">Centro de Ajuda</a></li>
+            <li><a href="">Perguntas Frequentes</a></li>
+          </ul>
+          <ul>
+            <li><a href="">Conta</a></li>
+            <li><a href="">Privacidade</a></li>
             <li><a href="">Aleatorio</a></li>
           </ul>
           <ul>
-            <li><a href="">Aleatorio</a></li>
-            <li><a href="">Aleatorio</a></li>
-            <li><a href="">Aleatorio</a></li>
-            <li><a href="">Aleatorio</a></li>
-          </ul>
-          <ul>
-            <li><a href="">Aleatorio</a></li>
-            <li><a href="">Aleatorio</a></li>
-            <li><a href="">Aleatorio</a></li>
-          </ul>
-          <ul>
-            <li><a href="">Aleatorio</a></li>
-            <li><a href="">Aleatorio</a></li>
-          </ul>
-          <ul>
-            <li><a href="">Aleatorio</a></li>
-            <li><a href="">Aleatorio</a></li>
+            <li><a href="">Entre em contato</a></li>
           </ul>
         </div>
         <div class="infos">
           <div class="plataforms">
-            <span><i class='bx bxl-instagram-alt' ></i></span>
-            <span><i class='bx bxl-twitter'></i></span>
-            <span><i class='bx bxl-discord-alt' ></i></span>
+            <a href=""><i class='bx bxl-instagram-alt' ></i></a>
+            <a href=""><i class='bx bxl-twitter'></i></a>
+            <a href=""><i class='bx bxl-discord-alt' ></i></a>
           </div>
           <div class="contact">
             <span>Fale conosco: 0800-000-0000</span>
-          </div>
-          <div>
-            <span>Copi</span>
           </div>
         </div>
       </footer>

@@ -86,7 +86,6 @@ article .apresentation:nth-child(even) .content-apresentation:nth-child(odd){
   justify-content: space-around;
   border-top: 4px solid rgba(53, 0, 106, 0.755);
   border-bottom: 4px solid rgba(53, 0, 106, 0.755);
-  text-align: center;
   width: 100%;
 }
 
@@ -123,6 +122,7 @@ article .apresentation:nth-child(even) .content-apresentation:nth-child(odd){
   .content-apresentation {
     flex-direction: column;
     width: 100%;
+    text-align: center;
   }
   .title-apresentation {
     width: 100%;
@@ -131,23 +131,30 @@ article .apresentation:nth-child(even) .content-apresentation:nth-child(odd){
     display: flex;
     flex-direction: column;
   }
+
+  footer .links {
+    flex-direction: column;
+    align-items:center;
+    text-align: center;
+  }
 }
 
 footer{
   color: white;
   border-top: 4px solid rgba(53, 0, 106, 0.755);
   background-color: rgb(56, 56, 56);
+  padding: 20px;
 }
 
 footer .links {
   display:flex;
-  gap: 4rem;
+  gap: 1rem;
   justify-content:center;
 }
 
 footer ul {
   list-style: none;
-  padding: 40px;
+  padding: 40px 20px;
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -156,7 +163,26 @@ footer ul {
 footer li a {
   text-decoration: none;
   color: white;
+  transition: all ease 200ms;
+  font-size: 12px;
+}
+footer li a:hover {
+  color: rgba(255, 255, 255, 0.7);
 }
 .plataforms i {
-  font-size: 30px;
+  font-size: 25px;
+  transition: all ease 200ms;
+}
+.plataforms a {
+  text-decoration: none;
+  color: white;
+}
+.plataforms a:hover i{
+  transform: scale(1.1);
+}
+
+.infos {
+  display: flex;
+  width:100%;
+  justify-content: space-around;
 }

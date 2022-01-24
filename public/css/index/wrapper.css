@@ -1,0 +1,114 @@
+body,html {
+  overflow-x: hidden;
+}
+
+#items-wrapper {
+  width: 100vw;
+  position: relative;
+}
+
+#items {
+  display: flex;
+
+  overflow-x: hidden;
+  scroll-snap-type: x mandatory;
+  --webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+
+.item {
+  flex: none;
+  width: 100%;
+  height: 500px;
+  scroll-snap-align: start;
+  
+  pointer-events: none;
+}
+
+#items-wrapper img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: top;
+
+  transition: all ease 300ms;
+}
+#items-wrapper:hover img {
+  filter: brightness(0.8);
+}
+
+.btn-wrapper {
+  position: absolute;
+  width: 100%;
+  top: 45%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+  padding: 0 40px;
+
+  pointer-events: none;
+}
+
+.btn-wrapper a {
+  background-color: rgba(0, 0, 0, 0.693);
+  font-size: 50px;
+  padding: 10px 22px;
+  border-radius: 50%;
+  color: white;
+  pointer-events: auto;
+  transition: all ease 200ms;
+
+  z-index: 9;
+}
+.btn-wrapper a:hover {
+  background-color: rgba(0, 0, 0, 0.823);
+}
+
+.menu-wrapper {
+  position: absolute;
+  z-index: 9;
+  top: 45%;
+  width:100%;
+
+  pointer-events: none;
+
+  display: flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction: column;
+}
+
+.btn-menu-wrapper {
+  font-size: 60px;
+  background-color: white;
+  pointer-events: auto;
+  padding: 10px 25px;
+
+  border-radius: 50%;
+
+  text-decoration: none;
+  color: black;
+}
+
+.btn-menu-wrapper ~ ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  position: absolute;
+  height: 100%;
+  top: 30%;
+}
+.btn-menu-wrapper ~ ul li a{
+  pointer-events: auto;
+  background-color: black;
+  text-decoration: none;
+  color: white;
+  border-radius: 50%;
+  font-size: 30px;
+  padding: 0 7px;
+}
+
+.submenu-wrapper {
+  display: none;
+}

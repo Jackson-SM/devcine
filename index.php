@@ -33,7 +33,7 @@
   <link rel="stylesheet" href="public/css/global.css">
   <link rel="stylesheet" href="public/css/index/main.css">
   <link rel="stylesheet" href="public/css/onload.css">
-  <link rel="stylesheet" href="public/css/index/apresentation.css">
+  <link rel="stylesheet" href="public/css/index/wrapper.css">
   <!--Dependencies-->
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
   <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
@@ -114,7 +114,29 @@
     </div>
   </nav>
   <section class="apresentation">
-    <img src="public/img/sections/apresentation/films.jpg" alt="">
+    <div id="items-wrapper">
+      <div class="btn-wrapper">
+        <a href="" class="btn-wrapper-go"><i class='bx bx-last-page'></i></a>
+        <a href="" class="btn-wrapper-back"><i class='bx bx-first-page' ></i></a>
+      </div>
+      <div class="menu-wrapper">
+        <a href="" class="btn-menu-wrapper"><i class='bx bx-grid-alt'></i></a>
+        <ul class="submenu-wrapper">
+          <li><a href=""><i class='bx bxs-group'></i></a></li>
+          <li><a href=""><i class='bx bxs-group'></i></a></li>
+          <li><a href=""><i class='bx bxs-group'></i></a></li>
+          <li><a href=""><i class='bx bxs-group'></i></a></li>
+          <li><a href=""><i class='bx bxs-group'></i></a></li>
+        </ul>
+      </div>
+      <div id="items">
+        <div class="item"><img src="public/img/wrapper/films1.jpg" alt=""></div>
+        <div class="item"><img src="public/img/wrapper/avengers.jpg" alt=""></div>
+        <div class="item"><img src="public/img/wrapper/moana.jpg" alt=""></div>
+        <div class="item"><img src="public/img/wrapper/star-wars.jpg" alt=""></div>
+        <div class="item"><img src="public/img/wrapper/transformers.jpg" alt=""></div>
+      </div>
+    </div>
   </section>
   <section class="main">
     <section class="films" id="films">
@@ -224,6 +246,8 @@
   <script src="public/js/submenu.js"></script>
   <script src="public/js/menu-film.js"></script>
   <script src="../public/js/loading.js"></script>
+  <script src="public/js/wrapper/wrapper.js"></script>
+  <script src="public/js/wrapper/btn-wrapper.js"></script>
 </body>
 
 </html>

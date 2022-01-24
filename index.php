@@ -121,13 +121,14 @@
       </div>
       <div class="menu-wrapper">
         <a href="" class="btn-menu-wrapper"><i class='bx bx-grid-alt'></i></a>
-        <ul class="submenu-wrapper">
-          <li><a href=""><i class='bx bxs-group'></i></a></li>
-          <li><a href=""><i class='bx bxs-group'></i></a></li>
-          <li><a href=""><i class='bx bxs-group'></i></a></li>
-          <li><a href=""><i class='bx bxs-group'></i></a></li>
-          <li><a href=""><i class='bx bxs-group'></i></a></li>
-        </ul>
+          <li style="--i:0;"><a href=""><i class='bx bxs-download'></i></a></li>
+          <li style="--i:1;"><a href=""><i class='bx bxs-star'></i></a></li>
+          <li style="--i:2;"><a href=""><i class='bx bxs-rocket'></i></a></li>
+          <li style="--i:3;"><a href=""><i class='bx bxs-bell-ring'></i></a></li>
+          <li style="--i:4;"><a href=""><i class='bx bxs-tv'></i></a></li>
+          <li style="--i:5;"><a href=""><i class='bx bx-qr'></i></a></li>
+          <li style="--i:6;"><a href=""><i class='bx bx-mobile'></i></a></li>
+          <li style="--i:7;"><a href=""><i class='bx bxs-group'></i></a></li>
       </div>
       <div id="items">
         <div class="item"><img src="public/img/wrapper/films1.jpg" alt=""></div>
@@ -248,6 +249,7 @@
   <script src="../public/js/loading.js"></script>
   <script src="public/js/wrapper/wrapper.js"></script>
   <script src="public/js/wrapper/btn-wrapper.js"></script>
+  <script src="public/js/wrapper/menu-wrapper.js"></script>
 </body>
 
 </html>

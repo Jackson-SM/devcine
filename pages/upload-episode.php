@@ -20,13 +20,13 @@ if($_SESSION['logged']){
   <link rel="stylesheet" href="../public/css/global.css">
   <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <title>Upload</title>
+  <title>Upload Episode</title>
 </head>
 
 <body>
   <div class="container">
     <div class="center">
-      <h1>Upload Mega-Cine</h1>
+      <h1>Episode Upload</h1>
       <form action="../app/post/upload" method="POST" enctype="multipart/form-data" autocomplete="off">
         <div class="input_content" id="title">
           <input type="text" name="title" required>

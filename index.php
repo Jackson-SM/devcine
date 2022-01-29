@@ -43,7 +43,7 @@
 <body onLoad="loading()">
   <div class="load">
     <div class="pre">
-    <i class='bx bx-cube-alt'></i>
+    <i class='bx bx-loader-circle'></i>
     <h1>Carregando...</h1>
     </div>
   </div>
@@ -113,6 +113,7 @@
       </div>
     </div>
   </nav>
+  <main class="main">
   <section class="apresentation">
     <div id="items-wrapper">
       <div class="btn-wrapper">
@@ -139,7 +140,6 @@
       </div>
     </div>
   </section>
-  <section class="main">
     <section class="films" id="films">
       <h1>Filmes</h1>
       <div class="list-films-series">
@@ -232,8 +232,18 @@
                 <a href="" class="btn-option"><i class='bx bx-dots-vertical'></i></a>
                 <div class="dropdown">
                   <ul class="options">
-                    <li><a href="" class="delete"><i class='bx bxs-trash-alt' ></i></a></li>
-                    <li><a href="" class="edit"><i class='bx bxs-cog' ></i></a></li>
+                    <form action="pages/upload-episode" method="POST">
+                      <li><button type="submit">
+                        <a href="" style="--i:0" class="delete"><i class='bx bxs-trash-alt' ></i></a>
+                      </button></li>
+                      <li><button type="submit">
+                        <a href="" style="--i:1" class="edit"><i class='bx bxs-cog' ></i></a>
+                      </button></li>
+                      <li><button type="submit">
+                        <a href="" style="--i:2" class="add-temp"><i class='bx bx-plus'></i></a>
+                      </button></li>
+                      <input type="hidden" name="id" value="<?= $series['id'] ?>">
+                    </form>
                   </ul>
                 </div>
               </div>
@@ -248,7 +258,7 @@
         ?>
       </div>
     </section>
-  </section>
+  </main>
   </div>
   <script src="public/js/submenu.js"></script>
   <script src="public/js/menu-film.js"></script>

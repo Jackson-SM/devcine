@@ -19,196 +19,168 @@
   padding: 20px;
 }
 
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content:center;
+}
+
 form label i {
   font-size: 22px;
 }
 
-textarea {
-  resize: none;
-  border: none;
-  border: 2px solid rgba(35, 101, 187, 0.89);
-  outline: none;
-  border-radius: 10px;
-  font-size: 16px;
-  padding: 10px;
-  background-color: transparent;
-  color: white;
-  font-family: 'Galano';
-  width: 100%;
-}
-textarea ~ label {
-  display: flex;
+form .input_content label {
   position: absolute;
-  align-items: center;
-  top: 12px;
   left: 10px;
-  transition: all ease 200ms;
-  font-size: 14px;
-}
-
-textarea:focus ~ label,
-textarea:valid ~ label {
-  top: -25px;
-  color: rgb(90, 211, 161);
-  font-size: 11px;
-}
-textarea:valid {
-  border: 2px solid rgb(90, 211, 161);
-}
-@media (max-width: 700px) {
-  textarea{
-    width: 100%;
-  }
-}
-
-textarea::placeholder {
-  color: white;
-}
-form {
-  display: grid;
-  gap: 2rem;
-  grid-template-columns: repeat(auto-fill, minmax(1fr));
-  grid-template-areas: 
-              "t g"
-              "y d"
-              "s s"
-              "ty e"
-              "u u"
-}
-
-form #title {
-  grid-area: t;
-}
-form #gender {
-  grid-area: g;
-}
-form #year {
-  grid-area: y;
-}
-form #duration {
-  grid-area: d;
-}
-form #sinopse-div {
-  grid-area: s;
-}
-form #type {
-  grid-area: ty;
-}
-form #file-div {
-  grid-area: e;
-}
-form button {
-  grid-area: u;
-  display: flex;
-  justify-content: center;
-}
-
-form .input_content{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  position: relative;
-}
-
-form .input_content input:focus ~ #label-effect,
-form .input_content input:valid ~ #label-effect{
-  font-size: 10px;
-  transform: translateY(-30px);
-  color: rgb(90, 211, 161);
-}
-
-form .input_content input:valid {
-  border: 1px solid rgb(90, 211, 161);
-}
-
-form .input_content #label-effect {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  font-size: 14px;
-  transform: translateY(-2px);
-  transition: all ease-in-out 200ms;
+  top: 7px;
   pointer-events: none;
-  color: rgb(170, 170, 170);
-}
-form .input_content input::placeholder {
-  color: white;
-}
-
-form .input_content #type {
-  width: 100px;
-  background-color: transparent;
-  color: white;
-  outline: none;
-  font-family: 'Galano';
-  border: 1px solid rgb(0, 102, 255);
-  padding: 5px 0px;
-}
-
-form .input_content #type option {
-  background-color: transparent;
-  color: black;
-  text-align: center;
-}
-
-form input[type="text"], form input[type="number"]{
-  width: 300px;
-  padding: 8px 20px;
-  outline: none;
-  border-radius: 3px;
-  border: none;
-  font-family: 'Galano', sans-serif;
-  background-color: transparent;
-  border: 1px solid rgb(2, 103, 255);
-  color: white;
-}
-
-.btn-upload {
-  outline: none;
-  font-family: 'Galano';
-  border-radius: 5px;
-  border: none;
-  font-size: 18px;
-  cursor: pointer;
-  background-color: rgb(0, 81, 255);
-  color: white;
-  transition: all ease 200ms;
-  padding: 10px 70px;
+  color: rgb(255, 255, 255);
   display: flex;
   align-items: center;
+  transition: all ease 200ms;
+  font-size: 14px;
 }
-.btn-upload:hover {
-  color: rgb(0, 81, 255);
-  background-color: white;
-}
-.btn-upload i {
-  font-size: 30px;
+
+#file-div label{
   display: block;
 }
 
-.cover {
-  padding: 7px 20px 9px 20px;
-  text-align: center;
-  cursor: pointer;
+.input_content {
+  position: relative;
+
+  border-bottom: 2px solid #fff;
+}
+.input_content.select,
+.input_content.textarea,
+.input_file {
+  border: none;
+}
+
+.input_content input ~ span {
+  position: absolute;
+  width:0;
+  background: rgb(21, 157, 230);
+  height: 2px;
+  left: 0;
+  top: 100%;
+  transition: all ease 200ms;
+}
+
+.input_content input:focus ~ label, 
+.input_content input:valid ~ label {
+  top: -15px;
+  font-size: 10px;
+  color: rgb(21, 157, 230);
+}
+.input_content input:focus ~ span, 
+.input_content input:valid ~ span {
+  width: 100%;
+}
+#file-div input ~ span{
+  background: none;
+  height: auto;
+}
+
+select {
+  width: 100px;
+  padding: 10px;
+  background: none;
+  color: white;
   border-radius: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+}
+
+select *{
+  color: rgb(255, 255, 255);
   text-align: center;
+  background: rgb(23, 21, 58);
 }
-.cover i {
-  font-size: 22px;
-  transform: translateY(1px);
+
+textarea {
+  resize: none;
+  background: none;
+  padding: 5px;
+  color: white;
+  border-radius: 5px;
 }
-.cover:hover {
-  background-color: rgba(61, 62, 135, 0.412);
+
+textarea ~ label {
+  color: white;
 }
-.input_content.file {
+textarea:focus ~ label,
+textarea:valid ~ label {
+  font-size: 11px;
+  top: -25px;
+  color: rgb(21, 157, 230);
+}
+
+.input_content input {
+  border: none;
+  outline: none;
+  padding: 10px;
+  width: 100%;
+  color: white;
+  background: none;
+  font-size: 14px;
+  font-family: 'Galano', sans-serif;
+}
+
+.input_file input[type="file"]{
+  display: none;
+}
+
+.input_file {
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 }
-.input_content.file span{
-  color: aquamarine;
+
+.input_file input[type="file"] ~ label{
+  color:white;
+  color: rgb(0, 81, 255);
+  pointer-events: auto;
+  font-size: 16px;
+  background-color: white;
+  padding: 10px;
+  padding-bottom: 13px;
+  border-radius: 5px;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all ease 200ms;
+}
+.input_file input[type="file"] ~ label i {
+  transform: translateY(3px);
+}
+.input_file input[type="file"] ~ label:hover {
+  color: white;
+  background-color: rgb(0, 102, 255);
+}
+
+form button {
+  padding: 15px;
+  font-family: 'Galano', sans-serif;
+  font-size: 17px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  background-color: rgb(0, 102, 255);
+  color: white;
+  transition: all ease 200ms;
+}
+form button i {
+  font-size: 25px;
+}
+
+form button:hover {
+  background: white;
+  color: rgb(0, 102, 255);
 }

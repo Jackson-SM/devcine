@@ -29,8 +29,8 @@ body,html {
 }
 
 .pre i {
-  font-size: 150px;
-  animation: load 1s alternate forwards;
+  font-size: 120px;
+  animation: load 2s alternate forwards;
   color: rgb(255, 255, 255);
 }
 

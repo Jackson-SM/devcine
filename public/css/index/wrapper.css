@@ -29,6 +29,8 @@ body,html {
   scroll-snap-align: start;
   
   pointer-events: none;
+
+  position: relative;
 }
 
 #items-wrapper img {
@@ -39,9 +41,6 @@ body,html {
   object-position: top;
 
   transition: all ease 300ms;
-}
-#items-wrapper:hover img {
-  filter: brightness(0.8);
 }
 #items-wrapper .menu-wrapper {
   top: 90%;

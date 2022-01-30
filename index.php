@@ -19,6 +19,8 @@
 
   $resultfilm = mysqli_query($connect, $postQueryFilm);
   $resultserie = mysqli_query($connect, $postQuerySerie);
+  
+  date_default_timezone_set('America/Sao_Paulo');
 ?>
 
 <!DOCTYPE html>
@@ -145,8 +147,20 @@
       <div class="list-films-series">
             <?php
               while($posts = mysqli_fetch_assoc($resultfilm)){
+                $datePost = $posts['date'];
+                $currentDate = date('Y-m-d');
+                $dateEnd = date('Y-m-d', strtotime('+2 days', strtotime($datePost)));
+                if($currentDate < $dateEnd) {
+                ?>
+                  <div class="container new"> 
+                <?php
+                }else{
+                  
+                  ?>
+                  <div class="container">
+                  <?php
+                }
             ?>
-        <div class="container">
           <div class="card">
               <img src="app/post/img/<?= $posts['id'] ?>/<?=$posts['img']?>">
           </div>
@@ -195,8 +209,20 @@
       <div class="list-films-series">
       <?php
               while($series = mysqli_fetch_assoc($resultserie)){
+                $dateSerie = $series['date'];
+                $currentDate = date('Y-m-d');
+                $dateEnd = date('Y-m-d', strtotime('+2 days', strtotime($dateSerie)));
+                if($currentDate < $dateEnd) {
+                ?>
+                  <div class="container new"> 
+                <?php
+                }else{
+                  
+                  ?>
+                  <div class="container">
+                  <?php
+                }
             ?>
-        <div class="container">
           <div class="card">
             <a href="" class="img-link">
               <img src="app/post/img/<?= $series['id'];?>/<?=$series['img'];?>">
@@ -238,9 +264,6 @@
                       </button></li>
                       <li><button type="submit">
                         <a href="" style="--i:1" class="edit"><i class='bx bxs-cog' ></i></a>
-                      </button></li>
-                      <li><button type="submit">
-                        <a href="" style="--i:2" class="add-temp"><i class='bx bx-plus'></i></a>
                       </button></li>
                       <input type="hidden" name="id" value="<?= $series['id'] ?>">
                     </form>

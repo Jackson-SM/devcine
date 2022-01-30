@@ -1,8 +1,13 @@
+body {
+  overflow-x: hidden;
+}
+
 .main {
   background: rgb(32, 28, 58);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  overflow: hidden;
 }
 
 .films, .series {
@@ -21,7 +26,6 @@
   grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
   gap: 2rem;
   max-width: 1366px;
-  overflow: hidden;
   padding: 20px;
 }
 
@@ -32,8 +36,30 @@
   border-radius: 10px;
   position: relative;
   z-index: 1;
-  overflow: hidden;
   margin: 0 auto;
+}
+
+.container.new::before {
+  content: 'Lançamento';
+
+  position: absolute;
+
+  top: -3%;
+  left: calc(100% / 4);
+
+  width: 50%;
+  height: 8%;
+
+  background: linear-gradient(45deg,rgb(245, 58, 37),rgb(149, 0, 255));
+
+  z-index: 5;
+
+  border-radius: 5px;
+
+  color: rgb(255, 255, 255);
+  
+  text-align: center;
+  font-family: 'Muli', sans-serif;
 }
 
 .container .info p {
@@ -41,7 +67,7 @@
 }
 
 .container .info {
-  background: linear-gradient(rgba(34, 34, 34, 0.74),rgb(68, 68, 165));
+  background: linear-gradient(rgba(34, 34, 34, 0.74),rgba(34, 34, 34, 0.74),rgba(255, 24, 74, 0.768), rgba(149, 0, 255, 0.857));
   opacity: 0;
   transition: all ease-in-out 300ms;
   text-align: center;
@@ -55,15 +81,20 @@
   border-radius: 10px;
   padding: 20px;
   z-index: 1;
+  pointer-events: none;
 }
 
 .container:hover .info {
   opacity: 1;
 }
 
+.img-link {
+  pointer-events: none;
+}
+
 .container .card img{
   object-fit: cover;
-  transition: all ease-in-out 200ms;
+  transition: all ease 400ms;
   height: 100%;
   width: 100%;
   top: 0;
@@ -81,11 +112,8 @@
 }
 
 .container:hover img {
-  transform: scale(1.1);
-}
-
-.container:hover {
-  transform: scale(1.07);
+  transform: scale(1.20);
+  filter: blur(2px);
 }
 
 .watch {
@@ -101,6 +129,7 @@
   outline: none;
   border: none;
   cursor: pointer;
+  pointer-events: auto;
 }
 
 .watch i {
@@ -145,6 +174,7 @@
   font-size: 20px;
   display:flex;
   align-items: center;
+  pointer-events: auto;
 }
 
 .options-films {
@@ -208,7 +238,7 @@
   border-radius: 100%;
   transform: translateY(200px);
   transition: all ease 200ms;
-  pointer-events: none;
+  pointer-events: auto;
 }
 .options li a:hover {
   color: white;

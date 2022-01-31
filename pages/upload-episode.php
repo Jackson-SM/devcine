@@ -7,6 +7,8 @@ if($_SESSION['logged']){
 }else{
   header('location: login');
 }
+
+
 ?>
 
 <!DOCTYPE html>
@@ -53,21 +55,10 @@ if($_SESSION['logged']){
           <label for="gender" id="label-effect"><i class='bx bxs-info-circle'></i>Gênero</label>
           <span></span>
         </div>
-        <div class="input_content" id="year">
-          <input type="number" name="year" required>
-          <label for="year" id="label-effect"><i class='bx bxs-calendar'></i>Ano</label>
-          <span></span>
-        </div>
         <div class="input_content" id="duration">
           <input type="text" name="duration" required>
-          <label for="duration" id="label-effect"><i class='bx bxs-alarm'></i>Duração / Temporadas</label>
+          <label for="duration" id="label-effect"><i class='bx bxs-alarm'></i>Duração</label>
           <span></span>
-        </div>
-        <div class="input_content select" id="type">
-          <select name="type" id="type">
-            <option value="film" name="film">Filme</option>
-            <option value="serie" name="serie">Série</option>
-          </select>
         </div>
         <div class="input_content textarea" id="sinopse-div">
           <textarea name="sinopse" id="sinopse" cols="50" rows="15" required></textarea>

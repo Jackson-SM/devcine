@@ -25,12 +25,12 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
   gap: 2rem;
-  max-width: 1366px;
   padding: 20px;
 }
 
 .container {
   width: 250px;
+  height: 370px;
   transition: all ease-in-out 300ms;
   display: flex;
   border-radius: 10px;
@@ -60,6 +60,21 @@ body {
   
   text-align: center;
   font-family: 'Muli', sans-serif;
+}
+
+.container.new::after {
+  content: '';
+
+  position: absolute;
+
+  z-index: 4;
+
+  top: 4%;
+  left: 47%;
+
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid rgb(186, 115, 237);
 }
 
 .container .info p {

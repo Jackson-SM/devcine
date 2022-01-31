@@ -59,6 +59,45 @@ nav input {
   gap: 2rem;
 }
 
+.serie-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.serie-start {
+  display: flex;
+  gap: 5rem;
+}
+
+.options-serie form {
+  width:100%;
+  height:100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  position: relative;
+}
+
+.options-serie {
+  width: 100%;
+}
+
+.options-serie form > a {
+  text-decoration: none;
+  color: #c2c2c2;
+  font-size: 25px;
+  background-color: rgb(56, 56, 56);
+  padding: 0 6px;
+  border-radius: 50%;
+  box-shadow: 0 0 10px 0.2px rgb(255, 255, 255);
+  transition: all ease 200ms;
+}
+.options-serie form > a:hover {
+  color: white;
+}
+
 .seasons {
   background-color: rgb(0, 0, 0);
   color: rgba(255, 255, 255, 0.912);
@@ -66,73 +105,138 @@ nav input {
   flex-direction: column;
   gap: 6rem;
 }
-
-.link-episode {
-  text-decoration: none;
-  color: white;
-  display:block;
-  width: 300px;
-  height: 100%;
-  margin: 0 auto;
-  transition: all ease 300ms;
-}
-.link-episode:hover {
-  box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.316);
-  transform: scale(1.02);
-}
-
 .season {
-  padding: 0 30px;
+  padding: 10px 30px;
   color: rgb(255, 255, 255);
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
 }
 
 .season .title-season {
   text-align: center;
 }
 
-.season .episodes-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px,1fr));
-  gap: 2rem;
-  width: 100%;
-}
-
-.season .episodes h1 {
-  top: 0;
-}
-
-.card-episode {
-  width: 100%;
-  height: 100%;
-  background-color: white;
-  background: rgb(30, 30, 30);
+.episodes {
   display: flex;
   flex-direction: column;
-  border-radius: 5px;
-  overflow: hidden;
+  gap: 1rem;
+}
+
+.episode {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  gap: 1rem;
+  background-color: rgb(31, 31, 31);
   padding: 10px;
+  border-radius: 10px;
 }
 
-.card-episode .cover {
-  width: 100%;
+.card-img {
+  width: 600px;
   height: 100%;
+  overflow: hidden;
+  border-radius: 5px;
 }
 
-.card-episode .cover img {
+.card-img img {
   object-fit: cover;
-  width:100%;
-  height: 100%;
-}
-
-.content-episode {
   width: 100%;
   height: 100%;
 }
-.content-episode h1 {
+
+.episode .episode-info .info {
+  display: flex;
+  gap: 1rem;
+}
+
+.sinopse {
   font-size: 15px;
+}
+
+.episode-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.title-episode {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.title-episode span {
+  font-size: 18px;
+}
+
+
+.title-episode a {
+  text-decoration: none;
+  color: white;
+  background-color: #006eff;
+  padding: 15px 25px;
+  border-radius: 5px;
+  font-family: 'Galano', sans-serif;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.title-episode a i {
+  font-size: 30px;
+}
+
+.episode .episode-info .info {
+  font-size: 12px;
+}
+
+.dropdown {
+  position: absolute;
+  transform: translateX(-100%);
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: all ease-in-out 400ms;
+}
+.dropdown.open {
+  transform: translateX(-130%);
+  opacity: 1;
+  pointer-events: auto;
+}
+.dropdown::before {
+  content: '';
+
+  position: absolute;
+
+  top: 10%;
+  left: 85%;
+
+  width: 0;
+  height: 0;
+
+  z-index: -1;
+
+  border-top: 25px solid transparent;
+  border-bottom: 25px solid transparent;
+  border-left: 25px solid #d1d1d1;
+}
+
+.dropdown button {
+  outline: none;
+  border: none;
+  background: none;
+  font-family: 'Galano', sans-serif;
+  font-size: 15px;
+}
+
+.dropdown a {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  padding: 5px;
+  background-color: white;
+  display: block;
 }
 
 @media (max-width: 600px) {
@@ -142,5 +246,35 @@ nav input {
   .serie {
     text-align: center;
     background-position: top;
+  }
+
+  .card-img {
+    display: none;
+  }
+
+  .title-episode {
+    justify-content:space-around;
+  }
+  .title-episode a {
+    padding: 10px;
+  }
+  .sinopse {
+    font-size: 12px;
+  }
+
+  .episode {
+    text-align: center;
+    font-size: 14px;
+  }
+
+  .episodes .episode-info .info {
+    justify-content: center;
+  }
+  nav {
+    display: none;
+  }
+
+  .serie-start {
+    gap: 1rem;
   }
 }

@@ -18,7 +18,9 @@
 
   $count = 1;
 
-  //<?= (strlen($episode['title'] > 40) ? substr($episode['title'], 0,10)."..." : $episode['title'])
+  $ola = "Em 6 de Novembro, 1983 na pequena cidade de Hawkins, Indiana, o garoto de 12 anos, Will Byers desaparece misteriosamente. A mãe de Will, Joyce, torna-se frenética e tenta encontrar Will enquanto o chefe de polícia Jim Hopper começa a investigar, e assim fazem também os amigos de Will: Dustin, Mike e Lucas.";
+
+  //
 ?>
 
 <!DOCTYPE html>
@@ -47,10 +49,29 @@
    <main>
      <section class="serie">
        <div class="serie-start">
-        <h1 class="title"><?= $serie['title']; ?></h1>
-        <h4 class="info-serie"><?= $serie['year']." | ".$serie['duration']." Temporadas | ".$serie['gender']; ?></h4>
-        <p class="sinopse"><?= $serie['sinopse']; ?></p>
-       </div>
+          <div class="serie-info">
+            <h1 class="title"><?= $serie['title']; ?></h1>
+            <h4 class="info-serie"><?= $serie['year']." | ".$serie['duration']." Temporadas | ".$serie['gender']; ?></h4>
+            <p class="sinopse"><?= $serie['sinopse']; ?></p>
+          </div>
+          <div class="options-serie">
+            <form action="" method="POST">
+              <?php
+              if($_SESSION['level'] == 2){
+              ?>
+                <a href="" id="btn-menu"><i class='bx bx-plus'></i></a>
+                <div class="dropdown">
+                  <button><a href="" class="add">Temporada +</a></button>
+                  <button><a href="" class="add">Episódio +</a></button>
+                </div>
+              <?php
+                }
+              ?>
+              <a href=""><i class='bx bx-star'></i></a>
+              <a href=""><i class='bx bxs-download'></i></a>
+            </form>
+          </div>
+        </div>
      </section>
      <section class="seasons">
        <?php
@@ -60,55 +81,61 @@
         <div class="title-season">
           <h1>Temporada: <?= $count ?></h1>
         </div>
-        <div class="episodes-cards">
-        <a href="" class="link-episode">
-          <div class="episodes">
-            <div class="card-episode">
-              <div class="cover">
-                <img src="/app/post/img/cape/stranger.jpg" alt="">
+        <div class="episodes">
+          <div class="episode">
+            <div class="card-img">
+              <img src="/app/post/img/cape/stranger.jpg" alt="">
+            </div>
+            <div class="episode-info">
+              <div class="title-episode">
+                <a href="">Reproduzir <i class='bx bx-play-circle'></i></a>
+                <span>1. Title Lorem</span>
               </div>
-              <div class="content-episode">
-                <p>1. Capítulo um: O desaparecimento de Will Byers</p>
+              <div class="info">
+                <p>Maio 13 2022</p>
+                <p>44 Min</p>
+              </div>
+              <div class="sinopse">
+                <p><?= (strlen($ola > 200) ? substr($ola, 0,200)."..." : $ola) ?></p>
               </div>
             </div>
           </div>
-          </a>
-          <a href="" class="link-episode">
-          <div class="episodes">
-            <div class="card-episode">
-              <div class="cover">
-                <img src="/app/post/img/cape/stranger.jpg" alt="">
+          <div class="episode">
+            <div class="card-img">
+              <img src="/app/post/img/cape/stranger.jpg" alt="">
+            </div>
+            <div class="episode-info">
+              <div class="title-episode">
+                <a href="">Reproduzir <i class='bx bx-play-circle'></i></a>
+                <span>1. Title Lorem</span>
               </div>
-              <div class="content-episode">
-                <p>1. Capítulo um: O desaparecimento de Will Byers</p>
+              <div class="info">
+                <p>Maio 13 2022</p>
+                <p>44 Min</p>
+              </div>
+              <div class="sinopse">
+                <p><?= (strlen($ola > 200) ? substr($ola, 0,200)."..." : $ola) ?></p>
               </div>
             </div>
           </div>
-          </a>
-          <a href="" class="link-episode">
-          <div class="episodes">
-            <div class="card-episode">
-              <div class="cover">
-                <img src="/app/post/img/cape/stranger.jpg" alt="">
+          <div class="episode">
+            <div class="card-img">
+              <img src="/app/post/img/cape/stranger.jpg" alt="">
+            </div>
+            <div class="episode-info">
+              <div class="title-episode">
+                <a href="">Reproduzir <i class='bx bx-play-circle'></i></a>
+                <span>1. Title Lorem</span>
               </div>
-              <div class="content-episode">
-                <p>1. Capítulo um: O desaparecimento de Will Byers</p>
+              <div class="info">
+                <p>Maio 13 2022</p>
+                <p>44 Min</p>
+              </div>
+              <div class="sinopse">
+                <p><?= (strlen($ola > 200) ? substr($ola, 0,200)."..." : $ola) ?></p>
               </div>
             </div>
           </div>
-          </a>
-          <a href="" class="link-episode">
-          <div class="episodes">
-            <div class="card-episode">
-              <div class="cover">
-                <img src="/app/post/img/cape/stranger.jpg" alt="">
-              </div>
-              <div class="content-episode">
-                <p>1. Capítulo um: O desaparecimento de Will Byers</p>
-              </div>
-            </div>
-          </div>
-          </a>
         </div>
       </div>
       <?php
@@ -122,5 +149,6 @@
     <i class='bx bxs-caret-right-circle'></i>
   </div>
   -->
+  <script src="/public/js/series/dropdown.js"></script>
 </body>
 </html>

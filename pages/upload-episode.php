@@ -1,5 +1,7 @@
 <?php
 session_start();
+require '../database/db_connect.php';
+
 if($_SESSION['logged']){
   if(!($_SESSION['level'] ==  2)){
     header('location: ../');
@@ -8,6 +10,12 @@ if($_SESSION['logged']){
   header('location: login');
 }
 
+$id_serie = $_POST['id_serie'];
+$sql = "SELECT * FROM seasons WHERE id_serie = '$id_serie'";
+$result = mysqli_query($connect, $sql);
+if(mysqli_num_rows($result) < 1){
+  header('location: /');
+}
 
 ?>
 
@@ -29,10 +37,17 @@ if($_SESSION['logged']){
   <div class="container">
     <div class="center">
       <h1>Episode Upload</h1>
-      <form action="../app/post/upload" method="POST" enctype="multipart/form-data" autocomplete="off">
+      <form action="../app/post/upload-episode.php" method="POST" enctype="multipart/form-data" autocomplete="off">
+
         <div class="input_content" id="title">
           <input type="text" name="title" required>
-          <label for="title" id="label-effect"><i class='bx bxs-comment-edit'></i>Título</label>
+          <label for="title" id="label-effect"><i class='bx bxs-info-circle'></i>Título</label>
+          <span></span>
+        </div>
+
+        <div class="input_content" id="episode_number">
+          <input type="text" name="episode_number" required>
+          <label for="episode_number" id="label-effect"><i class='bx bxs-comment-edit'></i>Número do episódio</label>
           <?php
           if(isset($_COOKIE['error'])){
           ?>
@@ -50,19 +65,20 @@ if($_SESSION['logged']){
           ?>
           <span></span>
         </div>
-        <div class=" input_content" id="gender">
-          <input type="text" name="gender" required>
-          <label for="gender" id="label-effect"><i class='bx bxs-info-circle'></i>Gênero</label>
-          <span></span>
-        </div>
-        <div class="input_content" id="duration">
-          <input type="text" name="duration" required>
-          <label for="duration" id="label-effect"><i class='bx bxs-alarm'></i>Duração</label>
-          <span></span>
-        </div>
         <div class="input_content textarea" id="sinopse-div">
           <textarea name="sinopse" id="sinopse" cols="50" rows="15" required></textarea>
           <label for="sinopse"><i class='bx bxs-message-detail'></i>Sinopse</label>
+        </div>
+        <div class="input_content select">
+          <select name="season" id="season">
+            <?php
+              while($season = mysqli_fetch_assoc($result)){
+            ?>
+              <option value="<?= $season['id']; ?>"><?= $season['season_number']; ?> Temporada</option>
+            <?php
+              }
+            ?>
+          </select>
         </div>
         <div class="input_file" id="file-div">
           <input type="file" name="file" id="file">

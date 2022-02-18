@@ -205,7 +205,6 @@ body {
   pointer-events: none;
   transition: all .2s ease;
   border-radius: 10px;
-  overflow: hidden;
   border: none;
   background-color: white;
   padding: 10px;
@@ -217,15 +216,18 @@ body {
 
 .options form {
   display: flex;
-  flex-direction: column;
   gap: 0.5rem;
+}
+
+.options li {
+  overflow: hidden;
 }
 
 .options-films {
   z-index: 2;
 }
 
-.options button {
+.options li > button {
   border-radius: 50%;
   cursor: pointer;
   border: none;
@@ -234,15 +236,15 @@ body {
   transition: all ease 200ms;
 }
 
-.options button:hover {
+.options li > button:hover {
   color: white;
   background-color: rgb(0, 102, 255);
 }
-.options button:hover a {
+.options li > button:hover a {
   color: white;
 }
 
-.options li a {
+.options li > button {
   text-decoration: none;
   font-size: 18px;
   text-align: center;
@@ -253,9 +255,8 @@ body {
   border-radius: 100%;
   transform: translateY(200px);
   transition: all ease 200ms;
-  pointer-events: auto;
 }
-.options li a:hover {
+.options li > button:hover {
   color: white;
   background-color: rgb(0, 102, 255);
 }
@@ -266,15 +267,49 @@ body {
   transform: translate(-30%,-90%);
 }
 
-.options.open li .delete:hover {
-  color: white;
-  background-color: rgb(255, 60, 0);
-}
-
-.options.open li a {
+.options.open li button {
   animation: iconsEnter ease-in-out 400ms alternate forwards;
   animation-delay: calc(0.3s * var(--i));
 }
+
+.dropdown-option {
+  position: absolute;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  pointer-events: none;
+  top: 0;
+  transform: translate(-50%,-25%);
+  transition: all ease 300ms;
+  background-color: white;
+  gap: 10px;
+}
+.dropdown-option.open {
+  opacity: 1;
+  pointer-events: auto;
+  top: -100%;
+}
+.dropdown-option button {
+  background-color: white;
+  padding: 10px 10px;
+  text-decoration: none;
+  display: block;
+  color: black;
+  font-family: 'Galano', sans-serif;
+  transition: all ease 200ms;
+  cursor: pointer;
+}
+.dropdown-option button:hover {
+  color: rgb(0, 102, 255);
+}
+.dropdown-option button {
+  outline: 0;
+  border: none;
+  background: none;
+  width: 100%;
+}
+
 @keyframes iconsEnter {
   from {
     transform: translateY(70px);

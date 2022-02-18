@@ -8,6 +8,8 @@
   display: flex;
   width: 100%;
   justify-content: center;
+  height: 100%;
+  overflow-y: scroll;
 }
   
 .center {
@@ -24,6 +26,7 @@ form {
   flex-direction: column;
   gap: 2rem;
   justify-content:center;
+  padding: 10px;
 }
 
 form label i {

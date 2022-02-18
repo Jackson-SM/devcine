@@ -21,7 +21,7 @@
   $resultserie = mysqli_query($connect, $postQuerySerie);
   
   date_default_timezone_set('America/Sao_Paulo');
-?>
+  ?>
 
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -191,8 +191,9 @@
                 <a href="" class="btn-option"><i class='bx bx-dots-vertical'></i></a>
                 <div class="dropdown">
                   <ul class="options">
-                    <li><a href="" class="delete"><i class='bx bxs-trash-alt' ></i></a></li>
-                    <li><a href="" class="edit"><i class='bx bxs-cog' ></i></a></li>
+                    <li><a href="" style="--i: 1;"><i class='bx bxs-trash-alt' ></i></a></li>
+                    <li><a href="" style="--i: 2;"><i class='bx bxs-cog' ></i></a></>
+                    <li><a href="" style="--i: 3;"><i class='bx bx-plus'></i></a></li>
                   </ul>
                 </div>
               </div>
@@ -258,15 +259,21 @@
                 <a href="" class="btn-option"><i class='bx bx-dots-vertical'></i></a>
                 <div class="dropdown">
                   <ul class="options">
-                    <form action="pages/upload-episode" method="POST">
-                      <li><button type="submit">
-                        <a href="" style="--i:0" class="delete"><i class='bx bxs-trash-alt' ></i></a>
-                      </button></li>
-                      <li><button type="submit">
-                        <a href="" style="--i:1" class="edit"><i class='bx bxs-cog' ></i></a>
-                      </button></li>
-                      <input type="hidden" name="id" value="<?= $series['id'] ?>">
-                    </form>
+                      <li class="option-li">
+                        <button style="--i:0" class="button-open-dropdown">
+                        <i class='bx bx-plus'></i>
+                      </button>
+                      <div class="dropdown-option">
+                      <form action="pages/upload-season.php" method="POST">
+                        <button type="submit" name="btn-upload-season">Temporada</button>
+                        <input type="hidden" name="id_serie" value="<?= $series['id'] ?>">
+                      </form>
+                      <form action="pages/upload-episode.php" method="POST">
+                        <button type="submit" name="btn-upload-episode">Episódio</button>
+                        <input type="hidden" name="id_serie" value="<?= $series['id'] ?>">
+                      </form>
+                      </div>
+                      </li>
                   </ul>
                 </div>
               </div>
@@ -285,10 +292,11 @@
   </div>
   <script src="public/js/submenu.js"></script>
   <script src="public/js/menu-film.js"></script>
-  <script src="../public/js/loading.js"></script>
   <script src="public/js/wrapper/wrapper.js"></script>
   <script src="public/js/wrapper/btn-wrapper.js"></script>
   <script src="public/js/wrapper/menu-wrapper.js"></script>
+  <script src="public/js/loading.js"></script>
+  <script src="public/js/dropdown-option.js"></script>
 </body>
 
 </html>

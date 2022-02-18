@@ -8,13 +8,15 @@
 
   $id = mysqli_escape_string($connect,$_POST['id']);
 
-  $sql = "SELECT * FROM episodes WHERE serie = '$id'";
-  $episodeSQL = mysqli_query($connect,$sql);
-  $episode = mysqli_fetch_array($episodeSQL);
+  $sql = "SELECT * FROM seasons WHERE id_serie = '$id'";
+  $seasonSQL = mysqli_query($connect,$sql);
+  if(mysqli_num_rows($seasonSQL) < 1){
+    header('location: /');
+  }
 
   $sql = "SELECT * FROM posts WHERE id = '$id'";
   $serieSQL = mysqli_query($connect,$sql);
-  $serie = mysqli_fetch_array($serieSQL);
+  $serie = mysqli_fetch_assoc($serieSQL);
 
   $count = 1;
 
@@ -47,7 +49,11 @@
     </div>
   </nav>
    <main>
-     <section class="serie">
+     <section class="serie" style="background: linear-gradient(to right,rgb(0, 0, 0),rgba(0, 0, 0, 0.926),rgba(0, 0, 0, 0.782),rgba(0, 0, 0, 0.300),rgba(0, 0, 0, 0.467),rgba(0, 0, 0, 0.289),rgba(0, 0, 0, 0.097),rgba(0, 0, 0, 0.097)),linear-gradient(to top,rgb(0, 0, 0),rgba(0, 0, 0, 0.402),rgba(0, 0, 0, 0.700),rgba(0, 0, 0, 0.165),rgba(0, 0, 0, 0.097),rgba(0, 0, 0, 0.097),rgba(0, 0, 0, 0.097),rgba(0, 0, 0, 0.097),rgba(0, 0, 0, 0.097),rgba(0, 0, 0, 0.097),rgba(0, 0, 0, 0),rgba(0, 0, 0, 0)),url(/app/post/img/cape/stranger.jpg);
+     background-repeat: no-repeat;
+     background-size: cover;
+     background-position: bottom;
+     ">
        <div class="serie-start">
           <div class="serie-info">
             <h1 class="title"><?= $serie['title']; ?></h1>
@@ -55,14 +61,14 @@
             <p class="sinopse"><?= $serie['sinopse']; ?></p>
           </div>
           <div class="options-serie">
-            <form action="" method="POST">
+            <form action="/app/post/" method="POST">
               <?php
               if($_SESSION['level'] == 2){
               ?>
                 <a href="" id="btn-menu"><i class='bx bx-plus'></i></a>
                 <div class="dropdown">
-                  <button><a href="" class="add">Temporada +</a></button>
-                  <button><a href="" class="add">Episódio +</a></button>
+                  <button type="submit" name="season"><a href="" class="add">Temporada +</a></button>
+                  <button type="submit" name="episode"><a href="" class="add">Episódio +</a></button>
                 </div>
               <?php
                 }
@@ -74,74 +80,46 @@
         </div>
      </section>
      <section class="seasons">
-       <?php
-        while($count <= $serie['duration']){
-       ?>
+     <?php
+       while($season = mysqli_fetch_assoc($seasonSQL)){
+      ?>
       <div class="season">
         <div class="title-season">
-          <h1>Temporada: <?= $count ?></h1>
+          <h1>Temporada: <?= $season['season_number']; ?></h1>
         </div>
         <div class="episodes">
+          <?php
+
+          $sql = "SELECT * FROM episodes WHERE season_id = $season[id]";
+          $episodeSQL = mysqli_query($connect,$sql);
+          while($episode = mysqli_fetch_assoc($episodeSQL)){
+          ?>
           <div class="episode">
             <div class="card-img">
-              <img src="/app/post/img/cape/stranger.jpg" alt="">
+              <img src="/app/post/img/seasons_episodes/<?= $episode['season_id'].'/'.$episode['episode_number'].'/'.$episode['img_cover']; ?>" alt="">
             </div>
             <div class="episode-info">
               <div class="title-episode">
                 <a href="">Reproduzir <i class='bx bx-play-circle'></i></a>
-                <span>1. Title Lorem</span>
+                <span><?= $episode['title']; ?></span>
               </div>
               <div class="info">
                 <p>Maio 13 2022</p>
                 <p>44 Min</p>
               </div>
               <div class="sinopse">
-                <p><?= (strlen($ola > 200) ? substr($ola, 0,200)."..." : $ola) ?></p>
+                <p><?= (strlen($episode['sinopse'] > 200) ? substr($episode['sinopse'], 0,200)."..." : $episode['sinopse']); ?></p>
               </div>
             </div>
           </div>
-          <div class="episode">
-            <div class="card-img">
-              <img src="/app/post/img/cape/stranger.jpg" alt="">
-            </div>
-            <div class="episode-info">
-              <div class="title-episode">
-                <a href="">Reproduzir <i class='bx bx-play-circle'></i></a>
-                <span>1. Title Lorem</span>
-              </div>
-              <div class="info">
-                <p>Maio 13 2022</p>
-                <p>44 Min</p>
-              </div>
-              <div class="sinopse">
-                <p><?= (strlen($ola > 200) ? substr($ola, 0,200)."..." : $ola) ?></p>
-              </div>
-            </div>
-          </div>
-          <div class="episode">
-            <div class="card-img">
-              <img src="/app/post/img/cape/stranger.jpg" alt="">
-            </div>
-            <div class="episode-info">
-              <div class="title-episode">
-                <a href="">Reproduzir <i class='bx bx-play-circle'></i></a>
-                <span>1. Title Lorem</span>
-              </div>
-              <div class="info">
-                <p>Maio 13 2022</p>
-                <p>44 Min</p>
-              </div>
-              <div class="sinopse">
-                <p><?= (strlen($ola > 200) ? substr($ola, 0,200)."..." : $ola) ?></p>
-              </div>
-            </div>
-          </div>
+          <?php
+            }
+          ?>
         </div>
       </div>
       <?php
-        $count++;
         }
-       ?>
+      ?>
      </section>
    </main>
   <!-- 

@@ -10,11 +10,11 @@ if($_SESSION['logged']){
 }
 
 if(isset($_POST['btn-upload'])){
-  if(empty($_POST['title']) or empty($_POST['sinopse']) or empty($_POST['gender']) or empty($_POST['year']) or empty($_POST['duration'])
-  or empty($_POST['type'])){
-      $error = 'Preencha todos os campos';
-      setcookie('error', $error, time()+2,'/','megacine.com', false);
-      header('location: ../../pages/upload');
+  if(empty($_POST['title']) or empty($_POST['sinopse']) or empty($_POST['gender']) or empty($_POST['year']) or empty($_POST['type'])){
+    var_dump($_POST);
+     // $error = "Preencha todos os campos";
+      //setcookie('error', $error, time()+2,'/','megacine.com', false);
+      //header('location: ../../pages/upload');
   }else{
     $title = mysqli_escape_string($connect,$_POST['title']);
     $sinopse = mysqli_escape_string($connect, $_POST['sinopse']);

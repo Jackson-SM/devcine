@@ -10,6 +10,7 @@
 
   $sql = "SELECT * FROM seasons WHERE id_serie = '$id'";
   $seasonSQL = mysqli_query($connect,$sql);
+  $seasonInfo = mysqli_fetch_array($seasonSQL);
   if(mysqli_num_rows($seasonSQL) < 1){
     header('location: /');
   }
@@ -37,22 +38,12 @@
   <title><?= $serie['title']; ?></title>
 </head>
 <body>
-  <nav>
-    <div>
-      <h1>Mega-cine</h1>
-    </div>
-    <div class="options-theme">
-      <label for="check">
-        <i class='bx bxs-adjust-alt'></i>
-      </label>
-      <input type="checkbox" name="check" id="check" />
-    </div>
-  </nav>
    <main>
-     <section class="serie" style="background: linear-gradient(to right,rgb(0, 0, 0),rgba(0, 0, 0, 0.926),rgba(0, 0, 0, 0.782),rgba(0, 0, 0, 0.300),rgba(0, 0, 0, 0.467),rgba(0, 0, 0, 0.289),rgba(0, 0, 0, 0.097),rgba(0, 0, 0, 0.097)),linear-gradient(to top,rgb(0, 0, 0),rgba(0, 0, 0, 0.402),rgba(0, 0, 0, 0.700),rgba(0, 0, 0, 0.165),rgba(0, 0, 0, 0.097),rgba(0, 0, 0, 0.097),rgba(0, 0, 0, 0.097),rgba(0, 0, 0, 0.097),rgba(0, 0, 0, 0.097),rgba(0, 0, 0, 0.097),rgba(0, 0, 0, 0),rgba(0, 0, 0, 0)),url(/app/post/img/cape/stranger.jpg);
+     <section class="serie" style="
+     background: linear-gradient(to right,rgb(0, 0, 0),rgba(0, 0, 0, 0.926),rgba(0, 0, 0, 0.782),rgba(0, 0, 0, 0.300),rgba(0, 0, 0, 0.467),rgba(0, 0, 0, 0.289),rgba(0, 0, 0, 0.097),rgba(0, 0, 0, 0.097)),linear-gradient(to top,rgb(0, 0, 0),rgba(0, 0, 0, 0.602),rgba(0, 0, 0, 0.400),rgba(0, 0, 0, 0.165),rgba(0, 0, 0, 0.097),rgba(0, 0, 0, 0.097),rgba(0, 0, 0, 0.097),rgba(0, 0, 0, 0.097),rgba(0, 0, 0, 0.097),rgba(0, 0, 0, 0.097),rgba(0, 0, 0, 0),rgba(0, 0, 0, 0)),url(/app/post/img/seasons_episodes/<?= $seasonInfo['id']?>/<?= $seasonInfo['img_background']?>);
      background-repeat: no-repeat;
      background-size: cover;
-     background-position: bottom;
+     background-position: center;
      ">
        <div class="serie-start">
           <div class="serie-info">
@@ -60,68 +51,33 @@
             <h4 class="info-serie"><?= $serie['year']." | ".$serie['duration']." Temporadas | ".$serie['gender']; ?></h4>
             <p class="sinopse"><?= $serie['sinopse']; ?></p>
           </div>
-          <div class="options-serie">
-            <form action="/app/post/" method="POST">
-              <?php
-              if($_SESSION['level'] == 2){
-              ?>
-                <a href="" id="btn-menu"><i class='bx bx-plus'></i></a>
-                <div class="dropdown">
-                  <button type="submit" name="season"><a href="" class="add">Temporada +</a></button>
-                  <button type="submit" name="episode"><a href="" class="add">Episódio +</a></button>
-                </div>
-              <?php
-                }
-              ?>
-              <a href=""><i class='bx bx-star'></i></a>
-              <a href=""><i class='bx bxs-download'></i></a>
-            </form>
-          </div>
         </div>
      </section>
      <section class="seasons">
-     <?php
-       while($season = mysqli_fetch_assoc($seasonSQL)){
-      ?>
-      <div class="season">
-        <div class="title-season">
-          <h1>Temporada: <?= $season['season_number']; ?></h1>
+     
+     </section>
+     <section class="recommendations">
+        <div class="card-recommendation">
+          <img src="/public/img/wrapper/films1.jpg" alt="">
         </div>
-        <div class="episodes">
-          <?php
-
-          $sql = "SELECT * FROM episodes WHERE season_id = $season[id]";
-          $episodeSQL = mysqli_query($connect,$sql);
-          while($episode = mysqli_fetch_assoc($episodeSQL)){
-          ?>
-          <div class="episode">
-            <div class="card-img">
-              <img src="/app/post/img/seasons_episodes/<?= $episode['season_id'].'/'.$episode['episode_number'].'/'.$episode['img_cover']; ?>" alt="">
-            </div>
-            <div class="episode-info">
-              <div class="title-episode">
-                <a href="">Reproduzir <i class='bx bx-play-circle'></i></a>
-                <span><?= $episode['title']; ?></span>
-              </div>
-              <div class="info">
-                <p>Maio 13 2022</p>
-                <p>44 Min</p>
-              </div>
-              <div class="sinopse">
-                <p><?= (strlen($episode['sinopse'] > 200) ? substr($episode['sinopse'], 0,200)."..." : $episode['sinopse']); ?></p>
-              </div>
-            </div>
-          </div>
-          <?php
-            }
-          ?>
+        <div class="card-recommendation">
+          <img src="/public/img/wrapper/transformers.jpg" alt="">
         </div>
-      </div>
-      <?php
-        }
-      ?>
+        <div class="card-recommendation">
+          <img src="/public/img/wrapper/avengers.jpg" alt="">
+        </div>
+        <div class="card-recommendation">
+          <img src="/public/img/wrapper/moana.jpg" alt="">
+        </div>
+        <div class="card-recommendation">
+          <img src="/public/img/wrapper/moana.jpg" alt="">
+        </div>
      </section>
    </main>
+
+   <footer>
+
+   </footer>
   <!-- 
     <div class="player">
     <i class='bx bxs-caret-right-circle'></i>

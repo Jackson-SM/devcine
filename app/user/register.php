@@ -40,7 +40,7 @@
           }
 
           $password_hash = password_hash($password,PASSWORD_BCRYPT);
-          $sql = "INSERT INTO usuarios (login,password,name,email,img_profile,level) VALUES ('$login', '$password_hash', '$name','$email','$newName', 2)";
+          $sql = "INSERT INTO usuarios (login,password,name,email,img_profile,level) VALUES ('$login', '$password_hash', '$name','$email','$newName', 1)";
           $register = mysqli_query($connect, $sql);
           if($register){
             $sql = "SELECT * FROM usuarios WHERE login = '$login'";

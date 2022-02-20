@@ -1,6 +1,6 @@
 .navbar {
   height: 80px;
-  background: #2d2c46;
+  background: #2c2c2c;
   color: white;
   position: fixed;
   width: 100%;
@@ -49,7 +49,7 @@ label #close,
 label #btn {
   display: none;
   font-size: 40px;
-  background-color: rgb(60, 60, 89);
+  background-color: #494949;
   cursor: pointer;
   transition: all ease 200ms;
   border-radius: 5px;
@@ -152,7 +152,7 @@ label #btn:hover {
     }
     #check:checked ~ .navbar-responsive {
       position: absolute;
-      background: #2d2c46;
+      background: #2c2c2c;
       top: 80px;
       display: flex;
       flex-direction: column;

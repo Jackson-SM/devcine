@@ -142,7 +142,10 @@
       </div>
     </div>
   </section>
-    <section class="films" id="films">
+    <?php
+      if(mysqli_num_rows($resultfilm)){
+    ?>
+      <section class="films" id="films">
       <h1>Filmes</h1>
       <div class="list-films-series">
             <?php
@@ -205,6 +208,12 @@
         ?>
       </div>
     </section>
+    <?php
+      }
+    ?>
+    <?php
+    if(mysqli_num_rows($resultserie) > 0){
+    ?>
     <section class="series" id="series">
       <h1>Séries</h1>
       <div class="list-films-series">
@@ -288,6 +297,9 @@
         ?>
       </div>
     </section>
+    <?php
+    }
+    ?>
   </main>
   </div>
   <script src="public/js/submenu.js"></script>

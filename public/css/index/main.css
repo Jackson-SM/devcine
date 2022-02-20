@@ -3,7 +3,7 @@ body {
 }
 
 .main {
-  background: rgb(32, 28, 58);
+  background: #2c2c2c;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -60,6 +60,8 @@ body {
   
   text-align: center;
   font-family: 'Muli', sans-serif;
+
+  pointer-events: none;
 }
 
 .container.new::after {

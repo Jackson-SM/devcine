@@ -54,23 +54,43 @@
         </div>
      </section>
      <section class="seasons">
-     
+       <div class="season">
+         <h1>Temporada 1</h1>
+         <div class="season-info">
+           <p>Enquanto exploram as turbulências da vida de adolescente em Riverdale, Archie e sua turma se envolvem em um tenebroso mistério.</p>
+         </div>
+       </div>
      </section>
      <section class="recommendations">
         <div class="card-recommendation">
           <img src="/public/img/wrapper/films1.jpg" alt="">
+          <div class="watch-circle">
+            <i class='bx bxs-right-arrow'></i>
+          </div>
         </div>
         <div class="card-recommendation">
           <img src="/public/img/wrapper/transformers.jpg" alt="">
+          <div class="watch-circle">
+            <i class='bx bxs-right-arrow'></i>
+          </div>
         </div>
         <div class="card-recommendation">
           <img src="/public/img/wrapper/avengers.jpg" alt="">
+          <div class="watch-circle">
+            <i class='bx bxs-right-arrow'></i>
+          </div>
         </div>
         <div class="card-recommendation">
           <img src="/public/img/wrapper/moana.jpg" alt="">
+          <div class="watch-circle">
+            <i class='bx bxs-right-arrow'></i>
+          </div>
         </div>
         <div class="card-recommendation">
           <img src="/public/img/wrapper/moana.jpg" alt="">
+          <div class="watch-circle">
+            <i class='bx bxs-right-arrow'></i>
+          </div>
         </div>
      </section>
    </main>

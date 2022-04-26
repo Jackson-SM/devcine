@@ -4,24 +4,24 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a9bea948657b26c1ca3b524148cc9b59",
+    "content-hash": "e47bb34ef02c76d8b35a15570961364e",
     "packages": [
         {
             "name": "coffeecode/router",
-            "version": "1.0.8",
+            "version": "2.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/robsonvleite/router.git",
-                "reference": "29f73e12351a116e9bbb3f695595777a09e18077"
+                "reference": "a16770ae952ce3f91a04035a09be610a030e049c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/robsonvleite/router/zipball/29f73e12351a116e9bbb3f695595777a09e18077",
-                "reference": "29f73e12351a116e9bbb3f695595777a09e18077",
+                "url": "https://api.github.com/repos/robsonvleite/router/zipball/a16770ae952ce3f91a04035a09be610a030e049c",
+                "reference": "a16770ae952ce3f91a04035a09be610a030e049c",
                 "shasum": ""
             },
             "require": {
-                "php": ">=7.2"
+                "php": ">=8.0"
             },
             "type": "library",
             "autoload": {
@@ -51,9 +51,9 @@
             ],
             "support": {
                 "issues": "https://github.com/robsonvleite/router/issues",
-                "source": "https://github.com/robsonvleite/router/tree/1.0.8"
+                "source": "https://github.com/robsonvleite/router/tree/2.0.2"
             },
-            "time": "2021-03-21T18:45:16+00:00"
+            "time": "2022-04-23T16:01:23+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",

@@ -9,8 +9,7 @@
       ]
     },
     "require": {
-      "coffeecode/router": "^1.0",
+      "coffeecode/router": "^2.0",
       "twig/twig": "^3.0"
     }
   }
-  

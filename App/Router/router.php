@@ -4,6 +4,7 @@ require_once  __DIR__."/../../vendor/autoload.php";
 
 use CoffeeCode\Router\Router;
 use \App\Middlewares\AuthMiddleware;
+use App\Models\User;
 
 $router = new Router(projectUrl: "http://".URL_BASE);
 

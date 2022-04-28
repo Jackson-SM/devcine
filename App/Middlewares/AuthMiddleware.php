@@ -8,11 +8,11 @@ class AuthMiddleware {
   
   public function handle(Router $router): bool
   {
-    $user = true;
-    if($user) {
+    $logged = $_SESSION['logged'];
+    if($logged) {
       return true;
     }
-    $router->redirect('/name');
+    $router->redirect('/');
     return false;
   }
 }

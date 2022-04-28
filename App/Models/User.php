@@ -73,7 +73,7 @@ class User {
     Image Profile Functions
   */
 
-  public function setImgProfile(string $img_profile){
+  public function setImgProfile($img_profile){
     $this->img_profile = $img_profile;
   }
 

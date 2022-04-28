@@ -13,11 +13,14 @@ $router->namespace(namespace: "App\Core");
 $router->group(null, AuthMiddleware::class);
 $router->get("/", "Router:home");
 
-$router->group("name", AuthMiddleware::class);
-$router->get("/", function($data) {
-  echo 'Ola Name';
-});
 
+$router->group("login", AuthMiddleware::class);
+$router->get("/", "Router:login");
+$router->post("/", "Router:loginPost");
+
+$router->group("register", AuthMiddleware::class);
+$router->get("/", "Router:register");
+$router->post("/", "Router:registerPost");
 
 $router->dispatch();
 

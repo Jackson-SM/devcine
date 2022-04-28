@@ -16,31 +16,29 @@
   <link rel="stylesheet" href="../public/css/user/register.css">
   <link rel="stylesheet" href="../public/css/global.css">
   <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
-  <title>Register</title>
+  <title>{{title}}</title>
 </head>
 
 <body>
-<?php
-    if(!empty($_COOKIE['error'])){
-  ?>
+  {% if error %}
   <div class="notification">
     <div class="title-notific">
       <i class='bx bxs-bell-ring'></i>
       <span>Notification</span>
       <a href="" class="exit-notific"><i class='bx bx-x'></i></a>
     </div>
-    <p><?= $_COOKIE['error']; ?></p>
+    <p>
+      <?= $_COOKIE['error']; ?>
+    </p>
   </div>
-  <?php
-  }
-  ?>
+  {% endif %}
   <div class="container">
     <div class="center">
       <div class="title">
         <h1>Register</h1>
         <i class='bx bx-cube'></i>
       </div>
-      <form action="../app/user/register.php" method="POST" enctype="multipart/form-data" autocomplete="off">
+      <form action="/register" method="POST" enctype="multipart/form-data" autocomplete="off">
         <div class="input_content">
           <input type="text" name="login" required>
           <span></span>

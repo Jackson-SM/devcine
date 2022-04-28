@@ -1,10 +1,3 @@
-<?php
-session_start();
-  if(!empty($_SESSION['logged'])){
-    header('location: ../');  
-  }
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,33 +9,32 @@ session_start();
   <link rel="stylesheet" href="../public/css/user/login-register.css">
   <link rel="stylesheet" href="../public/css/user/login.css">
   <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
-  <title>Login</title>
+  <title>{{title}}</title>
 </head>
+
 <body>
-  <?php
-    if(!empty($_COOKIE['error'])){
-  ?>
+  {% if error %}
   <div class="notification">
     <div class="title-notific">
       <i class='bx bxs-bell-ring'></i>
       <span>Notification</span>
       <a href="" class="exit-notific"><i class='bx bx-x'></i></a>
     </div>
-    <p><?= $_COOKIE['error']; ?></p>
+    <p>
+      <?= $_COOKIE['error']; ?>
+    </p>
   </div>
-  <?php
-  }
-  ?>
+  {% endif %}
   <div class="container">
     <div class="center">
       <div>
         <div class="title">
-        <i class='bx bx-cube'></i>
-        <h1>Login</h1>
+          <i class='bx bx-cube'></i>
+          <h1>Login</h1>
         </div>
         <h2>Log in to your account</h2>
       </div>
-      <form action="../app/user/login" method="POST" autocomplete="off">
+      <form action="/login" method="POST" autocomplete="off">
         <div class="input_content">
           <input type="text" name="login" required>
           <span></span>

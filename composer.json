@@ -5,6 +5,7 @@
       },
       "files": [
         "App/Config/config.php",
+        "App/Config/session.php",
         "App/Router/router.php"
       ]
     },

@@ -56,20 +56,11 @@
             </div>
             <li class="menu">
               <div class="photo-user">
-                <?php
-                if($data['img_profile'] == 'unknown'){
-                  ?>
                 <i class='bx bxs-user'></i>
-                <?php
-                }else{
-                  ?>
-                <img src="app/user/img/<?= $data['id'] ?>/<?=$data['img_profile']?>" alt="">
-                <?php
-                }
-              ?>
+                <img src="public/img/users/{{user['id']}}/{{user['img_profile']}}" alt="">
               </div>
               <a href="" class="btn-menu">
-                <?= $data['name']?><i class='bx bxs-chevron-up'></i>
+                {{user['name']}}<i class='bx bxs-chevron-up'></i>
               </a>
               <div class="submenu">
                 <ul class="menu-options-account">

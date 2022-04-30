@@ -4,11 +4,11 @@ namespace App\Middlewares;
 
 use CoffeeCode\Router\Router;
 
-class AuthMiddleware {
+class NotLoggedMiddleware {
   
   public function handle(Router $router): bool
   {
-    $logged = $_SESSION['logged'];
+    $logged = isset($_SESSION['logged']);
     if($logged) {
       return true;
     }

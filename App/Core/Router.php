@@ -4,6 +4,7 @@ namespace App\Core;
 
 use App\Controllers\UserController;
 use App\Models\User;
+use CoffeeCode\Router\Router as RouterApp;
 
 class Router {
   public function __construct($router) {
@@ -11,9 +12,26 @@ class Router {
   }
 
   public function home($data) {
-    (new RouterController())->createTemplate("templates/home/index.html", [
-      "title" => "Home"
-    ]);
+
+    $id = null;
+    if(isset($_SESSION['id'])){
+      $id = $_SESSION['id'];
+    }
+
+    $params = [
+      "title" => "Home",
+      "user" => (new  UserController())->readById($id)
+    ];
+
+    $renderPath = null;
+
+    if(!$id) {
+      $renderPath = "templates/index/index.html";
+    }else{
+      $renderPath = "templates/home/index.html";
+    }
+
+    (new RouterController())->createTemplate($renderPath, $params);
   }
 
   public function login($data) {
@@ -39,7 +57,6 @@ class Router {
   public function registerPost($data){
     $user = new User();
     $user->setEmail($data['email']);
-    $user->setLogin($data['login']);
     $user->setName($data['name']);
     $user->setPassword($data['password']);
     $user->hashTransformPassword($user->getPassword());
@@ -47,5 +64,13 @@ class Router {
 
     $userController = new UserController();
     $userController->create($user);
+
+    $this->router->redirect("/login");
+  }
+
+  public function logout($data){
+    session_unset();
+    session_destroy();
+    $this->router->redirect("/");
   }
 }

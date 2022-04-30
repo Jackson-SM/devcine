@@ -18,18 +18,6 @@ class User {
   }
 
   /* 
-    Login Functions
-  */
-
-  public function setLogin(string $login){
-    $this->login = $login;
-  }
-
-  public function getLogin(){
-    return $this->login;
-  }
-
-  /* 
     Name Functions
   */
 

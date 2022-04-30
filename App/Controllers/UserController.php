@@ -7,6 +7,8 @@ use App\Database\PostgresConnect;
 
 class UserController {
 
+  private $error,$user;
+
   public function readByEmail(string $email){
     $sql = "SELECT * FROM users WHERE email = :email";
 
@@ -20,16 +22,16 @@ class UserController {
   }
 
   public function create(User $user){
-    $sql = "INSERT INTO users (email, login, name, password, level, img_profile) VALUES (:email, :login, :name, :password, :level, :img_profile)";
+    $sql = "INSERT INTO users (email, name, password, level, img_profile) VALUES (:email, :name, :password, :level, :img_profile)";
 
     $userExists = $this->readByEmail($user->getEmail());
     if(!empty($userExists)){
-      throw new \Exception("Email already exists");
+      echo 'Account already exists.';
+      return true;
     }
 
     $stmt = PostgresConnect::connect()->prepare($sql);
     $stmt->bindValue(":email", $user->getEmail());
-    $stmt->bindValue(":login", $user->getLogin());
     $stmt->bindValue(":name", $user->getName());
     $stmt->bindValue(":password", $user->getPassword());
     $stmt->bindValue(":level", $user->getLevel() || 1);
@@ -38,23 +40,43 @@ class UserController {
     $extension = pathinfo($name, PATHINFO_EXTENSION);
     $newName = uniqid().".".$extension;
 
-    if(!is_dir(ROUTER_IMG_PROFILE)){
-      mkdir(ROUTER_IMG_PROFILE);
-    }
-
     $tmpName = $user->getImgProfile()["tmp_name"];
-    $path = ROUTER_IMG_PROFILE."/".$newName;
 
-    if(move_uploaded_file($tmpName, $path)){
-      $user->setImgProfile($newName);
+    $stmt->bindValue(":img_profile", $newName);
+
+    if($stmt->execute()){
+      $id = PostgresConnect::connect()->lastInsertId();
+
+      $_SESSION['id'] = $id;
+      $_SESSION['logged'] = true;
+      
+      if(!is_dir(ROUTER_IMG_PROFILE."/".$id)){
+        mkdir(ROUTER_IMG_PROFILE."/".$id);
+      }
+      $path = ROUTER_IMG_PROFILE."/".$id."/".$newName;
+
+      if(move_uploaded_file($tmpName, $path)){
+        $user->setImgProfile($newName);
+      }else{
+        return "Not possible uploaded file";
+      }
     }
 
-    $stmt->bindValue(":img_profile", $user->getImgProfile());
-
-    $stmt->execute();
   }
    
-  public function readById(int $id){
-
+  public function readById($id){
+    if($id){
+      $sql = "SELECT * FROM users WHERE id = :id";
+    
+      $stmt  = PostgresConnect::connect()->prepare($sql);
+      $stmt->bindValue(":id", $id);
+  
+      $stmt->execute();
+      
+      $data = $stmt->fetch();
+      return $data;  
+    }else{
+      session_destroy();
+    }
   }
 }

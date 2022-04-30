@@ -1,0 +1,45 @@
+<div class="list-films-series">
+  <div class="container new">
+    <div class="container">
+      <div class="card">
+        <img src="public/img/wrapper/transformers.jpg">
+      </div>
+      <div class="info">
+
+        <h1>
+          Eternos
+        </h1>
+        <p><strong>Sinopse:</strong>
+          sla quem foi pra tal lugar e foi fazer seila oq e acabou acontecendo sla oq entenderam
+        </p>
+
+        <p class="genders"><strong>Gênero: </strong>
+          <span class="gender">
+            Genero
+          </span>
+        </p>
+        <form action="pages/film/" method="POST">
+          <button type="submit" class="watch">Reproduzir<i class='bx bx-play'></i></button>
+          <input type="hidden" name="id" value="<?= $posts['id'] ?>">
+        </form>
+        <div class="info-film">
+          <span><strong>Ano: </strong>
+            2017
+          </span>
+          <span><strong>Duração: </strong>
+            3h 10min
+          </span>
+          <div class="options-films">
+            <a href="" class="btn-option"><i class='bx bx-dots-vertical'></i></a>
+            <div class="dropdown">
+              <ul class="options">
+                <li><a href="" style="--i: 1;"><i class='bx bxs-trash-alt'></i></a></li>
+                <li><a href="" style="--i: 2;"><i class='bx bxs-cog'></i></a></>
+                <li><a href="" style="--i: 3;"><i class='bx bx-plus'></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

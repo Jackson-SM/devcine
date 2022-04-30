@@ -64,13 +64,7 @@
               </a>
               <div class="submenu">
                 <ul class="menu-options-account">
-                  <?php
-                if($_SESSION['level'] == 2){
-                ?>
                   <li><a href="pages/upload"><i class='bx bxs-cloud-upload'></i>Upload</a></li>
-                  <?php
-                }
-                ?>
                   <li><a href=""><i class='bx bxs-customize'></i>Settings</a></li>
                   <li><a href="app/user/logout.php"><i class='bx bxs-exit'></i>Logout</a></li>
                   <li><a href=""><i class='bx bx-star'></i>Favorites</a></li>
@@ -110,180 +104,15 @@
           </div>
         </div>
       </section>
-      <?php
-      if(mysqli_num_rows($resultfilm)){
-    ?>
+
       <section class="films" id="films">
         <h1>Filmes</h1>
-        <div class="list-films-series">
-          <?php
-              while($posts = mysqli_fetch_assoc($resultfilm)){
-                $datePost = $posts['date'];
-                $currentDate = date('Y-m-d');
-                $dateEnd = date('Y-m-d', strtotime('+2 days', strtotime($datePost)));
-                if($currentDate < $dateEnd) {
-                ?>
-          <div class="container new">
-            <?php
-                }else{
-                  
-                  ?>
-            <div class="container">
-              <?php
-                }
-            ?>
-              <div class="card">
-                <img src="app/post/img/<?= $posts['id'] ?>/<?=$posts['img']?>">
-              </div>
-              <div class="info">
-                <h1>
-                  <?= $posts['title']; ?>
-                </h1>
-                <p><strong>Sinopse:</strong>
-                  <?= (strlen($posts['sinopse']) > 200) ? substr($posts['sinopse'], 0, 400)."..." : $posts['sinopse']; ?>
-                </p>
-                <?php
-              $genders = explode(',',$posts['gender']);
-            ?>
-                <p class="genders"><strong>Gênero: </strong>
-                  <?php
-              foreach ($genders as $gender) {
-            ?>
-                  <span class="gender">
-                    <?= $gender ?>
-                  </span>
-                  <!--html-->
-                  <?php
-              }
-            ?>
-                </p>
-                <form action="pages/film/" method="POST">
-                  <button type="submit" class="watch">Reproduzir<i class='bx bx-play'></i></button>
-                  <input type="hidden" name="id" value="<?= $posts['id'] ?>">
-                </form>
-                <div class="info-film">
-                  <span><strong>Ano: </strong>
-                    <?= $posts['year']; ?>
-                  </span>
-                  <span><strong>Duração: </strong>
-                    <?= $posts['duration']; ?>
-                  </span>
-                  <div class="options-films">
-                    <a href="" class="btn-option"><i class='bx bx-dots-vertical'></i></a>
-                    <div class="dropdown">
-                      <ul class="options">
-                        <li><a href="" style="--i: 1;"><i class='bx bxs-trash-alt'></i></a></li>
-                        <li><a href="" style="--i: 2;"><i class='bx bxs-cog'></i></a></>
-                        <li><a href="" style="--i: 3;"><i class='bx bx-plus'></i></a></li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <?php
-          }
-        ?>
-          </div>
+        {% include 'components/CardFilm.html' %}
       </section>
-      <?php
-      }
-    ?>
-      <?php
-    if(mysqli_num_rows($resultserie) > 0){
-    ?>
+
       <section class="series" id="series">
         <h1>Séries</h1>
-        <div class="list-films-series">
-          <?php
-              while($series = mysqli_fetch_assoc($resultserie)){
-                $dateSerie = $series['date'];
-                $currentDate = date('Y-m-d');
-                $dateEnd = date('Y-m-d', strtotime('+2 days', strtotime($dateSerie)));
-                if($currentDate < $dateEnd) {
-                ?>
-          <div class="container new">
-            <?php
-                }else{
-                  
-                  ?>
-            <div class="container">
-              <?php
-                }
-            ?>
-              <div class="card">
-                <a href="" class="img-link">
-                  <img src="app/post/img/<?= $series['id'];?>/<?=$series['img'];?>">
-                </a>
-              </div>
-              <div class="info">
-                <h1>
-                  <?= $series['title']; ?>
-                </h1>
-                <p><strong>Sinopse:</strong>
-                  <?= (strlen($series['sinopse']) > 100) ? substr($series['sinopse'], 0, 255)."..." : $series['sinopse']; ?>
-                </p>
-                <?php
-              $genders = explode(',',$series['gender']);
-            ?>
-                <p class="genders"><strong>Gênero: </strong>
-                  <?php
-              foreach ($genders as $gender) {
-            ?>
-                  <span class="gender">
-                    <?= $gender ?>
-                  </span>
-                  <!--html-->
-                  <?php
-              }
-            ?>
-                </p>
-                <form action="pages/serie/" method="POST">
-                  <button type="submit" class="watch">Reproduzir<i class='bx bx-play'></i></button>
-                  <input type="hidden" name="id" value="<?= $series['id'] ?>">
-                </form>
-                <div class="info-film">
-                  <span><strong>Ano: </strong>
-                    <?= $series['year']; ?>
-                  </span>
-                  <span><strong>Temporadas: </strong>
-                    <?= $series['duration']; ?>
-                  </span>
-                  <?php
-              if($_SESSION['level'] == 2){
-              ?>
-                  <div class="options-films">
-                    <a href="" class="btn-option"><i class='bx bx-dots-vertical'></i></a>
-                    <div class="dropdown">
-                      <ul class="options">
-                        <li class="option-li">
-                          <button style="--i:0" class="button-open-dropdown">
-                            <i class='bx bx-plus'></i>
-                          </button>
-                          <div class="dropdown-option">
-                            <form action="pages/upload-season.php" method="POST">
-                              <button type="submit" name="btn-upload-season">Temporada</button>
-                              <input type="hidden" name="id_serie" value="<?= $series['id'] ?>">
-                            </form>
-                            <form action="pages/upload-episode.php" method="POST">
-                              <button type="submit" name="btn-upload-episode">Episódio</button>
-                              <input type="hidden" name="id_serie" value="<?= $series['id'] ?>">
-                            </form>
-                          </div>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <?php
-              }
-              ?>
-                </div>
-              </div>
-            </div>
-            <?php
-          }
-        ?>
-          </div>
+        {% include 'components/CardSerie.html' %}
       </section>
       <?php
     }

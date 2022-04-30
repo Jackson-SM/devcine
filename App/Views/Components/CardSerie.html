@@ -1,0 +1,60 @@
+<div class="list-films-series">
+  <!-- Só será new se a data de post for 3 dias a menos que a data atual -->
+  <div class="container new">
+    <!-- Container de data posterior ao post -->
+    <div class="container">
+      <div class="card">
+        <a href="" class="img-link">
+          <img src="public/img/wrapper/moana.jpg">
+        </a>
+      </div>
+      <div class="info">
+        <h1>
+          Moana
+        </h1>
+        <p><strong>Sinopse:</strong>
+          Moana é uma serie que eu nunca vi na vida e muito provavelmente não irei ver.
+        </p>
+        <p class="genders"><strong>Gênero: </strong>
+          <span class="gender">
+            Genero
+          </span>
+        </p>
+        <form action="pages/serie/" method="POST">
+          <button type="submit" class="watch">Reproduzir<i class='bx bx-play'></i></button>
+          <input type="hidden" name="id" value="<?= $series['id'] ?>">
+        </form>
+        <div class="info-film">
+          <span><strong>Ano: </strong>
+            2020
+          </span>
+          <span><strong>Temporadas: </strong>
+            1h 24min
+          </span>
+          <!-- Só irei ver se eu tiver o level maior que 1 -->
+          <div class="options-films">
+            <a href="" class="btn-option"><i class='bx bx-dots-vertical'></i></a>
+            <div class="dropdown">
+              <ul class="options">
+                <li class="option-li">
+                  <button style="--i:0" class="button-open-dropdown">
+                    <i class='bx bx-plus'></i>
+                  </button>
+                  <div class="dropdown-option">
+                    <form action="pages/upload-season.php" method="POST">
+                      <button type="submit" name="btn-upload-season">Temporada</button>
+                      <input type="hidden" name="id_serie" value="<?= $series['id'] ?>">
+                    </form>
+                    <form action="pages/upload-episode.php" method="POST">
+                      <button type="submit" name="btn-upload-episode">Episódio</button>
+                      <input type="hidden" name="id_serie" value="<?= $series['id'] ?>">
+                    </form>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

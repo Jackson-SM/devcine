@@ -2,6 +2,7 @@
 
 namespace App\Core;
 
+use App\Auth\AuthLogin;
 use App\Controllers\UserController;
 use App\Models\User;
 use CoffeeCode\Router\Router as RouterApp;
@@ -12,7 +13,6 @@ class Router {
   }
 
   public function home($data) {
-
     $id = null;
     if(isset($_SESSION['id'])){
       $id = $_SESSION['id'];
@@ -43,7 +43,15 @@ class Router {
   }
 
   public function loginPost($data){
-    echo var_dump($data);
+    $user = new User();
+    
+    $user->setEmail($data['email']);
+    $user->setPassword($data['password']);
+
+    $authLogin = new AuthLogin();
+    $authLogin->login($user);
+
+    var_dump($_SESSION);
   }
 
   public function register($data) {

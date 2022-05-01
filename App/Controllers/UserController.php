@@ -9,18 +9,6 @@ class UserController {
 
   private $error,$user;
 
-  public function readByEmail(string $email){
-    $sql = "SELECT * FROM users WHERE email = :email";
-
-    $stmt = PostgresConnect::connect()->prepare($sql);
-    $stmt->bindValue(":email", $email);
-
-    $stmt->execute();
-
-    $data = $stmt->fetch();
-    return $data;
-  }
-
   public function create(User $user){
     $sql = "INSERT INTO users (email, name, password, level, img_profile) VALUES (:email, :name, :password, :level, :img_profile)";
 
@@ -62,6 +50,18 @@ class UserController {
       }
     }
 
+  }
+
+  public function readByEmail(string $email){
+    $sql = "SELECT * FROM users WHERE email = :email";
+
+    $stmt = PostgresConnect::connect()->prepare($sql);
+    $stmt->bindValue(":email", $email);
+
+    $stmt->execute();
+
+    $data = $stmt->fetch();
+    return $data;
   }
    
   public function readById($id){

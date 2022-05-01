@@ -66,7 +66,7 @@
                 <ul class="menu-options-account">
                   <li><a href="pages/upload"><i class='bx bxs-cloud-upload'></i>Upload</a></li>
                   <li><a href=""><i class='bx bxs-customize'></i>Settings</a></li>
-                  <li><a href="app/user/logout.php"><i class='bx bxs-exit'></i>Logout</a></li>
+                  <li><a href="/logout"><i class='bx bxs-exit'></i>Logout</a></li>
                   <li><a href=""><i class='bx bx-star'></i>Favorites</a></li>
                   <li><a href=""><i class='bx bxs-help-circle'></i>Help</a></li>
                   <li><a href=""><i class='bx bxs-user-detail'></i>Profile</a></li>
@@ -107,16 +107,25 @@
 
       <section class="films" id="films">
         <h1>Filmes</h1>
-        {% include 'components/CardFilm.html' %}
+        <div class="list-films-series">
+          {% include 'components/CardFilm.html' %}
+          {% include 'components/CardFilm.html' %}
+          {% include 'components/CardFilm.html' %}
+          {% include 'components/CardFilm.html' %}
+        </div>
       </section>
 
       <section class="series" id="series">
         <h1>Séries</h1>
-        {% include 'components/CardSerie.html' %}
+        <div class="list-films-series">
+          {% include 'components/CardSerie.html' %}
+          {% include 'components/CardSerie.html' %}
+          {% include 'components/CardSerie.html' %}
+          {% include 'components/CardSerie.html' %}
+          {% include 'components/CardSerie.html' %}
+          {% include 'components/CardSerie.html' %}
+        </div>
       </section>
-      <?php
-    }
-    ?>
     </main>
   </div>
   <script src="public/js/submenu.js"></script>

@@ -81,4 +81,8 @@ class Router {
     session_destroy();
     $this->router->redirect("/");
   }
+
+  public function uploadVideo($data){
+    (new RouterController())->createTemplate("templates/upload_serie/index.html");
+  }
 }

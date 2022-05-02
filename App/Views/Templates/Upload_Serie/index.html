@@ -1,14 +1,3 @@
-<?php
-session_start();
-if($_SESSION['logged']){
-  if(!($_SESSION['level'] ==  2)){
-    header('location: ../');
-  }
-}else{
-  header('location: login');
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,25 +16,10 @@ if($_SESSION['logged']){
   <div class="container">
     <div class="center">
       <h1>Upload Mega-Cine</h1>
-      <form action="../app/post/upload" method="POST" enctype="multipart/form-data" autocomplete="off">
+      <form action="" method="POST" enctype="multipart/form-data" autocomplete="off">
         <div class="input_content" id="title">
           <input type="text" name="title" required>
           <label for="title" id="label-effect"><i class='bx bxs-comment-edit'></i>Título</label>
-          <?php
-          if(isset($_COOKIE['error'])){
-          ?>
-          <span>
-            <?= $_COOKIE['error'] ?>
-          </span>
-          <?php
-            }else if(isset($_COOKIE['sucess'])){
-              ?>
-              <span>
-                <?= $_COOKIE['sucess'] ?>
-              </span>
-              <?php
-            }
-          ?>
           <span></span>
         </div>
         <div class=" input_content" id="gender">

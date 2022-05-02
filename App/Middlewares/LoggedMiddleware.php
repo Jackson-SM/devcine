@@ -4,7 +4,7 @@ namespace App\Middlewares;
 
 use CoffeeCode\Router\Router;
 
-class NotLoggedMiddleware {
+class LoggedMiddleware {
   
   public function handle(Router $router): bool
   {

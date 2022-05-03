@@ -85,4 +85,10 @@ class Router {
   public function uploadVideo($data){
     (new RouterController())->createTemplate("templates/upload_serie/index.html");
   }
+  public function uploadSeason($data) {
+    (new RouterController())->createTemplate("templates/upload_season/index.html");
+  }
+  public function uploadEpisode($data) {
+    (new RouterController())->createTemplate("templates/upload_episode/index.html");
+  }
 }

@@ -30,6 +30,8 @@ $router->get("/", "Router:logout");
 $router->group("upload", LevelMiddleware::class);
 $router->get("/", "Router:login" ,middleware: LoggedMiddleware::class);
 $router->get("/video", "Router:uploadVideo");
+$router->get("/season", "Router:uploadSeason");
+$router->get("/episode", "Router:uploadEpisode");
 
 $router->dispatch();
 

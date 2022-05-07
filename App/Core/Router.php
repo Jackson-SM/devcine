@@ -82,12 +82,27 @@ class Router {
     $this->router->redirect("/");
   }
 
+  public function panel($data) {
+    (new RouterController())->createTemplate("templates/panel/index.html", [
+      "title" => "Painel"
+    ]);
+  }
+
+  
+  public function upload($data) {
+    (new RouterController())->createTemplate("templates/upload/index.html", [
+      "title" => "Upload"
+    ]);
+  }
+
   public function uploadVideo($data){
     (new RouterController())->createTemplate("templates/upload_serie/index.html");
   }
+
   public function uploadSeason($data) {
     (new RouterController())->createTemplate("templates/upload_season/index.html");
   }
+
   public function uploadEpisode($data) {
     (new RouterController())->createTemplate("templates/upload_episode/index.html");
   }

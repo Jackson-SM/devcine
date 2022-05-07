@@ -27,8 +27,11 @@ $router->post("/", "Router:registerPost");
 $router->group("logout", LoggedMiddleware::class);
 $router->get("/", "Router:logout");
 
-$router->group("upload", LevelMiddleware::class);
-$router->get("/", "Router:login" ,middleware: LoggedMiddleware::class);
+$router->group("panel", [LoggedMiddleware::class, LevelMiddleware::class]);
+$router->get("/", "Router:panel");
+
+$router->group("upload", [LevelMiddleware::class, LoggedMiddleware::class]);
+$router->get("/", "Router:upload");
 $router->get("/video", "Router:uploadVideo");
 $router->get("/season", "Router:uploadSeason");
 $router->get("/episode", "Router:uploadEpisode");

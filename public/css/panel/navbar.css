@@ -1,0 +1,7 @@
+.nav_panel {
+  background-color: var(--main-color);
+  color: var(--text-color);
+  height: 60px;
+  display: flex;
+  align-items: center;
+}

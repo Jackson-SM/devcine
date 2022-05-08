@@ -1,3 +1,10 @@
-<div>
-  <h1>Card</h1>
+<div class="card">
+  <div class="body">
+    <span class="string_title">{{card.title}}<i class="{{card.icon}}"></i></span>
+    <h1 class="string_users">{{card.value}}</h1>
+    <div class="date_container">
+      <span class="last_month">Last Month</span>
+      <p class="string_date">+{{card.last_month}}</p>
+    </div>
+  </div>
 </div>

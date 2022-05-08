@@ -1,7 +1,9 @@
 :root {
-  --main-color: #393e41;
+  --main-color: #191923;
+  --main-color-focus: #21212e;
+  --main-color-focus-secundary: #2c2c3d;
   --text-color: #f6f7eb;
-  --primary-color: #3f88c5;
+  --primary-color: #2c92e6;
   --secundary-color: #e94f37;
 }
 
@@ -18,9 +20,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-html {
   scroll-behavior: smooth !important;
 }
 

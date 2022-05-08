@@ -38,7 +38,6 @@ class Router {
     (new RouterController())->createTemplate("templates/login/index.html", [
       "title" => "Login",
       "error" => !empty($_COOKIE['error']),
-      "url" => URL_LOCATION
     ]);
   }
 
@@ -58,7 +57,6 @@ class Router {
     (new RouterController())->createTemplate("templates/register/index.html", [
       "title" => "Register",
       "error" => !empty($_COOKIE['error']),
-      "url" => URL_LOCATION
     ]);
   }
 
@@ -84,7 +82,27 @@ class Router {
 
   public function panel($data) {
     (new RouterController())->createTemplate("templates/panel/index.html", [
-      "title" => "Painel"
+      "title" => "Painel",
+      "cards" => [
+        [
+          "title" => "Accounts",
+          "value" => "3523",
+          "last_month" => "46",
+          "icon" => "bx bxs-user-account",
+        ],
+        [
+          "title" => "Videos",
+          "value" => "97",
+          "last_month" => "6",
+          "icon" => "bx bxs-video",
+        ],
+        [
+          "title" => "Logged Now",
+          "value" => "984",
+          "last_month" => "1494",
+          "icon" => "bx bxs-user-detail",
+        ]
+      ]
     ]);
   }
 

@@ -17,6 +17,8 @@
 
   position: absolute;
 
+  pointer-events: none;
+
   top: 0;
   left: 0;
 
@@ -80,14 +82,18 @@
   pointer-events: none;
 }
 
+.btn-wrapper:hover a{
+  opacity: 1;
+}
+
 .btn-wrapper a {
   background-color: rgba(0, 0, 0, 0.693);
   font-size: 50px;
-  padding: 10px 22px;
-  border-radius: 50%;
+  padding: 10px;
   color: white;
   pointer-events: auto;
   transition: all ease 200ms;
+  opacity: 0;
 
   z-index: 9;
 }

@@ -1,0 +1,89 @@
+.card {
+  padding-top: calc((3 / 4) * 100%);
+  position: relative;
+
+  position: relative;
+
+  color: var(--text-color);
+
+  display: flex;
+  align-items: center;
+
+  border-radius: 5px;
+
+  background: var(--main-color-focus-secundary);
+
+  transition: all ease 200ms;
+
+}
+
+.card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 10px 4px rgba(255, 255, 255, 0.185);
+}
+
+.card .body {
+  display: flex;
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+  
+  
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
+  padding: 20px;
+}
+
+.card::before {
+  content: '';
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  height: 2%;
+  width: 100%;
+
+  border-radius: 10px;
+
+  background: linear-gradient(to left,rgb(133, 16, 133),rgb(0, 89, 255));
+}
+
+.string_title {
+  font-size: 17px;
+  display: flex;
+  gap: 4rem;
+  color: var(--main-color);
+  filter: contrast(10%);
+}
+
+.string_title i{
+  font-size: 30px;
+}
+
+.string_users {
+  font-size: 40px;
+}
+
+.date_container {
+  display: flex;
+  gap: 1rem;
+  align-items: center
+}
+
+.last_month {
+  font-size: 14px;
+  filter: contrast(10%);
+}
+
+.string_date {
+  background: linear-gradient(to right,rgb(36, 209, 36), rgb(0, 129, 204));
+  color: transparent;
+  -webkit-background-clip: text;
+}

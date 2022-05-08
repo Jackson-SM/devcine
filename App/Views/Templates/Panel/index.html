@@ -5,9 +5,11 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
   <link rel="stylesheet" href="public/css/panel/cardInfo.css">
   <link rel="stylesheet" href="public/css/panel/navbar.css">
   <link rel="stylesheet" href="public/css/panel/sidebar.css">
+  <link rel="stylesheet" href="public/css/panel/styles.css">
   <link rel="stylesheet" href="public/css/global.css">
   <title>{{title}}</title>
 </head>
@@ -18,10 +20,13 @@
       <h1>Mega-Cine</h1>
     </div>
   </nav>
-  {% include 'components/panel/Sidebar.html' %}
-  <main>
-    {% include 'components/panel/CardInfoFilm.html' %}
-  </main>
+  <div class="dashboard">
+    {% include 'components/panel/Sidebar.html' %}
+    <main>
+      <h1 class="title_main">Data Media Dashboard <i class='bx bxs-dashboard'></i></h1>
+      {% include 'components/panel/ContainerCards.html' %}
+    </main>
+  </div>
 </body>
 
 </html>

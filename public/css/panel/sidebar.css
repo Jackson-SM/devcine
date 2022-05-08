@@ -1,0 +1,83 @@
+.sidebar {
+  background: var(--main-color-focus);
+  width: 250px;
+  height: 100%;
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+}
+
+.navigation_title {
+  text-align: center;
+  font-size: 17px;
+  padding: 10px 0;
+  background-color: var(--main-color);
+  color: var(--text-color);
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 15px 5px;
+}
+
+.user_info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.user_img {
+  width: 80px;
+  height: 80px;
+  position: relative;
+}
+
+.user_img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  padding: 10px;
+  border-radius: 50%;
+}
+
+.user_name {
+  font-size: 13px;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  align-items: center;
+  gap: 1rem;
+}
+
+.links li {
+  width: 100%;
+  display: flex;
+}
+
+.links li a {
+  text-decoration: none;
+  color: var(--text-color);
+  padding: 10px 0;
+  width: 100%;
+  font-size: 13px;
+  transition: all ease 200ms;
+  display: flex;
+  align-items: center;
+  padding-left: 40px;
+  gap: 2rem;
+}
+
+.links li a i {
+  font-size: 25px;
+}
+
+.links li a:hover {
+  color: var(--primary-color);
+  background-color: var(--main-color);
+}

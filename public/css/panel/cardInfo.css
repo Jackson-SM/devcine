@@ -2,12 +2,10 @@
   padding-top: calc((3 / 4) * 100%);
   position: relative;
 
-  position: relative;
 
   color: var(--text-color);
 
   display: flex;
-  align-items: center;
 
   border-radius: 5px;
 
@@ -15,6 +13,30 @@
 
   transition: all ease 200ms;
 
+}
+
+.card.mini {
+  padding-top: calc((3 / 6) * 100%);
+}
+
+.card.mini .body {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  gap: 2rem;
+}
+
+.card.mini .body .icon_content i{
+  font-size: 50px;
+  padding: 10px;
+  border-radius: 50%;
+  background: linear-gradient(to left,rgb(184, 164, 47),rgb(230, 70, 118));
+}
+
+.card.mini .content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .card:hover {
@@ -37,6 +59,10 @@
   height: 100%;
   width: 100%;
   padding: 20px;
+}
+
+.card.mini::before {
+  background: linear-gradient(to left,rgb(184, 164, 47),rgb(230, 70, 118));
 }
 
 .card::before {

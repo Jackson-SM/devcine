@@ -52,7 +52,8 @@
   flex-direction: column;
   list-style: none;
   align-items: center;
-  gap: 1rem;
+  padding: 5px 0;
+  gap: 5px;
 }
 
 .links li {
@@ -65,16 +66,16 @@
   color: var(--text-color);
   padding: 10px 0;
   width: 100%;
-  font-size: 13px;
+  font-size: 12px;
   transition: all ease 200ms;
   display: flex;
   align-items: center;
-  padding-left: 40px;
   gap: 2rem;
 }
 
 .links li a i {
   font-size: 25px;
+  padding-left: 20px;
 }
 
 .links li a:hover {

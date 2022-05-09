@@ -6,13 +6,15 @@ main {
   padding: 10px;
   width: 100%;
   overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 main .title_main {
   color: var(--text-color);
   padding: 5px;
   background-color: var(--main-color-focus);
-  margin: 10px 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -22,12 +24,13 @@ main .title_main i{
   font-size: 40px;
 }
 
-.containerPanel {
+.container_panel {
   background-color: var(--main-color-focus);
   padding: 30px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1rem;
+  border-radius: 5px;
 }
 
 .dashboard {

@@ -9,7 +9,7 @@ class RouterController {
     $loader = new \Twig\Loader\FilesystemLoader('App/Views');
 
     $twig = new \Twig\Environment($loader);
-
+    
     echo $twig->render($page,
     [
       ...$params

@@ -81,28 +81,55 @@ class Router {
   }
 
   public function panel($data) {
+
+    $id = null;
+    if(isset($_SESSION['id'])){
+      $id = $_SESSION['id'];
+    }
+
     (new RouterController())->createTemplate("templates/panel/index.html", [
       "title" => "Painel",
+      "user" => (new  UserController())->readById($id),
       "cards" => [
         [
-          "title" => "Accounts",
+          "title" => "Usuários",
           "value" => "3523",
           "last_month" => "46",
           "icon" => "bx bxs-user-account",
         ],
         [
-          "title" => "Videos",
+          "title" => "Filmes",
           "value" => "97",
           "last_month" => "6",
           "icon" => "bx bxs-video",
         ],
         [
-          "title" => "Logged Now",
-          "value" => "984",
-          "last_month" => "1494",
-          "icon" => "bx bxs-user-detail",
+          "title" => "Séries",
+          "value" => "35",
+          "last_month" => "5",
+          "icon" => "bx bxs-videos",
         ]
-      ]
+        ],
+        "mini_cards" => [
+          [
+            "title" => "Purchases",
+            "value" => "5029",
+            "last_month" => "143",
+            "icon" => "bx bxs-cart",
+          ],
+          [
+            "title" => "Logged Now",
+            "value" => "1203",
+            "last_month" => "2592",
+            "icon" => "bx bx-run",
+          ],
+          [
+            "title" => "Likes",
+            "value" => "8192",
+            "last_month" => "304",
+            "icon" => "bx bxs-heart",
+          ]
+        ]
     ]);
   }
 

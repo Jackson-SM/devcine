@@ -3,8 +3,11 @@
 namespace App\Core;
 
 use App\Auth\AuthLogin;
+use App\Controllers\DashboardController;
 use App\Controllers\UserController;
+use App\Controllers\VideoController;
 use App\Models\User;
+use App\Models\Video;
 use CoffeeCode\Router\Router as RouterApp;
 
 class Router {
@@ -93,7 +96,7 @@ class Router {
       "cards" => [
         [
           "title" => "Usuários",
-          "value" => "3523",
+          "value" => (new DashboardController())->readByNumbersUsers(),
           "last_month" => "46",
           "icon" => "bx bxs-user-account",
         ],
@@ -141,7 +144,20 @@ class Router {
   }
 
   public function uploadVideo($data){
-    (new RouterController())->createTemplate("templates/upload_serie/index.html");
+    (new RouterController())->createTemplate("templates/upload_video/index.html");
+  }
+  public function uploadVideoPost($data){
+
+    $video = new Video();
+
+    $video->setTitle($data['title']);
+    $video->setSinopse($data['sinopse']);
+    $video->setType($data['type']);
+    $video->setYear($data['year']);
+    $video->setImgCover($_FILES['file']);
+    $video->setGender($data['gender']);
+
+    (new VideoController())->create($video);
   }
 
   public function uploadSeason($data) {

@@ -32,7 +32,11 @@ $router->get("/", "Router:panel");
 
 $router->group("upload", [LevelMiddleware::class, LoggedMiddleware::class]);
 $router->get("/", "Router:upload");
+
 $router->get("/video", "Router:uploadVideo");
+$router->post("/video", "Router:uploadVideoPost");
+
+
 $router->get("/season", "Router:uploadSeason");
 $router->get("/episode", "Router:uploadEpisode");
 

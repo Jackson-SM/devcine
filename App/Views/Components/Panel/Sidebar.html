@@ -4,8 +4,15 @@
       <img src="public/img/users/{{user.id}}/{{user.img_profile}}" alt="">
     </div>
     <div class="user_info">
-      <span>Welcome</span>
+      <span class="welcome">Welcome!</span>
       <p class="user_name">{{user.name}}</p>
+      <p class="level_mode">
+        {% if user.level == 2 %}
+        Moderator
+        {% elseif user.level == 3 %}
+        Admin Level
+        {% endif %}
+      </p>
     </div>
   </div>
   <div class="navigation">

@@ -17,7 +17,7 @@ class LevelMiddleware {
       $data = (new UserController())->readById($_SESSION['id']);
       $level = $data['level'];
       
-      if($level === 2) {
+      if($level > 1) {
         return true;
       }
 

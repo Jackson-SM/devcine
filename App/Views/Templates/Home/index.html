@@ -109,22 +109,18 @@
       <section class="films" id="films">
         <h1>Filmes</h1>
         <div class="list-films-series">
-          {% include 'components/CardFilm.html' %}
-          {% include 'components/CardFilm.html' %}
-          {% include 'components/CardFilm.html' %}
-          {% include 'components/CardFilm.html' %}
+          {% for film in films %}
+          {% include 'components/home/CardFilm.html' %}
+          {% endfor %}
         </div>
       </section>
 
       <section class="series" id="series">
         <h1>Séries</h1>
         <div class="list-films-series">
-          {% include 'components/CardSerie.html' %}
-          {% include 'components/CardSerie.html' %}
-          {% include 'components/CardSerie.html' %}
-          {% include 'components/CardSerie.html' %}
-          {% include 'components/CardSerie.html' %}
-          {% include 'components/CardSerie.html' %}
+          {% for serie in series %}
+          {% include 'components/home/CardSerie.html' %}
+          {% endfor %}
         </div>
       </section>
     </main>

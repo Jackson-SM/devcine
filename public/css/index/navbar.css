@@ -1,6 +1,6 @@
 .navbar {
   height: 80px;
-  background: #2c2c2c;
+  background: var(--main-color);
   color: white;
   position: fixed;
   width: 100%;

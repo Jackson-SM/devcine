@@ -3,7 +3,7 @@
 namespace App\Models;
 
 class Video {
-  private $title,$sinopse,$type,$year,$img_cover,$gender;
+  private $title,$sinopse,$duration,$type,$year,$img_cover,$gender;
 
   public function setTitle($title){
     $this->title = $title;
@@ -27,6 +27,14 @@ class Video {
 
   public function getType(){
     return $this->type;
+  }
+
+  public function setDuration($duration) {
+    $this->duration = $duration;
+  }
+
+  public function getDuration(){
+    return $this->duration;
   }
 
   public function setYear($year){

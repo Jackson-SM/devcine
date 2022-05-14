@@ -3,19 +3,19 @@
 <div class="container">
   <div class="card">
     <a href="" class="img-link">
-      <img src="public/img/wrapper/moana.jpg">
+      <img src="public/img/videos/{{serie.type}}/{{serie.id}}/{{serie.img_cover}}">
     </a>
   </div>
   <div class="info">
     <h1>
-      Moana
+      {{serie.title}}
     </h1>
     <p><strong>Sinopse:</strong>
-      Moana é uma serie que eu nunca vi na vida e muito provavelmente não irei ver.
+      {{serie.sinopse}}
     </p>
     <p class="genders"><strong>Gênero: </strong>
       <span class="gender">
-        Genero
+        {{serie.gender}}
       </span>
     </p>
     <form action="pages/serie/" method="POST">
@@ -24,10 +24,10 @@
     </form>
     <div class="info-film">
       <span><strong>Ano: </strong>
-        2020
+        {{serie.year}}
       </span>
       <span><strong>Temporadas: </strong>
-        1h 24min
+        {{serie.duration}}
       </span>
       <!-- Só irei ver se eu tiver o level maior que 1 -->
       <div class="options-films">

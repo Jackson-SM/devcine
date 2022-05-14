@@ -1,0 +1,42 @@
+<div class="container new">
+  <div class="card">
+    <img src="public/img/videos/{{film.type}}/{{film.id}}/{{film.img_cover}}">
+  </div>
+  <div class="info">
+
+    <h1>
+      {{film.title}}
+    </h1>
+    <p><strong>Sinopse:</strong>
+      {{film.sinopse}}
+    </p>
+
+    <p class="genders"><strong>Gênero: </strong>
+      <span class="gender">
+        {{film.gender}}
+      </span>
+    </p>
+    <form action="pages/film/" method="POST">
+      <button type="submit" class="watch">Reproduzir<i class='bx bx-play'></i></button>
+      <input type="hidden" name="id" value="<?= $posts['id'] ?>">
+    </form>
+    <div class="info-film">
+      <span><strong>Ano: </strong>
+        {{film.year}}
+      </span>
+      <span><strong>Duração: </strong>
+        {{film.duration}}
+      </span>
+      <div class="options-films">
+        <a href="" class="btn-option"><i class='bx bx-dots-vertical'></i></a>
+        <div class="dropdown">
+          <ul class="options">
+            <li><a href="" style="--i: 1;"><i class='bx bxs-trash-alt'></i></a></li>
+            <li><a href="" style="--i: 2;"><i class='bx bxs-cog'></i></a></>
+            <li><a href="" style="--i: 3;"><i class='bx bx-plus'></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,3 +1,9 @@
+:root {
+  --main-color-gradient: rgba(25, 25, 35, 0.801);
+  --main-color-gradient_two: rgba(25, 25, 35, 0.616);
+  --main-color-gradient_three: rgba(25, 25, 35, 0.288);
+}
+
 #items-wrapper {
   width: 100vw;
   position: relative;
@@ -13,7 +19,24 @@
   width: 100%;
   height: 100%;
 
-  background: linear-gradient(to top,rgb(44, 44, 44),rgb(44, 44, 44),rgba(44, 44, 44, 0.822),rgba(44, 44, 44, 0.604),rgba(44, 44, 44, 0.296),rgba(44, 44, 44, 0.296),rgba(44, 44, 44, 0.296),rgba(44, 44, 44, 0.296),rgba(44, 44, 44, 0.296),rgba(44, 44, 44, 0.296),rgba(44, 44, 44, 0.296),rgba(44, 44, 44, 0.296),rgba(44, 44, 44, 0.296),rgba(44, 44, 44, 0.296),rgba(44, 44, 44, 0.296),rgba(44, 44, 44, 0.296),rgba(44, 44, 44, 0.296));
+  background: linear-gradient(to top,
+  var(--main-color),
+  var(--main-color),
+  var(--main-color-gradient),
+  var(--main-color-gradient_two),
+  var(--main-color-gradient_three),
+  var(--main-color-gradient_three),
+  var(--main-color-gradient_three),
+  var(--main-color-gradient_three),
+  var(--main-color-gradient_three),
+  var(--main-color-gradient_three),
+  var(--main-color-gradient_three),
+  var(--main-color-gradient_three),
+  var(--main-color-gradient_three),
+  var(--main-color-gradient_three),
+  var(--main-color-gradient_three),
+  var(--main-color-gradient_three),
+  var(--main-color-gradient_three));
 
   position: absolute;
 
@@ -87,7 +110,7 @@
 }
 
 .btn-wrapper a {
-  background-color: rgba(0, 0, 0, 0.693);
+  background-color: var(--main-color);
   font-size: 50px;
   padding: 10px;
   color: white;
@@ -98,7 +121,7 @@
   z-index: 9;
 }
 .btn-wrapper a:hover {
-  background-color: rgba(0, 0, 0, 0.823);
+  background-color: var(--main-color-gradient);
 }
 
 .menu-wrapper {

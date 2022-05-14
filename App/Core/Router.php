@@ -21,17 +21,23 @@ class Router {
       $id = $_SESSION['id'];
     }
 
-    $params = [
-      "title" => "Home",
-      "user" => (new  UserController())->readById($id)
-    ];
+    $params = null;
 
     $renderPath = null;
 
     if(!$id) {
       $renderPath = "templates/index/index.html";
+      $params = [
+        "title" => "Index"
+      ];
     }else{
       $renderPath = "templates/home/index.html";
+      $params = [
+        "title" => "Home",
+        "user" => (new  UserController())->readById($id),
+        "films" => (new VideoController())->readByFilms(),
+        "series" => (new VideoController())->readBySeries()
+      ];
     }
 
     (new RouterController())->createTemplate($renderPath, $params);
@@ -102,13 +108,13 @@ class Router {
         ],
         [
           "title" => "Filmes",
-          "value" => "97",
+          "value" => (new DashboardController())->readByFilms(),
           "last_month" => "6",
           "icon" => "bx bxs-video",
         ],
         [
           "title" => "Séries",
-          "value" => "35",
+          "value" => (new DashboardController())->readBySeries(),
           "last_month" => "5",
           "icon" => "bx bxs-videos",
         ]
@@ -118,13 +124,13 @@ class Router {
             "title" => "Purchases",
             "value" => "5029",
             "last_month" => "143",
-            "icon" => "bx bxs-cart",
+            "icon" => "bx bxs-shopping-bags",
           ],
           [
             "title" => "Logged Now",
             "value" => "1203",
             "last_month" => "2592",
-            "icon" => "bx bx-run",
+            "icon" => "bx bxs-user-plus",
           ],
           [
             "title" => "Likes",
@@ -152,6 +158,7 @@ class Router {
 
     $video->setTitle($data['title']);
     $video->setSinopse($data['sinopse']);
+    $video->setDuration($data['duration']);
     $video->setType($data['type']);
     $video->setYear($data['year']);
     $video->setImgCover($_FILES['file']);

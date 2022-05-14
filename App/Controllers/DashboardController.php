@@ -23,9 +23,23 @@ class DashboardController {
     $stmt = PostgresConnect::connect()->prepare($sql);
 
     if($stmt->execute()){
-      $usersNumbers = $stmt->rowCount();
+      $films = $stmt->rowCount();
 
-      return $usersNumbers;
+      return $films;
     }
   }
+
+  public function readBySeries(){
+    $sql = "SELECT * FROM videos WHERE type = 'serie'";
+
+    $stmt = PostgresConnect::connect()->prepare($sql);
+
+    if($stmt->execute()){
+      $series = $stmt->rowCount();
+
+      return $series;
+    }
+
+  }
+
 }

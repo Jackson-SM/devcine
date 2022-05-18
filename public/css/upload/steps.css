@@ -1,0 +1,40 @@
+.steps {
+  width: 100%;
+  display: flex;
+  flex: none;
+  justify-content: center;
+  gap: 50px;
+}
+
+.step {
+  font-size: 19px;
+  background-color: var(--color-fixed);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  position: relative;
+  padding: 3px;
+  transition: all eae 200ms;
+}
+
+.step.concluded {
+
+}
+
+.step::before {
+  content: '';
+
+  position: absolute;
+
+  background-color: var(--text-color);
+
+  width: 50px;
+  height: 3px;
+
+  left: 100%;
+}
+
+.steps .step:last-child::before {
+  display: none;
+}

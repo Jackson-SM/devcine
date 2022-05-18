@@ -5,8 +5,10 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../public/css/upload/upload.css">
   <link rel="stylesheet" href="../public/css/global.css">
+  <link rel="stylesheet" href="../public/css/upload/upload.css">
+  <link rel="stylesheet" href="../public/css/upload/inputs.css">
+  <link rel="stylesheet" href="../public/css/upload/steps.css">
   <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <title>Upload</title>
@@ -14,52 +16,107 @@
 
 <body>
   <div class="container">
-    <div class="center">
-      <h1>Upload Mega-Cine</h1>
+    <div class="card_form">
+      <header>Upload Video</header>
+      <div class="steps">
+        <div class="step">
+          <i class='bx bx-infinite'></i>
+        </div>
+        <div class="step">
+          <i class='bx bx-infinite'></i>
+        </div>
+        <div class="step">
+          <i class='bx bx-infinite'></i>
+        </div>
+        <div class="step">
+          <i class='bx bx-infinite'></i>
+        </div>
+      </div>
       <form action="" method="POST" enctype="multipart/form-data" autocomplete="off">
-        <div class="input_content" id="title">
-          <input type="text" name="title" required>
-          <label for="title" id="label-effect"><i class='bx bxs-comment-edit'></i>Título</label>
-          <span></span>
+
+        <div class="page">
+
+          <div class="title">Basic Info</div>
+          <div class="field">
+            <div class="input_content" id="title">
+              <label for="title">Title</label>
+              <input type="text" name="title" placeholder="Ex: Coração de Ferro" required>
+            </div>
+            <div class=" input_content" id="gender">
+              <label for="gender">Gender</label>
+              <input type="text" name="gender" placeholder="Ex: Fantasia, Ação..." required>
+            </div>
+            <div class="input_content select">
+              <label for="type">Type</label>
+              <select name="type" id="type">
+                <option value="film">Filme</option>
+                <option value="serie">Série</option>
+              </select>
+            </div>
+            <div class="btns">
+              <button class="prev-1 prev">Previous</button>
+              <button class="next-1 next">Next</button>
+            </div>
+          </div>
+
         </div>
-        <div class=" input_content" id="gender">
-          <input type="text" name="gender" required>
-          <label for="gender" id="label-effect"><i class='bx bxs-info-circle'></i>Gênero</label>
-          <span></span>
+
+        <div class="page">
+
+          <div class="title">Title</div>
+          <div class="field">
+            <div class="input_content" id="year">
+              <label for="year">Year</label>
+              <input type="number" name="year" required>
+            </div>
+            <div class="btns">
+              <button class="prev-2 prev">Previous</button>
+              <button class="next-2 next">Next</button>
+            </div>
+          </div>
+
         </div>
-        <div class="input_content" id="year">
-          <input type="number" name="year" required>
-          <label for="year" id="label-effect"><i class='bx bxs-calendar'></i>Ano</label>
-          <span></span>
+
+        <div class="page">
+
+          <div class="title">Title</div>
+          <div class="field">
+            <div class="input_content">
+              <label for="duration">Duration</label>
+              <input type="text" name="duration" required>
+            </div>
+            <div class="input_file" id="file-div">
+              <input type="file" name="file" id="file">
+              <label for="file" class="cover">
+                <i class='bx bxs-file-image'></i>
+                Enviar arquivo
+              </label>
+              <span class="archive-name" id="archiveName"></span>
+            </div>
+            <div class="btns">
+              <button class="prev-3 prev">Previous</button>
+              <button class="next-3 next">Next</button>
+            </div>
+          </div>
+
         </div>
-        <div class="input_content">
-          <input type="text" name="duration" required>
-          <label for="duration" id="label-effect"><i class='bx bxs-alarm'></i>Duração</label>
-          <span></span>
+
+        <div class="page">
+          <div class="field">
+            <div class="input_content textarea" id="sinopse-div">
+              <label for="sinopse">Sinopse</label>
+              <textarea name="sinopse" id="sinopse" cols="40" rows="6" required></textarea>
+            </div>
+          </div>
         </div>
-        <div class="input_content select">
-          <select name="type" id="type">
-            <option value="film">Filme</option>
-            <option value="serie">Série</option>
-          </select>
-        </div>
-        <div class="input_content textarea" id="sinopse-div">
-          <textarea name="sinopse" id="sinopse" cols="50" rows="15" required></textarea>
-          <label for="sinopse"><i class='bx bxs-message-detail'></i>Sinopse</label>
-        </div>
-        <div class="input_file" id="file-div">
-          <input type="file" name="file" id="file">
-          <label for="file" class="cover">
-            <i class='bx bxs-file-image'></i>
-            Enviar arquivo
-          </label>
-          <span class="archive-name" id="archiveName"></span>
-        </div>
-        <button type="submit" class="btn-upload" name="btn-upload"><i class='bx bxs-cloud-upload'></i>Upload</button>
+
+        <!-- <button type="submit" class="btn-upload" name="btn-upload"><i class='bx bxs-cloud-upload'></i>Upload</button> -->
+
       </form>
     </div>
   </div>
   <script src="../public/js/archiveName.js"></script>
+  <script src="../public/js/upload/next_prev.js"></script>
 </body>
 
 </html>

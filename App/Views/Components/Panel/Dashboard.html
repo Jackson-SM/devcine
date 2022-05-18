@@ -1,4 +1,10 @@
-<div class="content_dashboard">
-  {% include 'components/panel/dashboard/ContainerCards.html' %}
-  {% include 'components/panel/dashboard/ContainerCardsMini.html' %}
+<div class="dashboard">
+  {% include 'components/panel/Sidebar.html' %}
+  <main>
+    <h1 class="title_main">Info Media Dashboard <i class='bx bxs-dashboard'></i></h1>
+    <div class="content_dashboard">
+      {% include 'components/panel/dashboard/ContainerCards.html' %}
+      {% include 'components/panel/dashboard/ContainerCardsMini.html' %}
+    </div>
+  </main>
 </div>

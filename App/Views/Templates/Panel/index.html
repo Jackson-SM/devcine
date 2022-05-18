@@ -10,20 +10,14 @@
   <link rel="stylesheet" href="public/css/panel/navbar.css">
   <link rel="stylesheet" href="public/css/panel/sidebar.css">
   <link rel="stylesheet" href="public/css/panel/styles.css">
-  <link rel="stylesheet" href="public/css/global.css">
   <link rel="stylesheet" href="public/css/panel/graphic/cards_graphic.css">
+  <link rel="stylesheet" href="public/css/global.css">
   <title>{{title}}</title>
 </head>
 
 <body>
   {% include 'components/panel/Navbar.html' %}
-  <div class="dashboard">
-    {% include 'components/panel/Sidebar.html' %}
-    <main>
-      <h1 class="title_main">Info Media Dashboard <i class='bx bxs-dashboard'></i></h1>
-      {% include 'components/panel/Dashboard.html' %}
-    </main>
-  </div>
+  {% include 'components/panel/Dashboard.html' %}
   <script src="public/js/panel/dinamic.js"></script>
 </body>
 

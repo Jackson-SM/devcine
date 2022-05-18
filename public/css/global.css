@@ -2,9 +2,11 @@
   --main-color: #191923;
   --main-color-focus: #21212e;
   --main-color-focus-secundary: #2c2c3d;
+  --main-color-card: #323344;
   --text-color: #f6f7eb;
   --primary-color: #2c92e6;
   --secundary-color: #e94f37;
+  --color-fixed: rgb(112, 96, 255);
 }
 
 @font-face {

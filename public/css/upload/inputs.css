@@ -3,6 +3,7 @@
   flex-direction: column;
   width: 100%;
   padding: 0 40px;
+  gap: 10px;
 }
 
 .input_content label {
@@ -50,10 +51,15 @@
   font-size: 15px;
   font-family: "Galano", sans-serif;
   color: #eee;
-  background: rgb(167, 166, 166);
+  background: var(--color-fixed);
   border: none;
   border-radius: 3px;
   cursor: pointer;
+  transition: all ease 200ms;
+}
+
+.btns button:hover {
+  filter: brightness(0.8);
 }
 
 textarea {

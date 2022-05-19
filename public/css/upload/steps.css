@@ -2,24 +2,32 @@
   width: 100%;
   display: flex;
   flex: none;
-  justify-content: center;
-  gap: 50px;
 }
 
 .step {
-  font-size: 19px;
-  background-color: var(--color-fixed);
-  border-radius: 50%;
+  transition: all eae 2s;
+  position: relative;
   display: flex;
   align-items: center;
-  justify-content:center;
-  position: relative;
-  padding: 3px;
-  transition: all eae 200ms;
+  justify-content: center;
+  flex: 1;
+
+  z-index: 1;
 }
 
-.step.concluded {
+.step .icon_step i{
+  font-size: 21px;
+  background-color: var(--color-fixed);
+  display: flex;
+  border-radius: 50%;
+  position: relative;
+  padding: 7px;
+}
 
+.step p {
+  font-size: 13px;
+  position: absolute;
+  transform: translateY(120%);
 }
 
 .step::before {
@@ -27,14 +35,40 @@
 
   position: absolute;
 
-  background-color: var(--text-color);
+  background-color: #eee;
 
-  width: 50px;
+  width: 100%;
   height: 3px;
 
-  left: 100%;
+  left: 50%;
+
+  z-index: -1;
+
+  transition: all ease 2s;
 }
 
-.steps .step:last-child::before {
+.step::after {
+  content: '';
+
+  position: absolute;
+
+  background-color: var(--secundary-color);
+
+  width: 0;
+  height: 3px;
+
+  left: 50%;
+
+  z-index: -1;
+
+  transition: all ease 1s;
+}
+
+.step.complete::after {
+  width: 100%;
+}
+
+.steps .step:last-child::before,
+.steps .step:last-child::after {
   display: none;
 }

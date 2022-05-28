@@ -1,0 +1,42 @@
+.cards_apresentation {
+  width: 500px;
+  height: 600px;
+  background: url(/public/img/background/upload/wave.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: var(--main-color-focus-secundary);
+  color: var(--text-color);
+}
+
+.card_apresentation {
+  display: flex;
+  flex-direction: column;
+  font-family: "Galano", sans-serif;
+  height: 100%;
+}
+
+.card_apresentation .img_card {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card_apresentation .content_apresentation {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  gap: 2rem;
+  height: 100%;
+}
+
+.card_apresentation .content_apresentation h1 {
+  filter: brightness(0.8);
+}
+
+.card_apresentation .content_apresentation p {
+  filter: brightness(0.8);
+  font-size: 12px;
+}

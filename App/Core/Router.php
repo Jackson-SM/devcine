@@ -6,6 +6,7 @@ use App\Auth\AuthLogin;
 use App\Controllers\DashboardController;
 use App\Controllers\UserController;
 use App\Controllers\VideoController;
+use App\Core\User as CoreUser;
 use App\Models\User;
 use App\Models\Video;
 use CoffeeCode\Router\Router as RouterApp;
@@ -16,10 +17,7 @@ class Router {
   }
 
   public function home($data) {
-    $id = null;
-    if(isset($_SESSION['id'])){
-      $id = $_SESSION['id'];
-    }
+    $id = (new CoreUser())->idSession();
 
     $params = null;
 
@@ -90,15 +88,9 @@ class Router {
   }
 
   public function panel($data) {
-
-    $id = null;
-    if(isset($_SESSION['id'])){
-      $id = $_SESSION['id'];
-    }
-
     (new RouterController())->createTemplate("templates/panel/index.html", [
       "title" => "Painel",
-      "user" => (new  UserController())->readById($id),
+      "user" => (new  UserController())->readById((new CoreUser())->idSession()),
       "cards" => [
         [
           "title" => "Usuários",
@@ -142,13 +134,6 @@ class Router {
     ]);
   }
 
-  
-  public function upload($data) {
-    (new RouterController())->createTemplate("templates/upload/index.html", [
-      "title" => "Upload"
-    ]);
-  }
-
   public function uploadVideo($data){
     (new RouterController())->createTemplate("templates/upload_video/index.html");
   }
@@ -168,10 +153,14 @@ class Router {
   }
 
   public function uploadSeason($data) {
-    (new RouterController())->createTemplate("templates/upload_season/index.html");
+    (new RouterController())->createTemplate("templates/upload_season/index.html", [
+      "title" => "Upload Season",
+    ]);
   }
 
   public function uploadEpisode($data) {
-    (new RouterController())->createTemplate("templates/upload_episode/index.html");
+    (new RouterController())->createTemplate("templates/upload_episode/index.html", [
+      "title" => "Upload Episode",
+    ]);
   }
 }

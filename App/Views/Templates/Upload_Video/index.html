@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="../public/css/upload/upload.css">
   <link rel="stylesheet" href="../public/css/upload/inputs.css">
   <link rel="stylesheet" href="../public/css/upload/steps.css">
+  <link rel="stylesheet" href="../public/css/upload/cards_apresentation.css">
   <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <title>Upload</title>
@@ -16,115 +17,130 @@
 
 <body>
   <div class="container">
-    <div class="card_form">
-      <header>Upload Video</header>
-      <div class="steps">
-        <div class="step">
-          <div class="icon_step">
-            <i class='bx bx-info-circle'></i>
+    <div class="content">
+      <div class="cards_apresentation">
+        <div class="card_apresentation">
+          <div class="img_card">
+            <img src="/public/img/background/upload/rocket.svg" alt="">
           </div>
-          <p>Info</p>
-        </div>
-        <div class="step">
-          <div class="icon_step">
-            <i class='bx bx-cog'></i>
+          <div class="content_apresentation">
+            <h1>Hello World.</h1>
+            <p>Etiam ipsum libero, rutrum eget aliquam id, porttitor non libero. In dignissim blandit blandit. Etiam
+              vitae ante at sapien consectetur tempor. Aenean ac finibus mauris.</p>
           </div>
-          <p>Settings</p>
-        </div>
-        <div class="step">
-          <div class="icon_step">
-            <i class='bx bx-archive-in'></i>
-          </div>
-          <p>Archives</p>
-        </div>
-        <div class="step">
-          <div class="icon_step">
-            <i class='bx bx-info-circle'></i>
-          </div>
-          <p>Info</p>
         </div>
       </div>
-      <form action="" method="POST" enctype="multipart/form-data" autocomplete="off">
+      <div class="card_form">
+        <header>Upload Video</header>
+        <div class="steps">
+          <div class="step step_in">
+            <div class="icon_step">
+              <i class='bx bx-info-circle'></i>
+            </div>
+            <p>Info</p>
+          </div>
+          <div class="step">
+            <div class="icon_step">
+              <i class='bx bx-cog'></i>
+            </div>
+            <p>Settings</p>
+          </div>
+          <div class="step">
+            <div class="icon_step">
+              <i class='bx bx-images'></i>
+            </div>
+            <p>Images</p>
+          </div>
+          <div class="step">
+            <div class="icon_step">
+              <i class='bx bx-check'></i>
+            </div>
+            <p>Complete</p>
+          </div>
+        </div>
+        <form action="" method="POST" enctype="multipart/form-data" autocomplete="off">
 
-        <div class="page">
+          <div class="page">
 
-          <div class="title">Basic Info</div>
-          <div class="field">
-            <div class="input_content" id="title">
-              <label for="title">Title</label>
-              <input type="text" name="title" placeholder="Ex: Coração de Ferro" required>
+            <div class="title">Information</div>
+            <div class="field field-1">
+              <div class="input_content" id="title">
+                <label for="title">Title</label>
+                <input type="text" name="title" placeholder="Ex: Coração de Ferro" required>
+              </div>
+              <div class=" input_content" id="gender">
+                <label for="gender">Gender</label>
+                <input type="text" name="gender" placeholder="Ex: Fantasia, Ação..." required>
+              </div>
+              <div class="input_content select">
+                <label for="type">Type</label>
+                <select name="type" id="type">
+                  <option value="film">Filme</option>
+                  <option value="serie">Série</option>
+                </select>
+              </div>
+              <div class="btns">
+                <button class="prev-1 prev">Previous</button>
+                <button class="next-1 next">Next</button>
+              </div>
             </div>
-            <div class=" input_content" id="gender">
-              <label for="gender">Gender</label>
-              <input type="text" name="gender" placeholder="Ex: Fantasia, Ação..." required>
+
+          </div>
+
+          <div class="page">
+
+            <div class="title">Settings</div>
+            <div class="field field-2">
+              <div class="input_content" id="year">
+                <label for="year">Year</label>
+                <input type="number" name="year" required>
+              </div>
+              <div class="btns">
+                <button class="prev-2 prev">Previous</button>
+                <button class="next-2 next">Next</button>
+              </div>
             </div>
-            <div class="input_content select">
-              <label for="type">Type</label>
-              <select name="type" id="type">
-                <option value="film">Filme</option>
-                <option value="serie">Série</option>
-              </select>
+
+          </div>
+
+          <div class="page">
+
+            <div class="title">Images</div>
+            <div class="field field-3">
+              <div class="input_content">
+                <label for="duration">Duration</label>
+                <input type="text" name="duration" required>
+              </div>
+              <div class="input_file" id="file-div">
+                <input type="file" name="file" id="file">
+                <label for="file" class="cover">
+                  <i class='bx bxs-file-image'></i>
+                  Enviar arquivo
+                </label>
+                <span class="archive-name" id="archiveName"></span>
+              </div>
+              <div class="btns">
+                <button class="prev-3 prev">Previous</button>
+                <button class="next-3 next">Next</button>
+              </div>
             </div>
-            <div class="btns">
-              <button class="prev-1 prev">Previous</button>
-              <button class="next-1 next">Next</button>
+
+          </div>
+
+          <div class="page">
+            <div class="title">Complete</div>
+            <div class="field field-4">
+              <div class="input_content textarea" id="sinopse-div">
+                <label for="sinopse">Sinopse</label>
+                <textarea name="sinopse" id="sinopse" cols="40" rows="6" required></textarea>
+              </div>
             </div>
           </div>
 
-        </div>
+          <!-- <button type="submit" class="btn-upload" name="btn-upload"><i class='bx bxs-cloud-upload'></i>Upload</button> -->
 
-        <div class="page">
-
-          <div class="title">Title</div>
-          <div class="field">
-            <div class="input_content" id="year">
-              <label for="year">Year</label>
-              <input type="number" name="year" required>
-            </div>
-            <div class="btns">
-              <button class="prev-2 prev">Previous</button>
-              <button class="next-2 next">Next</button>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="page">
-
-          <div class="title">Title</div>
-          <div class="field">
-            <div class="input_content">
-              <label for="duration">Duration</label>
-              <input type="text" name="duration" required>
-            </div>
-            <div class="input_file" id="file-div">
-              <input type="file" name="file" id="file">
-              <label for="file" class="cover">
-                <i class='bx bxs-file-image'></i>
-                Enviar arquivo
-              </label>
-              <span class="archive-name" id="archiveName"></span>
-            </div>
-            <div class="btns">
-              <button class="prev-3 prev">Previous</button>
-              <button class="next-3 next">Next</button>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="page">
-          <div class="field">
-            <div class="input_content textarea" id="sinopse-div">
-              <label for="sinopse">Sinopse</label>
-              <textarea name="sinopse" id="sinopse" cols="40" rows="6" required></textarea>
-            </div>
-          </div>
-        </div>
-
-        <!-- <button type="submit" class="btn-upload" name="btn-upload"><i class='bx bxs-cloud-upload'></i>Upload</button> -->
-
-      </form>
+        </form>
+      </div>
     </div>
   </div>
   <script src="../public/js/archiveName.js"></script>

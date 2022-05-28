@@ -13,6 +13,8 @@
   flex: 1;
 
   z-index: 1;
+
+  filter: brightness(0.5);
 }
 
 .step .icon_step i{
@@ -25,9 +27,10 @@
 }
 
 .step p {
-  font-size: 13px;
+  font-size: 14px;
   position: absolute;
-  transform: translateY(120%);
+  transform: translateY(130%);
+  font-family: "Galano", sans-serif;
 }
 
 .step::before {
@@ -45,14 +48,22 @@
   z-index: -1;
 
   transition: all ease 2s;
+
+  filter: brightness(0.5);
+
 }
+
+.step.step_in {
+  filter: brightness(1);
+}
+
 
 .step::after {
   content: '';
 
   position: absolute;
 
-  background-color: var(--secundary-color);
+  background-color: var(--color-fixed);
 
   width: 0;
   height: 3px;
@@ -64,8 +75,14 @@
   transition: all ease 1s;
 }
 
+.step.complete .icon_step {
+  box-shadow: 0 0 5px #5233ff, 0 0 10px #5233ff;
+  border-radius: 50%;
+}
+
 .step.complete::after {
   width: 100%;
+  box-shadow: 0 0 5px #5233ff, 0 0 20px #5233ff;
 }
 
 .steps .step:last-child::before,

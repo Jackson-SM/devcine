@@ -14,21 +14,25 @@ body {
   background: transparent;
   display: flex;
   align-items: center;
-  justify-content:center;
-  min-height: 100vh;
+  justify-content: center;
+}
+
+.content {
+  display: flex;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.315);
 }
 
 .card_form {
   width: 400px;
-  height: 500px;
+  height: 600px;
   position: relative;
   background: var(--main-color-card);
   display: flex;
   align-items: center;
   flex-direction: column;
   color: var(--text-color);
-  border-radius: 10px;
-  box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.315);
 }
 
 .card_form .title {
@@ -37,12 +41,15 @@ body {
   align-items: center;
   justify-content: center;
   font-size: 25px;
+  margin-top: 40px;
 }
 
 .card_form header {
   font-size: 35px;
   font-weight: 600;
   margin: 20px 0;
+  color: var(--main-color-focus);
+  filter: brightness(3.5);
 }
 
 .card_form form {

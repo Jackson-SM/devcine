@@ -31,7 +31,6 @@ $router->group("panel", [LoggedMiddleware::class, LevelMiddleware::class]);
 $router->get("/", "Router:panel");
 
 $router->group("upload", [LevelMiddleware::class, LoggedMiddleware::class]);
-$router->get("/", "Router:upload");
 
 $router->get("/video", "Router:uploadVideo");
 $router->post("/video", "Router:uploadVideoPost");

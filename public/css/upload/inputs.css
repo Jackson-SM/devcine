@@ -41,6 +41,19 @@
   display: none;
 }
 
+textarea {
+  resize: none;
+  background: none;
+  border: none;
+  border: 2px solid var(--color-fixed);
+  width: 100%;
+  padding: 5px;
+  outline: none;
+  color: var(--text-color);
+  font-size: 15px;
+  border-radius: 3px;
+}
+
 .btns {
   display: flex;
   gap: 5px;
@@ -60,8 +73,4 @@
 
 .btns button:hover {
   filter: brightness(0.8);
-}
-
-textarea {
-  resize: none;
 }
